@@ -1,0 +1,190 @@
+{
+  "published_reference_areas": [
+    {
+      "source": "Wagnon et al. 2007, J. Glaciol. 53(183) 603-611",
+      "area_km2": 15.7,
+      "epoch": "c. 2003",
+      "note": "including tributaries"
+    },
+    {
+      "source": "Mandal et al. 2020, J. Glaciol. 66(259) 727-741",
+      "area_km2": 15.5,
+      "epoch": "2002-2019 study period",
+      "note": "glacier-wide area used for mass balance"
+    },
+    {
+      "source": "RGI 7.0 / GAMDAM (GLIMS 860910)",
+      "area_km2": 16.77,
+      "epoch": "2002-08-02",
+      "note": "inventory outline"
+    },
+    {
+      "source": "ICIMOD (GLIMS 154108)",
+      "area_km2": 11.65,
+      "epoch": "2009-10-25",
+      "note": "different divides/tributaries"
+    }
+  ],
+  "models": {
+    "M0_global": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8540281501340482,
+        0.9172917009038619,
+        0.9340905922419688,
+        0.8958163154168709
+      ],
+      "mean_consecutive_iou": 0.9003066896741874,
+      "unstable_frac_of_ever_glacier": 0.11094003552125525,
+      "unstable_area_km2": 1.7365,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 1
+    },
+    "M1_hma_official": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8760320410290946,
+        0.9250328489468823,
+        0.9408863725366556,
+        0.9257345422319176
+      ],
+      "mean_consecutive_iou": 0.9169214511861374,
+      "unstable_frac_of_ever_glacier": 0.09680217756180969,
+      "unstable_area_km2": 1.5399,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 0
+    },
+    "M1_hma_local": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.9045620123635575,
+        0.9335670066697767,
+        0.9479876596043664,
+        0.9113376824615544
+      ],
+      "mean_consecutive_iou": 0.9243635902748137,
+      "unstable_frac_of_ever_glacier": 0.08881170925328702,
+      "unstable_area_km2": 1.432,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 1
+    },
+    "M2_cs_selftrain": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8842577905756607,
+        0.9241960796381204,
+        0.9457928854361973,
+        0.9226286463454605
+      ],
+      "mean_consecutive_iou": 0.9192188504988597,
+      "unstable_frac_of_ever_glacier": 0.10420382318087691,
+      "unstable_area_km2": 1.7411,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 1
+    },
+    "M3_hma_sar": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8677625604398301,
+        0.9103560629286972,
+        0.9482086863284148,
+        0.8866883802478932
+      ],
+      "mean_consecutive_iou": 0.9032539224862088,
+      "unstable_frac_of_ever_glacier": 0.12471345598802751,
+      "unstable_area_km2": 2.1,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 1
+    },
+    "M1_sarsubset_nosar": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8854309287678735,
+        0.9287082131542862,
+        0.9496944738024953,
+        0.9041166465965661
+      ],
+      "mean_consecutive_iou": 0.9169875655803054,
+      "unstable_frac_of_ever_glacier": 0.11192695808125215,
+      "unstable_area_km2": 1.9222,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 0
+    },
+    "M1_sarsubset_optonly": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.8146256343056568,
+        0.8808027873370364,
+        0.9283849363911851,
+        0.9034197670048854
+      ],
+      "mean_consecutive_iou": 0.8818082812596909,
+      "unstable_frac_of_ever_glacier": 0.11106271777003485,
+      "unstable_area_km2": 1.7085,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 2
+    },
+    "M1_hma_official_fullwindow": {
+      "years": [
+        2017,
+        2019,
+        2021,
+        2023,
+        2025
+      ],
+      "consecutive_iou": [
+        0.9012403111381719,
+        0.9162575259894028,
+        0.9090034982917699,
+        0.8026155091734936
+      ],
+      "mean_consecutive_iou": 0.8822792111482095,
+      "unstable_frac_of_ever_glacier": 0.10277665100820434,
+      "unstable_area_km2": 1.5709,
+      "significant_area_gains": 0,
+      "significant_terminus_advances": 2
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "model": "M1_hma_regional_official",
+  "weights": "models/pretrained/glavitu_regional_HMA_weights.h5",
+  "year": 2025,
+  "scene": {
+    "year": 2025,
+    "date": "2025-08-21",
+    "l1c_product": "S2B_MSIL1C_20250821T052649_N0511_R105_T43SGR_20250821T071908.SAFE",
+    "l2a_id": "S2B_MSIL2A_20250821T052649_R105_T43SGR_20250821T074050",
+    "composite": [
+      {
+        "index": 1,
+        "date": "2025-08-21",
+        "l2a_id": "S2B_MSIL2A_20250821T052649_R105_T43SGR_20250821T074050",
+        "l1c_product": "S2B_MSIL1C_20250821T052649_N0511_R105_T43SGR_20250821T071908.SAFE",
+        "bands": [
+          "B02",
+          "B03",
+          "B04",
+          "B08",
+          "B11",
+          "B12"
+        ],
+        "units": "TOA reflectance",
+        "sun_elevation": 64.00588700305491,
+        "domain_cloud_frac": 0.0,
+        "offglacier_snow_frac": 0.13563507789342522,
+        "window": "08-15..10-31",
+        "quantification": 10000.0,
+        "offset": -1000.0,
+        "processing_baseline": "05.11"
+      }
+    ],
+    "domain_frac_from_primary": 1.0,
+    "domain_invalid_frac": 0.0,
+    "passed": true,
+    "units": "TOA reflectance",
+    "bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08",
+      "B11",
+      "B12"
+    ]
+  },
+  "area_km2": 12.9049,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 2,
+    "n_holes": 5,
+    "raster_area_km2": 12.9049,
+    "vector_area_km2": 12.9049,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 32.2,
+  "mean_confidence_in_domain": 0.13533969223499298,
+  "frac_uncertain_in_domain": 1.0,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.7574122871946706,
+    "f1": 0.8619631178335687,
+    "precision": 0.9911583971979636,
+    "recall": 0.7625645367069288,
+    "area_pred_km2": 12.9049,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -3.868499999999999,
+    "rel_area_error": -0.23063302610085012,
+    "boundary_f1": 0.32311359160516767,
+    "mean_boundary_dist_m": 72.08085500079149,
+    "p95_boundary_dist_m": 232.59406699226017,
+    "hausdorff_m": 1132.1660655575224
+  },
+  "ndsi_baseline_vs_rgi7_2002": {
+    "iou": 0.6817332644358259,
+    "f1": 0.8107507639322674,
+    "precision": 0.9348054597410282,
+    "recall": 0.7157642457700883,
+    "area_pred_km2": 12.8431,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -3.930299999999999,
+    "rel_area_error": -0.23431743117078227,
+    "boundary_f1": 0.3242650827210635,
+    "mean_boundary_dist_m": 111.84491854085852,
+    "p95_boundary_dist_m": 370.21611762774387,
+    "hausdorff_m": 2066.712365086153
+  }
+}

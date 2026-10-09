@@ -1,0 +1,72 @@
+{
+  "model": "M3_hma_sar",
+  "weights": "models/sar/M3_hma_sar_weights.h5",
+  "year": 2021,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2021-09-06",
+    "dates": [
+      "2021-08-17",
+      "2021-09-06"
+    ],
+    "l1c_products": [
+      "S2A_MSIL1C_20210817T052651_N0500_R105_T43SGR_20230215T204501.SAFE",
+      "S2A_MSIL1C_20210906T052651_N0301_R105_T43SGR_20210906T074550.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 15.7238,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 2,
+    "n_holes": 7,
+    "raster_area_km2": 15.7238,
+    "vector_area_km2": 15.7238,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 228.0,
+  "ensemble": {
+    "n_scenes": 2,
+    "scenes_used": [
+      "2021-08-17",
+      "2021-09-06"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 0.5,
+    "all_scene_areas_km2": {
+      "2021-08-17": 15.4672,
+      "2021-09-06": 15.6628
+    },
+    "scene_areas_km2": {
+      "2021-08-17": 15.4672,
+      "2021-09-06": 15.6628
+    },
+    "area_std_km2": 0.13831008640008916,
+    "area_sd_plain_km2": 0.13831008640008916,
+    "area_range_km2": 0.19560000000000066,
+    "invalid_frac_domain": 0.0,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.0,
+    "single_obs_km2_domain": 1.6821,
+    "mean_valid_obs_domain": 1.9648919583988178
+  },
+  "mean_confidence_in_domain": 0.12326251715421677,
+  "frac_uncertain_in_domain": 1.0,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.8567967683139353,
+    "f1": 0.9228761951066403,
+    "precision": 0.9536813854245502,
+    "recall": 0.8939988314831817,
+    "area_pred_km2": 15.7237,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -1.0496999999999996,
+    "rel_area_error": -0.06258122980433303,
+    "boundary_f1": 0.49395911262038544,
+    "mean_boundary_dist_m": 39.361021367787956,
+    "p95_boundary_dist_m": 130.0,
+    "hausdorff_m": 898.9994438263018
+  }
+}

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+/* base reset equivalent to the published artifact's skeleton */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html, body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Chhota Shigri GeoAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a dark "map room" — imagery-first viewer, controls in a rail beside it, then
+   close-ups and comparisons as stacked panels. Deliberately single-theme dark: satellite
+   imagery and bright boundary strokes read best on a dark ground. */
+:root {
+  --ground: #0d141b;      /* page */
+  --panel: #141e27;       /* raised panels */
+  --line: #24323e;        /* hairlines */
+  --ink: #e7eef3;         /* primary text */
+  --ink-2: #a8b7c3;       /* secondary text */
+  --ink-3: #74889a;       /* muted */
+  --ice: #6fd6f2;         /* accent: glacial ice */
+  --m0: #E8901A; --m1: #C44FD0; --m2: #1FB8D8; --m3: #6FBF3A;   /* model outlines (validated, CVD-safe) */
+  --rgi: #ffffff;         /* 2002 inventory outline */
+  --terminus: #ff4d3d;    /* terminus marker */
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font: 16px/1.55 var(--body); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 28px 64px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 4.6vw, 3.3rem); font-weight: 800; line-height: 1.02; }
+h2 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 700; }
+p { margin: 0; max-width: 68ch; color: var(--ink-2); }
+.eyebrow { font: 600 0.74rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ice); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 18px; min-width: 0; }
+.sec-head { display: grid; gap: 8px; }
+
+/* header */
+header { display: grid; gap: 22px; }
+.lede { font-size: 1.12rem; color: var(--ink-2); max-width: 70ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.fact { background: var(--panel); padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+.fact b { font: 700 1.55rem/1.1 var(--display); color: var(--ink); }
+.fact span { font-size: 0.88rem; color: var(--ink-3); }
+
+/* viewer */
+.viewer { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 18px; align-items: start; }
+@media (max-width: 900px) { .viewer { grid-template-columns: 1fr; } }
+.stage { position: relative; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); touch-action: none; cursor: grab; }
+.stage:active { cursor: grabbing; }
+.stage svg { display: block; width: 100%; height: auto; }
+.zoombtns { position: absolute; right: 10px; top: 10px; display: grid; gap: 6px; }
+.zoombtns button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid #ffffff33; background: #0d141bcc; color: var(--ink); font: 600 18px/1 var(--mono); cursor: pointer; }
+.scalebar { position: absolute; left: 12px; bottom: 12px; font: 600 0.72rem/1 var(--mono); color: #fff; text-shadow: 0 0 3px #000; display: grid; gap: 4px; pointer-events: none; }
+.scalebar i { display: block; height: 5px; border: 2px solid #fff; border-top: 0; box-shadow: 0 1px 2px #000; }
+.rail { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 18px; min-width: 0; }
+.rail h3 { font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.years { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.years button, .chip { font: 600 0.9rem/1 var(--mono); padding: 9px 0; border-radius: 7px; border: 1px solid var(--line); background: var(--ground); color: var(--ink-2); cursor: pointer; }
+.years button[aria-pressed="true"] { background: var(--ice); color: #06222b; border-color: var(--ice); }
+.play { width: 100%; font: 600 0.88rem/1 var(--body); padding: 10px; border-radius: 7px; border: 1px solid var(--ice); background: transparent; color: var(--ice); cursor: pointer; }
+.toggles { display: grid; gap: 8px; }
+.toggles label { display: flex; align-items: center; gap: 10px; font-size: 0.93rem; color: var(--ink); cursor: pointer; }
+.toggles input { accent-color: var(--ice); width: 16px; height: 16px; }
+.swatch { width: 22px; height: 0; border-top: 3px solid; flex: none; }
+.readout { display: grid; gap: 10px; }
+.kv { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px; font-size: 0.92rem; }
+.kv span:first-child { color: var(--ink-3); }
+.kv span:last-child { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); text-align: right; }
+.note { font-size: 0.84rem; color: var(--ink-3); }
+button:focus-visible, input:focus-visible, .stage:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+
+/* terminus strip */
+.strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 720px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+figure svg { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); background: #000; }
+figcaption { font: 600 0.82rem/1.3 var(--mono); color: var(--ink-2); display: flex; justify-content: space-between; gap: 8px; }
+figcaption em { font-style: normal; color: var(--ink-3); font-weight: 400; }
+
+/* compare slider */
+.compare { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #000; user-select: none; touch-action: pan-y; }
+.compare svg { display: block; width: 100%; height: auto; }
+.compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff; box-shadow: 0 0 6px #000; transform: translateX(-1px); pointer-events: none; }
+.compare .handle::after { content: "⟷"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; border-radius: 50%; background: #fff; color: #0d141b; font: 700 18px/38px var(--mono); text-align: center; }
+.compare .tag { position: absolute; top: 12px; font: 700 0.85rem/1 var(--mono); background: #0d141bd9; padding: 7px 10px; border-radius: 6px; pointer-events: none; }
+.compare .tag.l { left: 12px; } .compare .tag.r { right: 12px; }
+#cmpRange { width: 100%; accent-color: var(--ice); }
+
+/* model compare */
+.two { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 14px; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 8px 12px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; }
+.chip[aria-pressed="false"] { opacity: 0.45; }
+.bars { display: grid; gap: 10px; }
+.bar { display: grid; grid-template-columns: 148px minmax(0, 1fr) 52px; align-items: center; gap: 10px; font-size: 0.88rem; position: relative; }
+.bar .lbl { color: var(--ink-2); }
+.bar .track { height: 14px; background: var(--ground); border-radius: 4px; position: relative; }
+.bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ice); border-radius: 0 4px 4px 0; }
+.bar .val { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; color: var(--ink); }
+.bar:hover .lbl { color: var(--ink); }
+.axisnote { font: 0.75rem/1.3 var(--mono); color: var(--ink-3); display: flex; justify-content: space-between; margin-left: 158px; margin-right: 62px; }
+.tip { position: fixed; z-index: 10; pointer-events: none; background: #05090d; border: 1px solid var(--line); color: var(--ink); font: 0.8rem/1.35 var(--mono); padding: 8px 10px; border-radius: 6px; max-width: 260px; }
+
+/* loss maps */
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.86rem; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: 600 0.85rem/1 var(--body); padding: 9px 14px; background: var(--ground); color: var(--ink-2); border: 0; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ice); color: #06222b; }
+
+/* pipeline */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; counter-reset: s; }
+.step { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 6px; align-content: start; }
+.step::before { counter-increment: s; content: counter(s); font: 700 0.8rem/1 var(--mono); color: var(--ice); }
+.step b { font: 700 1rem/1.25 var(--display); }
+.step span { font-size: 0.88rem; color: var(--ink-3); }
+.caveat { border-left: 3px solid #e8b23a; background: var(--panel); padding: 14px 16px; border-radius: 0 10px 10px 0; display: grid; gap: 6px; }
+.caveat p { color: var(--ink-2); }
+footer { font-size: 0.82rem; color: var(--ink-3); display: grid; gap: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+<script src="demo_data.js"></script>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Chhota Shigri Glacier · Lahaul, Himachal Pradesh · 32.22° N 77.51° E</div>
+    <h1>An AI that maps a Himalayan glacier by itself, year after year</h1>
+    <p class="lede">Every boundary on this page was drawn by a deep-learning model (GlaViTU) from real Sentinel-2 satellite images. Nobody traced the glacier by hand. Pick a year, switch layers, and drag the slider to see how the ice edge has moved.</p>
+    <div class="facts" id="facts"></div>
+  </header>
+
+  <section aria-labelledby="h-viewer">
+    <div class="sec-head">
+      <div class="eyebrow">Live result</div>
+      <h2 id="h-viewer">The AI's boundary on the real satellite image</h2>
+      <p>Natural-colour Sentinel-2 image of the end-of-summer glacier, with the outline the adapted model (M2) produced for that year. Scroll or use + / − to zoom, drag to pan.</p>
+    </div>
+    <div class="viewer">
+      <div class="stage" id="stage" tabindex="0" aria-label="Satellite image with automated glacier boundary">
+        <svg id="mainSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Glacier map"></svg>
+        <div class="zoombtns"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zreset" aria-label="Reset view">⤢</button></div>
+        <div class="scalebar"><span>1 km</span><i id="sb"></i></div>
+      </div>
+      <aside class="rail">
+        <div style="display:grid;gap:10px">
+          <h3>Year</h3>
+          <div class="years" id="years" role="group" aria-label="Year"></div>
+          <button class="play" id="play">▶ Play 2017 → 2025</button>
+        </div>
+        <div style="display:grid;gap:10px">
+          <h3>Layers</h3>
+          <div class="toggles">
+            <label><input type="checkbox" id="lyBoundary" checked><span class="swatch" style="border-color:var(--m2)"></span>AI boundary (this year)</label>
+            <label><input type="checkbox" id="lyConf"><span class="swatch" style="border-color:#28aaff;border-top-width:8px;opacity:.7"></span>AI confidence (glacier probability)</label>
+            <label><input type="checkbox" id="lyAll"><span class="swatch" style="border-image:linear-gradient(90deg,#ffd60a,#c81428) 1"></span>All five years at once</label>
+            <label><input type="checkbox" id="lyRgi"><span class="swatch" style="border-color:#fff;border-top-style:dashed"></span>2002 inventory outline (RGI)</label>
+            <label><input type="checkbox" id="lyTerm" checked><span class="swatch" style="border-color:var(--terminus)"></span>Flow line &amp; terminus</label>
+          </div>
+        </div>
+        <div class="readout" id="readout"></div>
+        <p class="note">Area is the median of several cloud-free images from 15 Aug–15 Sep of that year. ± is the combined uncertainty.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-term">
+    <div class="sec-head">
+      <div class="eyebrow">Close-up · 1.5 km window · same place every year</div>
+      <h2 id="h-term">The glacier snout, as the AI sees it</h2>
+      <p>Cyan line: the AI boundary. Red dot: the terminus the pipeline finds automatically along the glacier's flow line (dotted). The dot moves up-valley as the tongue shortens.</p>
+    </div>
+    <div class="strip" id="strip"></div>
+    <p class="note">Distances are measured along the flow line from the 2017 position. 2017 and 2019 have only two clear images each, so those two positions are the least certain; the 2021→2025 retreat is the robust result.</p>
+  </section>
+
+  <section aria-labelledby="h-cmp">
+    <div class="sec-head">
+      <div class="eyebrow">Before / after</div>
+      <h2 id="h-cmp">2021 versus 2025 — drag the handle</h2>
+      <p>Both images are shown with both AI boundaries: <b style="color:#ffd60a">2021 in yellow</b>, <b style="color:#ff5468">2025 in red</b>. This is the best-observed period. All five models agree the terminus retreated 70–160 m between these years.</p>
+    </div>
+    <div class="compare" id="cmp"></div>
+    <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Compare 2021 and 2025">
+  </section>
+
+  <section aria-labelledby="h-models">
+    <div class="sec-head">
+      <div class="eyebrow">Transfer learning</div>
+      <h2 id="h-models">How each training step changed the result</h2>
+      <p>Same 2023 image, four models. The global model misses dark debris-covered ice. Fine-tuning on the Himalaya, and then on this glacier's own (automatically labelled) images, recovers more of it.</p>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <div class="chips" id="modelChips" role="group" aria-label="Models shown"></div>
+        <div class="stage" id="mstage" style="cursor:default"><svg id="modelSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Model comparison map"></svg></div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:1.05rem">Accuracy on 57 test areas the models never saw</h3>
+        <p class="note">Intersection-over-union (IoU) against expert glacier outlines, High Mountain Asia benchmark (Maslov et al. 2025). Higher is better.</p>
+        <div class="bars" id="bars1"></div>
+        <div class="axisnote"><span>0.5</span><span>0.8</span></div>
+        <h3 style="font-size:1.05rem;margin-top:8px">Which inputs matter (22 test areas)</h3>
+        <div class="bars" id="bars2"></div>
+        <div class="axisnote"><span>0.5</span><span>0.8</span></div>
+        <p class="note">Adding elevation and slope gives the biggest single gain (+0.149 IoU).</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-loss">
+    <div class="sec-head">
+      <div class="eyebrow">Spatial pattern</div>
+      <h2 id="h-loss">Where the ice was lost</h2>
+      <p>Each pixel is coloured by the year it stopped being glacier and stayed that way. The hotspot view highlights clusters of loss that are statistically significant.</p>
+    </div>
+    <div class="seg" role="group" aria-label="Map type"><button id="vYol" aria-pressed="true">Year of loss</button><button id="vHot" aria-pressed="false">Loss hotspots</button></div>
+    <div class="stage" style="cursor:default"><svg id="lossSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Year-of-loss map"></svg></div>
+    <div class="legend" id="lossLegend"></div>
+  </section>
+
+  <section aria-labelledby="h-how">
+    <div class="sec-head">
+      <div class="eyebrow">Pipeline · runs end to end without manual steps</div>
+      <h2 id="h-how">How a boundary is made</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Find clear images</b><span>All Sentinel-2 passes Aug–Sep, clouds detected pixel by pixel over the glacier.</span></div>
+      <div class="step"><b>Line them up</b><span>Images co-registered on stable rock to within 1.6 m.</span></div>
+      <div class="step"><b>Add terrain</b><span>Copernicus 30 m elevation and slope as extra input channels.</span></div>
+      <div class="step"><b>Run GlaViTU</b><span>Transformer + U-Net gives a glacier probability for every 10 m pixel.</span></div>
+      <div class="step"><b>Combine the year</b><span>Median over 2–6 images removes snow and cloud effects.</span></div>
+      <div class="step"><b>Clean &amp; measure</b><span>Boundary polygon, area, terminus position, year of loss.</span></div>
+    </div>
+    <div class="caveat">
+      <b>What the data can and cannot show yet</b>
+      <p>The terminus retreat for 2021–2025 is detected by every model. Total glacier area changes by about ±1 km² from year to year because fresh snow and debris hide the edges, which is more than the real 2017–2025 loss, so area loss over this short period is not yet statistically significant.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Data: Copernicus Sentinel-2 L1C, Copernicus DEM GLO-30, RGI 7.0 / GLIMS. Model: GlaViTU (Maslov et al., Nature Communications 2025), fine-tuned in this project.</span>
+    <span id="foot"></span>
+  </footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const YEARS = [2017, 2019, 2021, 2023, 2025];
+const YCOL = {2017: "#ffffff", 2019: "#ffd60a", 2021: "#ff9f1c", 2023: "#f05a1e", 2025: "#ff3b5c"};
+const MCOL = {M0_global: "var(--m0)", M1_hma_official: "var(--m1)", M2_cs_selftrain: "var(--m2)", M3_hma_sar: "var(--m3)"};
+const MDASH = {M0_global: "14 7", M1_hma_official: "4 5", M2_cs_selftrain: "", M3_hma_sar: "18 5 3 5"};
+const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (parent) parent.appendChild(e); return e; };
+const halo = (d, parent, color, w, dash = "", extra = {}) => {
+  const g = el("g", {}, parent);
+  el("path", { d, fill: "none", stroke: "#000", "stroke-opacity": 0.55, "stroke-width": w + 2.6, "fill-rule": "evenodd", "stroke-linejoin": "round", "vector-effect": "non-scaling-stroke", ...extra }, g);
+  el("path", { d, fill: "none", stroke: color, "stroke-width": w, "stroke-dasharray": dash, "fill-rule": "evenodd", "stroke-linejoin": "round", "vector-effect": "non-scaling-stroke", ...extra }, g);
+  return g;
+};
+
+(window.DEMO_DATA ? Promise.resolve(window.DEMO_DATA) : fetch("demo_data.json").then(r => r.json())).then(D => {
+  const W = D.width, H = D.height, mpp = D.pixel_m;
+  const m2 = D.m2_series.reduce((o, r) => (o[r.year] = r, o), {});
+  // ---------- facts ----------
+  const bm = D.benchmark, p2125 = D.periods.find(p => p.period === "2021-2025");
+  const facts = [
+    ["0", "glacier outlines traced by hand"],
+    [`${bm.M0_global.toFixed(2)} → ${bm.M2_cs_selftrain.toFixed(2)}`, "accuracy (IoU) on unseen Himalayan test areas, global → adapted model"],
+    [`${Math.min(p2125.min_box_m, p2125.min_centerline_m)}–${Math.max(p2125.max_box_m, p2125.max_centerline_m)} m`, "terminus retreat 2021→2025, measured by all 5 models"],
+    [`${D.m2_series.reduce((s, r) => s + r.n, 0)}`, "cloud-screened Sentinel-2 images combined for the 5 years"],
+  ];
+  document.getElementById("facts").innerHTML = facts.map(([b, s]) => `<div class="fact"><b class="num">${b}</b><span>${s}</span></div>`).join("");
+
+  // ---------- main viewer ----------
+  const svg = document.getElementById("mainSvg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const img = el("image", { href: "s2_2023.jpg", width: W, height: H, preserveAspectRatio: "none" }, svg);
+  const conf = el("image", { href: "conf_2023.png", width: W, height: H, preserveAspectRatio: "none", opacity: 1 }, svg); conf.style.display = "none";
+  const gRgi = halo(D.rgi, svg, "var(--rgi)", 1.6, "7 5"); gRgi.style.display = "none";
+  const gAll = el("g", {}, svg); gAll.style.display = "none";
+  YEARS.forEach(y => halo(D.outlines.M2_cs_selftrain[y], gAll, YCOL[y], 1.6));
+  const gB = el("g", {}, svg);
+  const gT = el("g", {}, svg);
+  halo(D.centerline, gT, "#ffffff", 1.2, "2 4");
+  const tdot = el("circle", { r: 9, fill: "var(--terminus)", stroke: "#fff", "stroke-width": 2.5, "vector-effect": "non-scaling-stroke" }, gT);
+  let year = 2023;
+  const readout = document.getElementById("readout");
+  function setYear(y) {
+    year = y;
+    img.setAttribute("href", `s2_${y}.jpg`); conf.setAttribute("href", `conf_${y}.png`);
+    gB.replaceChildren(); halo(D.outlines.M2_cs_selftrain[y], gB, "var(--m2)", 2.4);
+    const [tx, ty] = D.terminus.M2_cs_selftrain[y]; tdot.setAttribute("cx", tx); tdot.setAttribute("cy", ty);
+    document.querySelectorAll("#years button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.y === y)));
+    const r = m2[y], t = D.m2_terminus.find(t => t.year === y);
+    readout.innerHTML = [
+      ["Image date", D.scenes[y]],
+      ["Images combined", r.n],
+      ["Glacier area", `${r.area.toFixed(2)} ± ${r.sigma.toFixed(2)} km²`],
+      ["Terminus vs 2017", t.year === 2017 ? "baseline" : (t.cl > 0 ? `retreated ${t.cl} m` : `advanced ${-t.cl} m`)],
+    ].map(([k, v]) => `<div class="kv"><span>${k}</span><span>${v}</span></div>`).join("");
+  }
+  const yb = document.getElementById("years");
+  YEARS.forEach(y => { const b = document.createElement("button"); b.textContent = y; b.dataset.y = y; b.onclick = () => { stopPlay(); setYear(y); }; yb.appendChild(b); });
+  setYear(2023);
+  const bind = (id, g) => { const c = document.getElementById(id); c.onchange = () => (g.style.display = c.checked ? "" : "none"); };
+  bind("lyBoundary", gB); bind("lyConf", conf); bind("lyAll", gAll); bind("lyRgi", gRgi); bind("lyTerm", gT);
+  let timer = null; const playBtn = document.getElementById("play");
+  function stopPlay() { clearInterval(timer); timer = null; playBtn.textContent = "▶ Play 2017 → 2025"; }
+  playBtn.onclick = () => {
+    if (timer) return stopPlay();
+    let i = 0; setYear(YEARS[0]); playBtn.textContent = "■ Stop";
+    timer = setInterval(() => { i++; if (i >= YEARS.length) return stopPlay(); setYear(YEARS[i]); }, 1300);
+  };
+  // pan / zoom
+  let vb = { x: 0, y: 0, w: W, h: H };
+  const stage = document.getElementById("stage"), sb = document.getElementById("sb");
+  function apply() {
+    svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    const pxPerUnit = stage.clientWidth / vb.w; sb.style.width = (1000 / mpp * pxPerUnit) + "px";
+  }
+  function zoomAt(f, cx = 0.5, cy = 0.5) {
+    const nw = Math.min(W, Math.max(W / 12, vb.w / f)), nh = nw * H / W;
+    vb.x = Math.min(W - nw, Math.max(0, vb.x + (vb.w - nw) * cx)); vb.y = Math.min(H - nh, Math.max(0, vb.y + (vb.h - nh) * cy));
+    vb.w = nw; vb.h = nh; apply();
+  }
+  stage.addEventListener("wheel", e => { e.preventDefault(); const r = stage.getBoundingClientRect(); zoomAt(e.deltaY < 0 ? 1.25 : 0.8, (e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height); }, { passive: false });
+  let drag = null;
+  stage.addEventListener("pointerdown", e => { if (e.target.closest("button")) return; drag = { x: e.clientX, y: e.clientY, vx: vb.x, vy: vb.y }; stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener("pointermove", e => { if (!drag) return; const s = vb.w / stage.clientWidth; vb.x = Math.min(W - vb.w, Math.max(0, drag.vx - (e.clientX - drag.x) * s)); vb.y = Math.min(H - vb.h, Math.max(0, drag.vy - (e.clientY - drag.y) * s)); apply(); });
+  stage.addEventListener("pointerup", () => (drag = null));
+  document.getElementById("zin").onclick = () => zoomAt(1.5);
+  document.getElementById("zout").onclick = () => zoomAt(1 / 1.5);
+  document.getElementById("zreset").onclick = () => { vb = { x: 0, y: 0, w: W, h: H }; apply(); };
+  stage.addEventListener("keydown", e => { if (e.key === "+" || e.key === "=") zoomAt(1.5); if (e.key === "-") zoomAt(1 / 1.5); if (e.key === "ArrowRight") { const i = YEARS.indexOf(year); if (i < 4) setYear(YEARS[i + 1]); } if (e.key === "ArrowLeft") { const i = YEARS.indexOf(year); if (i > 0) setYear(YEARS[i - 1]); } });
+  new ResizeObserver(apply).observe(stage); apply();
+
+  // ---------- terminus strip ----------
+  const Z = D.zoom, strip = document.getElementById("strip");
+  YEARS.forEach(y => {
+    const t = D.m2_terminus.find(t => t.year === y);
+    const fig = document.createElement("figure");
+    const s = el("svg", { viewBox: `0 0 ${Z.width} ${Z.height}`, role: "img", "aria-label": `Terminus ${y}` });
+    el("image", { href: `zoom_${y}.jpg`, width: Z.width, height: Z.height }, s);
+    halo(Z.centerline, s, "#ffffff", 1.2, "2 4");
+    halo(Z.outlines[y], s, "var(--m2)", 2.2);
+    const [x, yy] = Z.terminus[y]; el("circle", { cx: x, cy: yy, r: 11, fill: "var(--terminus)", stroke: "#fff", "stroke-width": 2.5, "vector-effect": "non-scaling-stroke" }, s);
+    fig.appendChild(s);
+    const cap = document.createElement("figcaption");
+    cap.innerHTML = `<span>${y}</span><em>${y === 2017 ? "baseline" : (t.cl > 0 ? "retreat " + t.cl + " m" : "advance " + -t.cl + " m")}</em>`;
+    fig.appendChild(cap); strip.appendChild(fig);
+  });
+
+  // ---------- before / after ----------
+  const cmp = document.getElementById("cmp");
+  const mk = (y, cls) => {
+    const s = el("svg", { viewBox: `0 0 ${W} ${H}`, class: cls || "" });
+    el("image", { href: `s2_${y}.jpg`, width: W, height: H }, s);
+    halo(D.outlines.M2_cs_selftrain[2021], s, "#ffd60a", 2.2);
+    halo(D.outlines.M2_cs_selftrain[2025], s, "#ff5468", 2.2);
+    return s;
+  };
+  cmp.appendChild(mk(2021));
+  const after = document.createElement("div"); after.className = "after"; after.appendChild(mk(2025)); cmp.appendChild(after);
+  const handle = document.createElement("div"); handle.className = "handle"; cmp.appendChild(handle);
+  cmp.insertAdjacentHTML("beforeend", `<span class="tag l">2021 · ${D.scenes[2021]}</span><span class="tag r">2025 · ${D.scenes[2025]}</span>`);
+  const range = document.getElementById("cmpRange");
+  const setCmp = v => { after.style.clipPath = `inset(0 0 0 ${v}%)`; handle.style.left = v + "%"; range.value = v; };
+  range.oninput = () => setCmp(range.value);
+  let cdrag = false;
+  const cmpMove = e => { const r = cmp.getBoundingClientRect(); setCmp(Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100))); };
+  cmp.addEventListener("pointerdown", e => { cdrag = true; cmp.setPointerCapture(e.pointerId); cmpMove(e); });
+  cmp.addEventListener("pointermove", e => cdrag && cmpMove(e));
+  cmp.addEventListener("pointerup", () => (cdrag = false));
+
+  // ---------- model comparison ----------
+  const ms = document.getElementById("modelSvg");
+  // focus on the lower glacier where models differ most
+  const fx = W * 0.32, fy = 0, fw = W * 0.5, fh = fw * H / W * 1.15;
+  ms.setAttribute("viewBox", `${fx} ${fy} ${fw} ${fh}`);
+  el("image", { href: "s2_2023.jpg", width: W, height: H }, ms);
+  const mg = {};
+  Object.keys(D.models).forEach(m => (mg[m] = halo(D.outlines[m][2023], ms, MCOL[m], 2.2, MDASH[m])));
+  const chips = document.getElementById("modelChips");
+  Object.entries(D.models).forEach(([m, name]) => {
+    const b = document.createElement("button"); b.className = "chip"; b.setAttribute("aria-pressed", "true");
+    b.innerHTML = `<svg width="26" height="6" aria-hidden="true"><line x1="0" y1="3" x2="26" y2="3" stroke="${getComputedStyle(document.documentElement).getPropertyValue(MCOL[m].slice(4, -1))}" stroke-width="3" stroke-dasharray="${MDASH[m]}"/></svg>${name} <span class="num" style="color:var(--ink-3)">${D.areas[m][2023].toFixed(1)} km²</span>`;
+    b.onclick = () => { const on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", String(on)); mg[m].style.display = on ? "" : "none"; };
+    chips.appendChild(b);
+  });
+  const tip = document.getElementById("tip");
+  function bars(id, rows) {
+    const lo = 0.5, hi = 0.85, box = document.getElementById(id);
+    box.innerHTML = rows.map(([k, label, v, note]) => `<div class="bar" data-tip="${label}: IoU ${v.toFixed(3)}${note ? " · " + note : ""}"><span class="lbl">${label}</span><span class="track"><span class="fill" style="width:${Math.max(0, (v - lo) / (hi - lo) * 100)}%"></span></span><span class="val">${v.toFixed(3)}</span></div>`).join("");
+    box.querySelectorAll(".bar").forEach(b => {
+      b.onpointermove = e => { tip.hidden = false; tip.textContent = b.dataset.tip; tip.style.left = Math.min(innerWidth - 270, e.clientX + 14) + "px"; tip.style.top = e.clientY + 14 + "px"; };
+      b.onpointerleave = () => (tip.hidden = true);
+    });
+  }
+  bars("bars1", [
+    ["M0", "Global (M0)", bm.M0_global, "pretrained, no adaptation"],
+    ["M1", "Himalaya (M1)", bm.M1_hma_official, "+0.070 vs M0, 95% CI 0.040–0.107"],
+    ["M1l", "Himalaya, our run", bm.M1_hma_local, "reduced training budget"],
+    ["M2", "Chhota Shigri (M2)", bm.M2_cs_selftrain, "+0.101 vs M0, 95% CI 0.064–0.148"],
+  ]);
+  const ab = D.ablation;
+  bars("bars2", [
+    ["o", "Optical only", ab.M1_sarsubset_optonly, "6 Sentinel-2 bands"],
+    ["od", "Optical + terrain", ab.M1_sarsubset_nosar, "+0.149 vs optical only"],
+    ["ods", "Optical + terrain + radar", ab.M3_hma_sar, "−0.016 at short training budget"],
+  ]);
+
+  // ---------- loss maps ----------
+  const ls = document.getElementById("lossSvg");
+  ls.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  el("image", { href: "s2_2025.jpg", width: W, height: H, opacity: 0.6 }, ls);
+  const yolImg = el("image", { href: "year_of_loss.png", width: W, height: H, style: "image-rendering:pixelated" }, ls);
+  const hotImg = el("image", { href: "hotspots.png", width: W, height: H }, ls); hotImg.style.display = "none";
+  const yk = D.year_of_loss_km2;
+  const legYol = [["#c8e6ff", "Glacier in every year", yk["1"]], ["#ffd60a", "Lost by 2019", yk["2019"]], ["#ff9f1c", "Lost by 2021", yk["2021"]], ["#f05a1e", "Lost by 2023", yk["2023"]], ["#c81428", "Lost by 2025", yk["2025"]], ["#969696", "Flickers (snow / debris)", yk["2"]]];
+  const legHot = [["#dc1e3c", "Significant loss cluster (Gi* z > 1.96)"], ["#3c82e6", "Significantly stable"]];
+  const legend = document.getElementById("lossLegend");
+  const setLeg = rows => (legend.innerHTML = rows.map(([c, t, v]) => `<span><i style="background:${c}"></i>${t}${v != null ? ` <b class="num">${v.toFixed(2)} km²</b>` : ""}</span>`).join(""));
+  setLeg(legYol);
+  const vY = document.getElementById("vYol"), vH = document.getElementById("vHot");
+  vY.onclick = () => { vY.setAttribute("aria-pressed", "true"); vH.setAttribute("aria-pressed", "false"); yolImg.style.display = ""; hotImg.style.display = "none"; setLeg(legYol); };
+  vH.onclick = () => { vH.setAttribute("aria-pressed", "true"); vY.setAttribute("aria-pressed", "false"); yolImg.style.display = "none"; hotImg.style.display = ""; setLeg(legHot); };
+  document.getElementById("foot").textContent = "Images: " + YEARS.map(y => `${y} ${D.scenes[y]}`).join(" · ");
+}).catch(err => {
+  document.getElementById("facts").innerHTML = `<div class="fact"><b>Data did not load</b><span>${err}</span></div>`;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "n_pixels": 122964,
+  "n_lost": 7140,
+  "coefficients": {
+    "elevation": {
+      "beta_std": -1.671600461903304,
+      "ci_low": -1.7173133277513006,
+      "ci_high": -1.6258875960553074,
+      "p": 0.0
+    },
+    "slope": {
+      "beta_std": 0.4611264120436012,
+      "ci_low": 0.42775023529805123,
+      "ci_high": 0.4945025887891512,
+      "p": 1.7437946377742662e-161
+    },
+    "aspect_sin": {
+      "beta_std": 0.16125708183326623,
+      "ci_low": 0.1294499410283338,
+      "ci_high": 0.19306422263819867,
+      "p": 2.8821200858217136e-23
+    },
+    "aspect_cos": {
+      "beta_std": 0.5651969809671626,
+      "ci_low": 0.5306491871785444,
+      "ci_high": 0.5997447747557809,
+      "p": 1.3683820207193192e-225
+    },
+    "dist_terminus": {
+      "beta_std": 0.12259899769365973,
+      "ci_low": 0.08783699384435036,
+      "ci_high": 0.15736100154296911,
+      "p": 4.764499357662746e-12
+    },
+    "dist_margin": {
+      "beta_std": -5.379975587800951,
+      "ci_low": -5.5228214618928355,
+      "ci_high": -5.237129713709066,
+      "p": 0.0
+    }
+  },
+  "pseudo_r2": 0.4763225077427702,
+  "spatial_block_cv_auc_mean": 0.9442748479354887,
+  "spatial_block_cv_auc_folds": [
+    0.964556929093319,
+    0.9839052606894395,
+    0.9323373632152882,
+    0.9449989345280302,
+    0.8955757521513663
+  ],
+  "block_m": 1000,
+  "note": "Descriptive model of observed loss between epochs; not a forecast. Pixel-level p-values and CIs ignore spatial autocorrelation (overconfident); use the spatial-block CV AUC for skill. dist_margin is near-tautological (loss occurs at margins); interpret the other terms."
+}

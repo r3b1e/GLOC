@@ -1,0 +1,42 @@
+# M1 - High-Mountain-Asia fine-tuning (official checkpoint + local reduced-budget reproduction)
+official:
+  weights: models/pretrained/glavitu_finetuning_HMA_weights.h5   # global -> HMA by the authors (full budget)
+  regional_only: models/pretrained/glavitu_regional_HMA_weights.h5
+local:                            # python -m src.training.finetune ... (see run_pipeline.sh)
+  name: M1_hma_local
+  init: models/pretrained/glavitu_global_weights.h5
+  train: data/benchmark/hma_train.hdf5     # 165 official HMA train tiles
+  val: data/benchmark/hma_val.hdf5         # 55 official HMA val tiles (checkpoint selection)
+  test: data/benchmark/hma_test.hdf5       # 57 official HMA test tiles (held out)
+  features: [optical, dem]
+  optimizer: Adam (legacy Keras)
+  lr_start: 5.0e-5                # official finetuning value
+  lr_schedule: cosine decay to 0 over epochs*steps
+  loss: focal (gamma 2) on deep-supervision (0.5) + output (1.0) heads
+  label_smoothing: 0.1
+  augmentation: [vflip, hflip, rotation, crop_and_scale, gamma 0.8-1.2, groupwise occlusion 192, gaussian shift 0.025 / noise 0.005]
+  batch_size: 4                   # official 8 (memory: Apple M4 16 GB unified)
+  epochs: 8                       # official 80
+  steps_per_epoch: 250            # official n_patches/bs*4 = 1484
+  seed: 42
+  device: Apple M4 GPU (tensorflow-metal 1.1.0), resumed on intermittent Metal errors
+sar_ablation:                     # M3 experiment, equal budgets
+  baseline: {name: M1_sarsubset_nosar, features: [optical, dem]}
+  sar: {name: M3_hma_sar, features: [optical, dem, co_pol_sar], init: global weights + new SAR branch}
+  train: data/benchmark/hma_train_sar.hdf5   # 66 HMA train tiles that contain co_pol_sar
+  val: data/benchmark/hma_val_sar.hdf5       # 22
+  test: data/benchmark/hma_test_sar.hdf5     # 22
+  epochs: 4
+  steps_per_epoch: 250
+  batch_size: 4
+self_training:                    # M2
+  name: M2_cs_selftrain
+  init: models/pretrained/glavitu_finetuning_HMA_weights.h5
+  teacher: M1_hma_official
+  pseudo_label_years: [2018, 2020, 2022, 2024]
+  train: data/labels/cs_pseudolabels.hdf5    # CS scene tiles + 40 HMA replay tiles
+  val: data/benchmark/hma_val.hdf5
+  lr_start: 2.0e-5
+  epochs: 4
+  steps_per_epoch: 200
+  ignore_unlabelled: true

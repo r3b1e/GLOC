@@ -1,0 +1,77 @@
+{
+  "model": "M1_hma_official",
+  "weights": "models/pretrained/glavitu_finetuning_HMA_weights.h5",
+  "year": 2017,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2017-09-12",
+    "dates": [
+      "2017-08-23",
+      "2017-09-12",
+      "2017-10-02"
+    ],
+    "l1c_products": [
+      "S2B_MSIL1C_20170823T052639_N0205_R105_T43SGR_20170823T053051.SAFE",
+      "S2B_MSIL1C_20170912T052639_N0500_R105_T43SGR_20230928T035844.SAFE",
+      "S2B_MSIL1C_20171002T052629_N0500_R105_T43SGR_20231012T043839.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "10-15"
+    ]
+  },
+  "area_km2": 13.7316,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 2,
+    "n_holes": 4,
+    "raster_area_km2": 13.7316,
+    "vector_area_km2": 13.7316,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 119.4,
+  "ensemble": {
+    "n_scenes": 3,
+    "scenes_used": [
+      "2017-08-23",
+      "2017-09-12",
+      "2017-10-02"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 6.363912239999998,
+    "all_scene_areas_km2": {
+      "2017-08-23": 15.2141,
+      "2017-09-12": 12.7088,
+      "2017-10-02": 11.278
+    },
+    "scene_areas_km2": {
+      "2017-08-23": 15.2141,
+      "2017-09-12": 12.7088,
+      "2017-10-02": 11.278
+    },
+    "area_std_km2": 2.1213040799999994,
+    "area_sd_plain_km2": 1.9923436760090698,
+    "area_range_km2": 3.9360999999999997,
+    "invalid_frac_domain": 0.010771809208947217,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.5161,
+    "single_obs_km2_domain": 2.2091,
+    "mean_valid_obs_domain": 2.774689483449901
+  },
+  "mean_confidence_in_domain": 0.12389873713254929,
+  "frac_uncertain_in_domain": 0.9892281907910527,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.7824796363168904,
+    "f1": 0.8779675463038845,
+    "precision": 0.9752104634565528,
+    "recall": 0.7983593069979849,
+    "area_pred_km2": 13.7316,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -3.0417999999999985,
+    "rel_area_error": -0.18134665601488062,
+    "boundary_f1": 0.35319654046506954,
+    "mean_boundary_dist_m": 63.942733440954754,
+    "p95_boundary_dist_m": 212.602916254693,
+    "hausdorff_m": 912.414379544733
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "model": "M1_sarsubset_optonly",
+  "weights": "models/hma_finetuned/M1_sarsubset_optonly_weights.h5",
+  "year": 2025,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2025-08-21",
+    "dates": [
+      "2025-08-16",
+      "2025-08-21"
+    ],
+    "l1c_products": [
+      "S2C_MSIL1C_20250816T052701_N0511_R105_T43SGR_20250816T085640.SAFE",
+      "S2B_MSIL1C_20250821T052649_N0511_R105_T43SGR_20250821T071908.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 12.6528,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 4,
+    "n_holes": 9,
+    "raster_area_km2": 12.6528,
+    "vector_area_km2": 12.6528,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 208.9,
+  "ensemble": {
+    "n_scenes": 2,
+    "scenes_used": [
+      "2025-08-16",
+      "2025-08-21"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 0.5599780199999985,
+    "all_scene_areas_km2": {
+      "2025-08-16": 12.5144,
+      "2025-08-21": 12.7662
+    },
+    "scene_areas_km2": {
+      "2025-08-16": 12.5144,
+      "2025-08-21": 12.7662
+    },
+    "area_std_km2": 0.17804948750277222,
+    "area_sd_plain_km2": 0.17804948750277222,
+    "area_range_km2": 0.25179999999999936,
+    "invalid_frac_domain": 0.0,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.0,
+    "single_obs_km2_domain": 0.8822,
+    "mean_valid_obs_domain": 1.9815871147371957
+  },
+  "mean_confidence_in_domain": 0.10271887481212616,
+  "frac_uncertain_in_domain": 1.0,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.7385660689492186,
+    "f1": 0.8496266919503433,
+    "precision": 0.9879788503639539,
+    "recall": 0.7452633336115516,
+    "area_pred_km2": 12.6527,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -4.120699999999999,
+    "rel_area_error": -0.24566873740565418,
+    "boundary_f1": 0.32348421380185266,
+    "mean_boundary_dist_m": 82.15155194227624,
+    "p95_boundary_dist_m": 284.35891506834963,
+    "hausdorff_m": 1306.7899601695751
+  }
+}

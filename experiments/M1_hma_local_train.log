@@ -1,0 +1,233 @@
+2026-10-01 16:58:57,892 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-01 16:58:57.894221: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M4
+2026-10-01 16:58:57.894254: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-10-01 16:58:57.894265: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.92 GB
+2026-10-01 16:58:57.894479: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-10-01 16:58:57.894504: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+2026-10-01 16:58:57,915 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-01 16:59:03,215 finetune INFO train tiles 165, val tiles 55, official steps/epoch 1484, used 250
+Epoch 1/8
+2026-10-01 16:59:12.072369: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+250/250 - 1361s - loss: 0.1212 - deepsupervision_loss: 0.0419 - output_loss: 0.0793 - deepsupervision_categorical_accuracy: 0.9332 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.7972 - deepsupervision_recall_1: 0.2028 - deepsupervision_iou_0: 0.8895 - deepsupervision_iou_1: 0.6296 - output_categorical_accuracy: 0.9405 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8061 - output_recall_1: 0.1939 - output_iou_0: 0.9002 - output_iou_1: 0.6472 - val_loss: 0.0647 - val_deepsupervision_loss: 0.0225 - val_output_loss: 0.0421 - val_deepsupervision_categorical_accuracy: 0.9508 - val_deepsupervision_precision_0: 0.9667 - val_deepsupervision_precision_1: 0.8659 - val_deepsupervision_recall_0: 0.9746 - val_deepsupervision_recall_1: 0.8301 - val_deepsupervision_iou_0: 0.9288 - val_deepsupervision_iou_1: 0.6491 - val_output_categorical_accuracy: 0.9550 - val_output_precision_0: 0.9652 - val_output_precision_1: 0.8977 - val_output_recall_0: 0.9815 - val_output_recall_1: 0.8209 - val_output_iou_0: 0.9350 - val_output_iou_1: 0.6623 - 1361s/epoch - 5s/step
+Epoch 2/8
+250/250 - 1251s - loss: 0.1157 - deepsupervision_loss: 0.0395 - output_loss: 0.0761 - deepsupervision_categorical_accuracy: 0.9404 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8114 - deepsupervision_recall_1: 0.1886 - deepsupervision_iou_0: 0.8981 - deepsupervision_iou_1: 0.6454 - output_categorical_accuracy: 0.9467 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8076 - output_recall_1: 0.1924 - output_iou_0: 0.9081 - output_iou_1: 0.6669 - val_loss: 0.0629 - val_deepsupervision_loss: 0.0218 - val_output_loss: 0.0412 - val_deepsupervision_categorical_accuracy: 0.9511 - val_deepsupervision_precision_0: 0.9676 - val_deepsupervision_precision_1: 0.8641 - val_deepsupervision_recall_0: 0.9741 - val_deepsupervision_recall_1: 0.8350 - val_deepsupervision_iou_0: 0.9293 - val_deepsupervision_iou_1: 0.6525 - val_output_categorical_accuracy: 0.9559 - val_output_precision_0: 0.9671 - val_output_precision_1: 0.8943 - val_output_recall_0: 0.9806 - val_output_recall_1: 0.8308 - val_output_iou_0: 0.9359 - val_output_iou_1: 0.6719 - 1251s/epoch - 5s/step
+Epoch 3/8
+2026-10-01 18:00:05.475941: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 11561954403537650239
+2026-10-01 18:00:05.476917: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7285197615040366547
+2026-10-01 18:00:05.476976: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3592015733994063903
+2026-10-01 18:00:05.477355: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 728349176485742919
+2026-10-01 18:00:05.477412: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17045942346684959671
+2026-10-01 18:00:05.477439: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1421742608109734729
+2026-10-01 18:00:05.477454: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5389905767797948285
+2026-10-01 18:00:05.477481: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 9875092980043550493
+2026-10-01 18:00:05.477516: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15362263630449282889
+2026-10-01 18:00:05.477884: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1623568636141277339
+2026-10-01 18:00:05.477929: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3015980972393598971
+2026-10-01 18:00:05.478707: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2127773628607009791
+2026-10-01 18:00:05.478725: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12956834694489610315
+2026-10-01 18:00:05.479166: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5777121060031503333
+2026-10-01 18:00:05.479206: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3664547224172993311
+2026-10-01 18:00:05.479224: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3138226090732363485
+2026-10-01 18:00:05.479240: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 14026285793423204549
+2026-10-01 18:00:05.479256: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 14931748062310769129
+2026-10-01 18:00:05.479274: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7597605083879384731
+2026-10-01 18:00:05.479301: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 10271720072703551577
+2026-10-01 18:00:05.479317: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4811683190806162163
+2026-10-01 18:00:05.479331: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 10422386298216852565
+2026-10-01 18:00:05.479339: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12336415195004055273
+2026-10-01 18:00:05.479636: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7534150789480198879
+2026-10-01 18:00:05.479670: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 10166020024423953297
+2026-10-01 18:00:05.479690: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5401304442394688121
+2026-10-01 18:00:05.479702: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1017158908366764891
+2026-10-01 18:00:05.479717: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1477993879406395613
+2026-10-01 18:00:05.479752: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1145164884863467041
+2026-10-01 18:00:05.479764: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 11395049209948817931
+2026-10-01 18:00:05.479785: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12445133848376790179
+2026-10-01 18:00:05.479794: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2829426681340546253
+2026-10-01 18:00:05.479804: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1463202432782652129
+2026-10-01 18:00:05.479814: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 8790199302320378545
+2026-10-01 18:00:05.479822: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 8412961873090270245
+2026-10-01 18:00:05.479832: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 8430869744032765335
+2026-10-01 18:00:05.479842: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 11352578090420261587
+2026-10-01 18:00:05.479852: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1859335705567091771
+2026-10-01 18:00:05.479877: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7491649565907279307
+2026-10-01 18:00:05.479890: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 6031493179677531945
+2026-10-01 18:00:05.479899: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17869694675143844385
+2026-10-01 18:00:05.479911: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1553528654777541347
+2026-10-01 18:00:05.479920: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 9717032565579146929
+2026-10-01 18:00:05.479928: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4741271282077689835
+2026-10-01 18:00:05.479941: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 14401828655028888343
+2026-10-01 18:00:05.479960: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 735847863008259543
+2026-10-01 18:00:05.479972: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15227589826412637795
+2026-10-01 18:00:05.479980: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5494560596355280433
+2026-10-01 18:00:05.479989: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3002259603799764477
+2026-10-01 18:00:05.479997: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 6399849393093799657
+2026-10-01 18:00:05.480011: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7629221190947337115
+2026-10-01 18:00:05.480020: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7642597780853616477
+2026-10-01 18:00:05.480030: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15974245845953935061
+2026-10-01 18:00:05.480050: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7980072826416494461
+2026-10-01 18:00:05.480060: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5823887662609233763
+2026-10-01 18:00:05.480069: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2653484951637621589
+2026-10-01 18:00:05.480593: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 13931872924820045310
+2026-10-01 18:00:05.480625: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 7244546262631317354
+2026-10-01 18:00:05.480641: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15828270232844176340
+2026-10-01 18:00:05.480651: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12143787730407459118
+2026-10-01 18:00:05.480661: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 10503232941868550940
+2026-10-01 18:00:05.480670: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5348401144637036446
+2026-10-01 18:00:05.480678: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 9910187596478355366
+2026-10-01 18:00:05.480687: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4168467770054711394
+2026-10-01 18:00:05.480696: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12644900557863819082
+2026-10-01 18:00:05.480705: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12822700009669173150
+2026-10-01 18:00:05.480725: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 16144234304768615744
+2026-10-01 18:00:05.480735: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 9542627204444039738
+2026-10-01 18:00:05.480747: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15563432667306699626
+2026-10-01 18:00:05.480755: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 16604038581664459510
+2026-10-01 18:00:05.480764: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4597280272325193340
+2026-10-01 18:00:05.480772: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2610891523593809926
+2026-10-01 18:00:05.480781: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 6040404379035022292
+2026-10-01 18:00:05.480790: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17892113804074431804
+2026-10-01 18:00:05.480797: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17144515049496656134
+2026-10-01 18:00:05.480812: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 6025162707094648696
+2026-10-01 18:00:05.480820: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 3114965510200573170
+2026-10-01 18:00:05.480827: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17856703305974068912
+2026-10-01 18:00:05.480835: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17617710051340632712
+2026-10-01 18:00:05.480843: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 6408605124161783342
+2026-10-01 18:00:05.480951: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2744676226231781574
+2026-10-01 18:00:05.481021: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17683946197290042238
+2026-10-01 18:00:05.481119: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 11150980652296159322
+2026-10-01 18:00:05.481197: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1073428848803366942
+2026-10-01 18:00:05.481270: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 1992560794778750164
+2026-10-01 18:00:05.481337: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 11390726316145824330
+2026-10-01 18:00:05.481360: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15378302006242171102
+2026-10-01 18:00:05.481375: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12007029580103800306
+2026-10-01 18:00:05.481388: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 2265054074637803354
+2026-10-01 18:00:05.481405: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17713151907817644232
+2026-10-01 18:00:05.481417: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 8290710447896027550
+2026-10-01 18:00:05.481429: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15419155344351486532
+2026-10-01 18:00:05.481441: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4930234100658135834
+2026-10-01 18:00:05.481482: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12956312444729321678
+2026-10-01 18:00:05.481495: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12786211289642690838
+2026-10-01 18:00:05.481505: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 710491429730513116
+2026-10-01 18:00:05.481515: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 736680719486906864
+2026-10-01 18:00:05.481525: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 17761282864172593830
+2026-10-01 18:00:05.481537: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 14140599466315609170
+2026-10-01 18:00:05.481547: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 4808371981289354954
+2026-10-01 18:00:05.481558: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 14442469410382870196
+2026-10-01 18:00:05.481574: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 5806546719298189428
+2026-10-01 18:00:05.481594: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 12782057683350026864
+2026-10-01 18:00:05.481604: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15446019791566896296
+2026-10-01 18:00:05.500612: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 9394083718827015670
+2026-10-01 18:00:05.500653: I tensorflow/core/framework/local_rendezvous.cc:421] Local rendezvous recv item cancelled. Key hash: 15769713265536399626
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 164, in main
+    model.fit(train, epochs=a.epochs, initial_epoch=initial_epoch, steps_per_epoch=a.steps, validation_data=val,
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/tensorflow/python/eager/execute.py", line 53, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node gradient_tape/GlaViTU/SETR/ViTEncoder/transformer_block_7/multi_head_attention_7/value/add/Reshape defined at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+
+  File "<frozen runpy>", line 88, in _run_code
+
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 164, in main
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1807, in fit
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1401, in train_function
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1384, in step_function
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1373, in run_step
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1154, in train_step
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 598, in minimize
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 656, in _compute_gradients
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 532, in _get_gradients
+
+Detected at node gradient_tape/GlaViTU/SETR/ViTEncoder/transformer_block_7/multi_head_attention_7/value/add/Reshape defined at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+
+  File "<frozen runpy>", line 88, in _run_code
+
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 164, in main
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1807, in fit
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1401, in train_function
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1384, in step_function
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1373, in run_step
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/engine/training.py", line 1154, in train_step
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 598, in minimize
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 656, in _compute_gradients
+
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/keras/src/optimizers/legacy/optimizer_v2.py", line 532, in _get_gradients
+
+2 root error(s) found.
+  (0) INVALID_ARGUMENT:  desired shape must be a DT_INT32 or DT_INT64 vector, not a float
+	 [[{{node gradient_tape/GlaViTU/SETR/ViTEncoder/transformer_block_7/multi_head_attention_7/value/add/Reshape}}]]
+	 [[gradient_tape/GlaViTU/SETR/ViTEncoder/transformer_block_4/multi_head_attention_4/softmax/mul_1/_1162]]
+  (1) INVALID_ARGUMENT:  desired shape must be a DT_INT32 or DT_INT64 vector, not a float
+	 [[{{node gradient_tape/GlaViTU/SETR/ViTEncoder/transformer_block_7/multi_head_attention_7/value/add/Reshape}}]]
+0 successful operations.
+0 derived errors ignored. [Op:__inference_train_function_34196]
+2026-10-01 18:00:09.004361: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: FAILED_PRECONDITION: Python interpreter state is not initialized. The process may be terminated.
+	 [[{{node PyFunc}}]]
+2026-10-01 18:00:45,031 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-01 18:00:45.033240: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M4
+2026-10-01 18:00:45.033278: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-10-01 18:00:45.033289: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.92 GB
+2026-10-01 18:00:45.033332: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-10-01 18:00:45.033354: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+2026-10-01 18:00:45,051 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-01 18:00:45,063 finetune INFO resuming from M1_hma_local_last_weights.h5 at epoch 2
+2026-10-01 18:00:50,160 finetune INFO train tiles 165, val tiles 55, official steps/epoch 1484, used 250
+Epoch 3/8
+2026-10-01 18:00:58.660423: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+2026-10-02 20:56:27,020 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-02 20:56:27.023913: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M4
+2026-10-02 20:56:27.023939: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-10-02 20:56:27.023944: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.92 GB
+2026-10-02 20:56:27.023977: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-10-02 20:56:27.024135: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+2026-10-02 20:56:27,042 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-02 20:56:27,051 finetune INFO resuming from M1_hma_local_last_weights.h5 at epoch 2
+2026-10-02 20:56:28,927 finetune INFO train tiles 165, val tiles 55, official steps/epoch 1484, used 250
+Epoch 3/8
+2026-10-02 20:56:32.021726: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+250/250 - 951s - loss: 0.1140 - deepsupervision_loss: 0.0391 - output_loss: 0.0748 - deepsupervision_categorical_accuracy: 0.9433 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8081 - deepsupervision_recall_1: 0.1919 - deepsupervision_iou_0: 0.9048 - deepsupervision_iou_1: 0.6659 - output_categorical_accuracy: 0.9506 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8066 - output_recall_1: 0.1934 - output_iou_0: 0.9150 - output_iou_1: 0.6866 - val_loss: 0.0622 - val_deepsupervision_loss: 0.0215 - val_output_loss: 0.0407 - val_deepsupervision_categorical_accuracy: 0.9512 - val_deepsupervision_precision_0: 0.9681 - val_deepsupervision_precision_1: 0.8622 - val_deepsupervision_recall_0: 0.9736 - val_deepsupervision_recall_1: 0.8377 - val_deepsupervision_iou_0: 0.9292 - val_deepsupervision_iou_1: 0.6496 - val_output_categorical_accuracy: 0.9558 - val_output_precision_0: 0.9678 - val_output_precision_1: 0.8900 - val_output_recall_0: 0.9796 - val_output_recall_1: 0.8349 - val_output_iou_0: 0.9355 - val_output_iou_1: 0.6732 - 951s/epoch - 4s/step
+Epoch 4/8
+250/250 - 1158s - loss: 0.1136 - deepsupervision_loss: 0.0389 - output_loss: 0.0747 - deepsupervision_categorical_accuracy: 0.9441 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8098 - deepsupervision_recall_1: 0.1902 - deepsupervision_iou_0: 0.9025 - deepsupervision_iou_1: 0.6593 - output_categorical_accuracy: 0.9508 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8077 - output_recall_1: 0.1923 - output_iou_0: 0.9122 - output_iou_1: 0.6814 - val_loss: 0.0621 - val_deepsupervision_loss: 0.0214 - val_output_loss: 0.0407 - val_deepsupervision_categorical_accuracy: 0.9516 - val_deepsupervision_precision_0: 0.9674 - val_deepsupervision_precision_1: 0.8673 - val_deepsupervision_recall_0: 0.9748 - val_deepsupervision_recall_1: 0.8338 - val_deepsupervision_iou_0: 0.9300 - val_deepsupervision_iou_1: 0.6497 - val_output_categorical_accuracy: 0.9565 - val_output_precision_0: 0.9677 - val_output_precision_1: 0.8946 - val_output_recall_0: 0.9806 - val_output_recall_1: 0.8345 - val_output_iou_0: 0.9366 - val_output_iou_1: 0.6762 - 1158s/epoch - 5s/step
+Epoch 5/8
+250/250 - 1132s - loss: 0.1133 - deepsupervision_loss: 0.0389 - output_loss: 0.0745 - deepsupervision_categorical_accuracy: 0.9448 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8226 - deepsupervision_recall_1: 0.1774 - deepsupervision_iou_0: 0.9112 - deepsupervision_iou_1: 0.6441 - output_categorical_accuracy: 0.9514 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8217 - output_recall_1: 0.1783 - output_iou_0: 0.9198 - output_iou_1: 0.6762 - val_loss: 0.0614 - val_deepsupervision_loss: 0.0212 - val_output_loss: 0.0402 - val_deepsupervision_categorical_accuracy: 0.9520 - val_deepsupervision_precision_0: 0.9681 - val_deepsupervision_precision_1: 0.8671 - val_deepsupervision_recall_0: 0.9747 - val_deepsupervision_recall_1: 0.8374 - val_deepsupervision_iou_0: 0.9305 - val_deepsupervision_iou_1: 0.6529 - val_output_categorical_accuracy: 0.9570 - val_output_precision_0: 0.9688 - val_output_precision_1: 0.8929 - val_output_recall_0: 0.9801 - val_output_recall_1: 0.8404 - val_output_iou_0: 0.9371 - val_output_iou_1: 0.6786 - 1132s/epoch - 5s/step
+Epoch 6/8
+250/250 - 1341s - loss: 0.1140 - deepsupervision_loss: 0.0391 - output_loss: 0.0749 - deepsupervision_categorical_accuracy: 0.9437 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8129 - deepsupervision_recall_1: 0.1871 - deepsupervision_iou_0: 0.9049 - deepsupervision_iou_1: 0.6687 - output_categorical_accuracy: 0.9503 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8110 - output_recall_1: 0.1890 - output_iou_0: 0.9137 - output_iou_1: 0.6977 - val_loss: 0.0617 - val_deepsupervision_loss: 0.0214 - val_output_loss: 0.0403 - val_deepsupervision_categorical_accuracy: 0.9517 - val_deepsupervision_precision_0: 0.9689 - val_deepsupervision_precision_1: 0.8623 - val_deepsupervision_recall_0: 0.9735 - val_deepsupervision_recall_1: 0.8416 - val_deepsupervision_iou_0: 0.9300 - val_deepsupervision_iou_1: 0.6505 - val_output_categorical_accuracy: 0.9568 - val_output_precision_0: 0.9689 - val_output_precision_1: 0.8909 - val_output_recall_0: 0.9797 - val_output_recall_1: 0.8409 - val_output_iou_0: 0.9368 - val_output_iou_1: 0.6795 - 1341s/epoch - 5s/step
+Epoch 7/8
+250/250 - 1416s - loss: 0.1149 - deepsupervision_loss: 0.0394 - output_loss: 0.0755 - deepsupervision_categorical_accuracy: 0.9412 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8015 - deepsupervision_recall_1: 0.1985 - deepsupervision_iou_0: 0.9021 - deepsupervision_iou_1: 0.6718 - output_categorical_accuracy: 0.9481 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.7997 - output_recall_1: 0.2003 - output_iou_0: 0.9109 - output_iou_1: 0.6969 - val_loss: 0.0614 - val_deepsupervision_loss: 0.0211 - val_output_loss: 0.0403 - val_deepsupervision_categorical_accuracy: 0.9520 - val_deepsupervision_precision_0: 0.9684 - val_deepsupervision_precision_1: 0.8661 - val_deepsupervision_recall_0: 0.9744 - val_deepsupervision_recall_1: 0.8388 - val_deepsupervision_iou_0: 0.9304 - val_deepsupervision_iou_1: 0.6540 - val_output_categorical_accuracy: 0.9572 - val_output_precision_0: 0.9693 - val_output_precision_1: 0.8915 - val_output_recall_0: 0.9797 - val_output_recall_1: 0.8429 - val_output_iou_0: 0.9373 - val_output_iou_1: 0.6776 - 1416s/epoch - 6s/step
+Epoch 8/8
+250/250 - 1701s - loss: 0.1140 - deepsupervision_loss: 0.0391 - output_loss: 0.0750 - deepsupervision_categorical_accuracy: 0.9438 - deepsupervision_precision_0: 1.0000 - deepsupervision_precision_1: 1.0000 - deepsupervision_recall_0: 0.8056 - deepsupervision_recall_1: 0.1944 - deepsupervision_iou_0: 0.9054 - deepsupervision_iou_1: 0.6765 - output_categorical_accuracy: 0.9501 - output_precision_0: 1.0000 - output_precision_1: 1.0000 - output_recall_0: 0.8035 - output_recall_1: 0.1965 - output_iou_0: 0.9154 - output_iou_1: 0.6996 - val_loss: 0.0614 - val_deepsupervision_loss: 0.0210 - val_output_loss: 0.0404 - val_deepsupervision_categorical_accuracy: 0.9520 - val_deepsupervision_precision_0: 0.9675 - val_deepsupervision_precision_1: 0.8694 - val_deepsupervision_recall_0: 0.9752 - val_deepsupervision_recall_1: 0.8340 - val_deepsupervision_iou_0: 0.9305 - val_deepsupervision_iou_1: 0.6518 - val_output_categorical_accuracy: 0.9570 - val_output_precision_0: 0.9687 - val_output_precision_1: 0.8935 - val_output_recall_0: 0.9802 - val_output_recall_1: 0.8396 - val_output_iou_0: 0.9372 - val_output_iou_1: 0.6756 - 1701s/epoch - 7s/step
+TRAINING DONE (attempt 1)

@@ -1,0 +1,122 @@
+[
+  {
+    "url": "https://drive.google.com/uc?id=1uJIOaJqemqQDnSt3lF0stZRm515yQdcn",
+    "path": "deeplab3vplusresnest101_global_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1IqTauYZmmbzuUtVhgICMdfb_1CEX447l",
+    "path": "glavitu_coordinateencoding_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1jdwtu5Eo1GSbPnoqOMUIKBnP37gxXMSy",
+    "path": "glavitu_finetuning_ALP_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1PM2y5amw2HLaReWvRULYPzAA_Pb-NGkw",
+    "path": "glavitu_finetuning_ANT_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1dtV5x51ngp2NYX_m7t4sSS0yZSxtuoYp",
+    "path": "glavitu_finetuning_AWA,ALP,CAU_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1JiFpR3Wn1pn6c6dMKDugMtHtmLUVd5gk",
+    "path": "glavitu_finetuning_AWA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1o92tpAlE6_vAMW1ZM0AeniYFrZvorGDn",
+    "path": "glavitu_finetuning_CAU_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1jQn1kllP2ydcOZS0U626gr53G6kdYdB6",
+    "path": "glavitu_finetuning_GRL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1hNRFR55MtkQjSH4ZRBcfswPNXnhafQ6i",
+    "path": "glavitu_finetuning_HMA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1hbQk9-XBucdOtItv-I-kCr7Wis7PA6kk",
+    "path": "glavitu_finetuning_NZL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1EZTgMp2r0HWA9LGHpakh4Rt1vwJ9b4vO",
+    "path": "glavitu_finetuning_SAN_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1usJV2lh6u-qo32qnajzB9XDiH9Aq8eb_",
+    "path": "glavitu_finetuning_SCA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1CDpF32wWh66hbFMI_wUV4fTqSDDuPjFA",
+    "path": "glavitu_finetuning_SVAL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1VbcsxnPaPWCxtq07IKdAcV4A3mryT91l",
+    "path": "glavitu_finetuning_TRP_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1F2M_XdcOC_qL_orlR5NSJDVS5AauxsS_",
+    "path": "glavitu_global_insar_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1bkMoSSf805LtB0w7C4B9COdq8XX_pmMA",
+    "path": "glavitu_global_thermal_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1HLIVlWuGfMx_jZQleHlQmuzvzHVMRTOd",
+    "path": "glavitu_global_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1_Pah2GBKAlQOlQmQ4JjBLP19N5ldPuJ2",
+    "path": "glavitu_regional_ALP_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1YstCeKER6NvuwBFtkGF2PBb4nN5ldbPM",
+    "path": "glavitu_regional_ANT_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=11zBK67jEfR_rZGVZGrT1Tx6M8SKiphi6",
+    "path": "glavitu_regional_AWA,ALP,CAU_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1OkIMehzyj4FgT32c-a8hJwQX3kRDlQPl",
+    "path": "glavitu_regional_AWA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1r6uBEtT2UahjPJYaLB18YWh8sCNPqdDq",
+    "path": "glavitu_regional_CAU_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1msrRL22byf-pABVK7dK34oXneuBqQQlP",
+    "path": "glavitu_regional_GRL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1HmulydQpPm4flN5_AaPvfMb0FEyMhYR5",
+    "path": "glavitu_regional_HMA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1D4cQ6re2ibutVSUmJvWddoM6T5TTFVyy",
+    "path": "glavitu_regional_NZL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1YSE9W-vAKWq0KxtuZ-H8kkRd3j6c6_Rm",
+    "path": "glavitu_regional_SAN_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1uEULyeYp4_OM3Ax_-Ya5GOJVjWgmFOMU",
+    "path": "glavitu_regional_SCA_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=15nX31qts9rKZjrlHXcYC0IIoPUVEHA5y",
+    "path": "glavitu_regional_SVAL_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1jheNK0S84SPw7SHJb2O4aTh1lk-RjlRt",
+    "path": "glavitu_regional_TRP_weights.h5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1c5BqeJtxOA7Mu0j-aHWvRum_-I_3JMeL",
+    "path": "glavitu_regionencoding_weights.h5"
+  }
+]

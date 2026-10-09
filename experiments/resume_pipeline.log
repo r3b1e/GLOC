@@ -1,0 +1,11 @@
+2026-10-02 20:56:23 resume started
+2026-10-02 21:26:55 ensemble M1_hma_official core done
+2026-10-02 22:21:16 ensemble M0_global core done
+2026-10-02 22:48:18 pseudo-labels done
+2026-10-02 22:50:04 resume2: calibration fix started (raw GlaViTU softmax never reaches 0.95/0.05)
+2026-10-02 23:26:28 calibration done
+2026-10-02 23:27:01 calibrated pseudo-labels done
+2026-10-02 23:27:01 M1 local trained
+2026-10-03 00:48:02 M2 trained
+2026-10-03 01:38:33 bench eval M0/M1-official done
+2026-10-03 03:06:50 CPU CHAIN DONE

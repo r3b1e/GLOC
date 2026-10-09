@@ -1,0 +1,45 @@
+2026-10-03 13:56:00 finish A started
+2026-10-03 14:07:29 finish B started
+2026-10-03 15:16:25 calibration M1_hma_local done
+2026-10-03 15:43:33 optical-only trained
+2026-10-03 15:46:59 calibration M2_cs_selftrain done
+2026-10-03 16:03:09 calibration M3_hma_sar done
+2026-10-03 17:06:40 bench eval M1-local/M2 done
+2026-10-03 17:23:24 ensemble M1_hma_official (coreg) done
+2026-10-03 18:26:53 SAR-subset bench eval done
+2026-10-03 18:39:02 ensemble M0_global (coreg) done
+2026-10-03 18:45:16 optical-only bench eval done
+2026-10-03 18:45:16 FINISH A DONE
+2026-10-03 19:02:09 ensemble M1_hma_local done
+2026-10-03 19:20:53 ensemble M2_cs_selftrain done
+2026-10-03 19:40:55 ensemble M3_hma_sar done
+2026-10-03 19:41:06 analysis M0_global done
+2026-10-03 19:41:16 analysis M1_hma_official done
+2026-10-03 19:41:27 analysis M1_hma_local done
+2026-10-03 19:41:38 analysis M2_cs_selftrain done
+2026-10-03 19:41:48 analysis M3_hma_sar done
+2026-10-03 19:41:59 analysis M1_hma_official_fullwindow done
+2026-10-03 19:42:09 analysis M0_global_fullwindow done
+2026-10-03 20:00:09 ensemble optonly done
+2026-10-03 20:11:46 RERUN (min-obs fix) started
+2026-10-03 20:27:44 rerun ensemble M2_cs_selftrain done
+2026-10-03 20:37:46 rerun ensemble M1_hma_official done
+2026-10-03 20:47:58 rerun ensemble M0_global done
+2026-10-03 21:03:33 rerun ensemble M1_hma_local done
+2026-10-03 21:19:20 rerun ensemble M3_hma_sar done
+2026-10-03 21:37:24 rerun ensemble M1_sarsubset_nosar done
+2026-10-03 21:52:31 rerun ensemble M1_sarsubset_optonly done
+2026-10-03 22:02:42 rerun fullwindow M1_hma_official done
+2026-10-03 22:12:54 rerun fullwindow M0_global done
+2026-10-03 22:13:04 rerun analysis M2_cs_selftrain done
+2026-10-03 22:13:15 rerun analysis M1_hma_official done
+2026-10-03 22:13:25 rerun analysis M0_global done
+2026-10-03 22:13:35 rerun analysis M1_hma_local done
+2026-10-03 22:13:46 rerun analysis M3_hma_sar done
+2026-10-03 22:13:56 rerun analysis M1_hma_official_fullwindow done
+2026-10-03 22:14:06 rerun analysis M0_global_fullwindow done
+2026-10-03 22:14:09 rerun change M1_sarsubset_optonly done
+2026-10-03 22:14:12 rerun change M1_sarsubset_nosar done
+2026-10-03 22:14:12 aggregate done
+2026-10-03 22:14:23 site validation done
+2026-10-03 22:14:23 RERUN DONE

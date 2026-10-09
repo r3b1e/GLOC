@@ -1,0 +1,72 @@
+{
+  "model": "M1_sarsubset_nosar",
+  "weights": "models/hma_finetuned/M1_sarsubset_nosar_weights.h5",
+  "year": 2021,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2021-09-06",
+    "dates": [
+      "2021-08-17",
+      "2021-09-06"
+    ],
+    "l1c_products": [
+      "S2A_MSIL1C_20210817T052651_N0500_R105_T43SGR_20230215T204501.SAFE",
+      "S2A_MSIL1C_20210906T052651_N0301_R105_T43SGR_20210906T074550.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 16.0968,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 1,
+    "n_holes": 8,
+    "raster_area_km2": 16.0968,
+    "vector_area_km2": 16.0968,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 210.7,
+  "ensemble": {
+    "n_scenes": 2,
+    "scenes_used": [
+      "2021-08-17",
+      "2021-09-06"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 0.8413013699999947,
+    "all_scene_areas_km2": {
+      "2021-08-17": 15.7124,
+      "2021-09-06": 16.0907
+    },
+    "scene_areas_km2": {
+      "2021-08-17": 15.7124,
+      "2021-09-06": 16.0907
+    },
+    "area_std_km2": 0.26749849532286923,
+    "area_sd_plain_km2": 0.26749849532286923,
+    "area_range_km2": 0.37829999999999764,
+    "invalid_frac_domain": 0.0,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.0,
+    "single_obs_km2_domain": 1.6821,
+    "mean_valid_obs_domain": 1.9648919583988178
+  },
+  "mean_confidence_in_domain": 0.13256335258483887,
+  "frac_uncertain_in_domain": 1.0,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.8652347850758972,
+    "f1": 0.9277489268362433,
+    "precision": 0.9472500574651948,
+    "recall": 0.9090345427879858,
+    "area_pred_km2": 16.0967,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -0.6767000000000003,
+    "rel_area_error": -0.04034363933370696,
+    "boundary_f1": 0.45161748093994686,
+    "mean_boundary_dist_m": 35.23819202391052,
+    "p95_boundary_dist_m": 120.41594578792296,
+    "hausdorff_m": 308.05843601498725
+  }
+}

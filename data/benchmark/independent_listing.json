@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://drive.google.com/uc?id=1hcFMVq-klZr-cu9vb6nHJHdLVRb5hIdV",
+    "path": "alaska_features.pickle"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=14pEqZC0xew3J__6RAExBp1_QdYiEVdz5",
+    "path": "alaska_reference.tif"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=19fdumkA6Lc1H7zSWH6nc_sOSv_AlYzpr",
+    "path": "sc1_features.pickle"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1dk3Zt8UZn92kvdeAGLd0nMWqldLI2lQM",
+    "path": "sc1_reference.tif"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1pZhXWqsxWi0L_RluBGY1CgA-Iwpzapb0",
+    "path": "southern_canada_features.pickle"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1F4MF1HrgTeykBdSVvl6GcJdc2b39ctFT",
+    "path": "southern_canada_reference.tif"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1rT6LQCcXzP4RPMChjNaYyXdMLwASl5PJ",
+    "path": "swiss_alps_features.pickle"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1pGigpKlrDYDNofAGxssS8a9YkZXmNhHJ",
+    "path": "swiss_alps_reference.tif"
+  }
+]

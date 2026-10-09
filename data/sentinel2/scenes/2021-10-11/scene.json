@@ -1,0 +1,21 @@
+{
+  "date": "2021-10-11",
+  "l2a_id": "S2B_MSIL2A_20211011T052739_R105_T43SGR_20211011T135047",
+  "l1c_product": "S2B_MSIL1C_20211011T052739_N0500_R105_T43SGR_20230114T152403.SAFE",
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B08",
+    "B11",
+    "B12"
+  ],
+  "units": "TOA reflectance",
+  "sun_elevation": 48.6689584326799,
+  "domain_cloud_frac": NaN,
+  "offglacier_snow_frac": 0.06122606274507285,
+  "window": "08-15..10-15",
+  "quantification": 10000.0,
+  "offset": -1000.0,
+  "processing_baseline": "05.00"
+}

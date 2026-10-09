@@ -1,0 +1,34 @@
+# Tested on macOS 26.2 (Apple M4, 16 GB). Create with:
+#   mamba env create -p ./.env -f environment.yml
+#   ./.env/bin/pip install -r requirements.txt
+name: himalayan-glacier-geoai
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy<2
+  - h5py
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - rasterio
+  - libgdal-jp2openjpeg=3.10.3   # JPEG2000 driver for Sentinel-2 L1C granules
+  - rioxarray
+  - geopandas
+  - shapely
+  - pyproj
+  - opencv
+  - pandas
+  - pyyaml
+  - tqdm
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - jupyterlab
+  - pystac-client
+  - planetary-computer
+  - odc-stac
+  - stackstac
+  - xarray
+  - dask
+  - gdown
+  - pip

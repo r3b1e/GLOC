@@ -1,0 +1,16 @@
+/Users/sunny/Apsit/GLOF/src/training/pseudo_labels.py:71: RuntimeWarning: All-NaN slice encountered
+  year_median.append(np.nanmedian(P, 0))
+2026-10-02 22:26:58,758 pseudo INFO teacher M1_hma_official on 2018: 3 scenes
+2026-10-02 22:34:19,552 pseudo INFO teacher M1_hma_official on 2020: 4 scenes
+2026-10-02 22:42:56,397 pseudo INFO teacher M1_hma_official on 2022: 5 scenes
+2026-10-02 22:48:02,914 pseudo INFO teacher M1_hma_official on 2024: 3 scenes
+2026-10-02 22:48:16,995 pseudo INFO pseudo-labels: glacier 0 px, background 0 px, ignored 100.0 %, 15 scenes -> /Users/sunny/Apsit/GLOF/data/labels/cs_pseudolabels.hdf5
+/Users/sunny/Apsit/GLOF/src/training/pseudo_labels.py:71: RuntimeWarning: All-NaN slice encountered
+  year_median.append(np.nanmedian(P, 0))
+2026-10-02 23:26:43,965 pseudo INFO teacher M1_hma_official on 2018: 3 scenes
+2026-10-02 23:26:44,501 pseudo INFO teacher M1_hma_official on 2020: 4 scenes
+2026-10-02 23:26:45,146 pseudo INFO teacher M1_hma_official on 2022: 5 scenes
+2026-10-02 23:26:45,757 pseudo INFO teacher M1_hma_official on 2024: 3 scenes
+/Users/sunny/Apsit/GLOF/src/training/pseudo_labels.py:85: RuntimeWarning: All-NaN slice encountered
+  Ym = np.stack([np.nanmedian(P[np.array(year_of) == y], 0) for y in a.years])
+2026-10-02 23:27:00,714 pseudo INFO pseudo-labels: glacier 292012 px, background 881732 px, ignored 34.7 %, 15 scenes -> /Users/sunny/Apsit/GLOF/data/labels/cs_pseudolabels.hdf5

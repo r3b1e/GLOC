@@ -1,0 +1,7 @@
+# pip-only packages (installed into the conda env)
+tensorflow==2.15.1          # GlaViTU requires tensorflow<2.16
+tensorflow-metal==1.1.0     # optional Apple GPU; inference defaults to CPU (see docs/methodology.md)
+s2cloudless
+fsspec
+aiohttp
+requests

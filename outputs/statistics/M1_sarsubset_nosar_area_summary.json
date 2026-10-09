@@ -1,0 +1,20 @@
+{
+  "wls_trend_km2_per_yr": -0.07600230649404904,
+  "wls_trend_se_km2_per_yr": 0.12982644153445422,
+  "wls_trend_ci95": [
+    -0.48916798568350417,
+    0.3371633726954061
+  ],
+  "wls_trend_pct_per_yr_of_mean_area": -0.4844299165534178,
+  "high_confidence_period": {
+    "years": [
+      2021,
+      2025
+    ],
+    "dA_km2": -1.422900000000002,
+    "sigma_dA_km2": 0.7176355168189483,
+    "rate_km2_per_yr": -0.35966655124654195,
+    "loss_pct": 8.839645146861498,
+    "significant_2sigma": false
+  }
+}

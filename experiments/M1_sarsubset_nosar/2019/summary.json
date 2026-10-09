@@ -1,0 +1,72 @@
+{
+  "model": "M1_sarsubset_nosar",
+  "weights": "models/hma_finetuned/M1_sarsubset_nosar_weights.h5",
+  "year": 2019,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2019-09-07",
+    "dates": [
+      "2019-08-28",
+      "2019-09-07"
+    ],
+    "l1c_products": [
+      "S2A_MSIL1C_20190828T052651_N0208_R105_T43SGR_20190828T092024.SAFE",
+      "S2A_MSIL1C_20190907T052651_N0208_R105_T43SGR_20190907T082858.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 16.5354,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 1,
+    "n_holes": 8,
+    "raster_area_km2": 16.5354,
+    "vector_area_km2": 16.5354,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 209.9,
+  "ensemble": {
+    "n_scenes": 2,
+    "scenes_used": [
+      "2019-08-28",
+      "2019-09-07"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 1.8431683200000022,
+    "all_scene_areas_km2": {
+      "2019-08-28": 16.0006,
+      "2019-09-07": 16.8294
+    },
+    "scene_areas_km2": {
+      "2019-08-28": 16.0006,
+      "2019-09-07": 16.8294
+    },
+    "area_std_km2": 0.5860501002474113,
+    "area_sd_plain_km2": 0.5860501002474113,
+    "area_range_km2": 0.8288000000000011,
+    "invalid_frac_domain": 0.00010018346096288829,
+    "gap_filled_km2_domain": 0.5193,
+    "unobserved_km2_domain": 0.0048,
+    "single_obs_km2_domain": 3.1384,
+    "mean_valid_obs_domain": 1.9126191504859942
+  },
+  "mean_confidence_in_domain": 0.12454742193222046,
+  "frac_uncertain_in_domain": 0.9998998165390371,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.8485526228161698,
+    "f1": 0.9180724555446476,
+    "precision": 0.9246823462531675,
+    "recall": 0.9115563928601238,
+    "area_pred_km2": 16.5353,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -0.2380999999999993,
+    "rel_area_error": -0.01419509461409132,
+    "boundary_f1": 0.42025105250875205,
+    "mean_boundary_dist_m": 44.41560770569244,
+    "p95_boundary_dist_m": 156.20499351813308,
+    "hausdorff_m": 531.4132102234569
+  }
+}

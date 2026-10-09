@@ -1,0 +1,474 @@
+2026-10-01 15:58:06,629 bench_eval INFO M0_global HMA-109-76 IoU 0.853
+2026-10-01 15:59:26,001 bench_eval INFO M0_global HMA-109-85 IoU 0.000
+2026-10-01 16:00:37,083 bench_eval INFO M0_global HMA-110-80 IoU 0.783
+2026-10-01 16:01:51,583 bench_eval INFO M0_global HMA-110-83 IoU 0.405
+2026-10-01 16:03:12,117 bench_eval INFO M0_global HMA-111-78 IoU 0.847
+2026-10-01 16:04:35,924 bench_eval INFO M0_global HMA-112-78 IoU 0.551
+2026-10-01 16:05:56,629 bench_eval INFO M0_global HMA-112-82 IoU 0.385
+2026-10-01 16:07:16,735 bench_eval INFO M0_global HMA-112-83 IoU 0.000
+2026-10-01 16:08:13,871 bench_eval INFO M0_global HMA-112-85 IoU 0.220
+2026-10-01 16:09:03,217 bench_eval INFO M0_global HMA-113-77 IoU 0.677
+2026-10-01 16:09:52,018 bench_eval INFO M0_global HMA-113-83 IoU 0.330
+2026-10-01 16:10:40,882 bench_eval INFO M0_global HMA-128-86 IoU 0.660
+2026-10-01 16:11:31,986 bench_eval INFO M0_global HMA-128-90 IoU 0.694
+2026-10-01 16:12:54,005 bench_eval INFO M0_global HMA-128-92 IoU 0.657
+2026-10-01 16:14:24,139 bench_eval INFO M0_global HMA-129-87 IoU 0.949
+2026-10-01 16:15:44,738 bench_eval INFO M0_global HMA-129-89 IoU 0.713
+2026-10-01 16:17:07,689 bench_eval INFO M0_global HMA-129-90 IoU 0.871
+2026-10-01 16:18:37,144 bench_eval INFO M0_global HMA-13-247 IoU 0.649
+2026-10-01 16:20:46,555 bench_eval INFO M0_global HMA-131-90 IoU 0.200
+2026-10-01 16:22:18,380 bench_eval INFO M0_global HMA-133-90 IoU 0.759
+2026-10-01 16:23:27,063 bench_eval INFO M0_global HMA-133-92 IoU 0.728
+2026-10-01 16:24:51,576 bench_eval INFO M0_global HMA-134-89 IoU 0.255
+2026-10-01 16:26:17,738 bench_eval INFO M0_global HMA-137-88 IoU 0.142
+2026-10-01 16:27:45,299 bench_eval INFO M0_global HMA-14-243 IoU 0.455
+2026-10-01 16:29:12,708 bench_eval INFO M0_global HMA-14-248 IoU 0.751
+2026-10-01 16:30:36,830 bench_eval INFO M0_global HMA-14-249 IoU 0.522
+2026-10-01 16:32:07,877 bench_eval INFO M0_global HMA-15-243 IoU 0.783
+2026-10-01 16:33:35,699 bench_eval INFO M0_global HMA-16-247 IoU 0.722
+2026-10-01 16:34:39,802 bench_eval INFO M0_global HMA-40-143 IoU 0.513
+2026-10-01 16:35:27,315 bench_eval INFO M0_global HMA-41-137 IoU 0.757
+2026-10-01 16:36:21,685 bench_eval INFO M0_global HMA-41-141 IoU 0.077
+2026-10-01 16:37:12,682 bench_eval INFO M0_global HMA-42-139 IoU 0.373
+2026-10-01 16:38:00,600 bench_eval INFO M0_global HMA-42-143 IoU 0.055
+2026-10-01 16:38:49,226 bench_eval INFO M0_global HMA-43-138 IoU 0.643
+2026-10-01 16:39:36,923 bench_eval INFO M0_global HMA-43-141 IoU 0.291
+2026-10-01 16:40:28,416 bench_eval INFO M0_global HMA-44-135 IoU 0.384
+2026-10-01 16:41:15,502 bench_eval INFO M0_global HMA-44-137 IoU 0.123
+2026-10-01 16:42:06,438 bench_eval INFO M0_global HMA-46-136 IoU 0.488
+2026-10-01 16:43:35,005 bench_eval INFO M0_global HMA-46-139 IoU 0.000
+2026-10-01 16:44:59,483 bench_eval INFO M0_global HMA-69-103 IoU 0.114
+2026-10-01 16:46:18,607 bench_eval INFO M0_global HMA-70-100 IoU 0.004
+2026-10-01 16:47:05,936 bench_eval INFO M0_global HMA-70-102 IoU 0.000
+2026-10-01 16:47:55,068 bench_eval INFO M0_global HMA-71-99 IoU 0.639
+2026-10-01 16:48:45,405 bench_eval INFO M0_global HMA-72-99 IoU 0.054
+2026-10-01 16:49:32,501 bench_eval INFO M0_global HMA-73-102 IoU 0.629
+2026-10-01 16:50:19,144 bench_eval INFO M0_global HMA-73-98 IoU 0.298
+2026-10-01 16:51:05,018 bench_eval INFO M0_global HMA-75-101 IoU 0.147
+2026-10-01 16:51:48,250 bench_eval INFO M0_global HMA-76-104 IoU 0.634
+2026-10-01 16:52:31,056 bench_eval INFO M0_global HMA-77-104 IoU 0.797
+2026-10-01 16:53:35,702 bench_eval INFO M0_global HMA-77-96 IoU 0.283
+2026-10-01 16:54:51,563 bench_eval INFO M0_global HMA-77-99 IoU 0.739
+2026-10-01 16:56:08,626 bench_eval INFO M0_global HMA-78-100 IoU 0.789
+2026-10-01 16:57:22,364 bench_eval INFO M0_global HMA-78-99 IoU 0.798
+2026-10-01 16:58:37,505 bench_eval INFO M0_global HMA-79-95 IoU 0.000
+2026-10-01 16:59:39,476 bench_eval INFO M0_global HMA-79-96 IoU 0.590
+2026-10-01 17:01:02,687 bench_eval INFO M0_global HMA-80-103 IoU 0.242
+2026-10-01 17:02:16,302 bench_eval INFO M0_global HMA-80-99 IoU 0.716
+2026-10-01 17:03:34,600 bench_eval INFO M1_hma_official HMA-109-76 IoU 0.859
+2026-10-01 17:04:49,346 bench_eval INFO M1_hma_official HMA-109-85 IoU 0.000
+2026-10-01 17:06:02,144 bench_eval INFO M1_hma_official HMA-110-80 IoU 0.778
+2026-10-01 17:07:16,547 bench_eval INFO M1_hma_official HMA-110-83 IoU 0.852
+2026-10-01 17:08:54,906 bench_eval INFO M1_hma_official HMA-111-78 IoU 0.856
+2026-10-01 17:11:14,367 bench_eval INFO M1_hma_official HMA-112-78 IoU 0.723
+2026-10-01 17:13:31,366 bench_eval INFO M1_hma_official HMA-112-82 IoU 0.536
+2026-10-01 17:15:44,943 bench_eval INFO M1_hma_official HMA-112-83 IoU 0.000
+2026-10-01 17:17:55,421 bench_eval INFO M1_hma_official HMA-112-85 IoU 0.382
+2026-10-01 17:19:39,121 bench_eval INFO M1_hma_official HMA-113-77 IoU 0.818
+2026-10-01 17:20:51,968 bench_eval INFO M1_hma_official HMA-113-83 IoU 0.340
+2026-10-01 17:22:11,666 bench_eval INFO M1_hma_official HMA-128-86 IoU 0.706
+2026-10-01 17:23:34,080 bench_eval INFO M1_hma_official HMA-128-90 IoU 0.755
+2026-10-01 17:24:58,002 bench_eval INFO M1_hma_official HMA-128-92 IoU 0.557
+2026-10-01 17:26:21,696 bench_eval INFO M1_hma_official HMA-129-87 IoU 0.942
+2026-10-01 17:27:45,293 bench_eval INFO M1_hma_official HMA-129-89 IoU 0.821
+2026-10-01 17:29:04,129 bench_eval INFO M1_hma_official HMA-129-90 IoU 0.878
+2026-10-01 17:30:19,655 bench_eval INFO M1_hma_official HMA-13-247 IoU 0.677
+2026-10-01 17:31:47,581 bench_eval INFO M1_hma_official HMA-131-90 IoU 0.302
+2026-10-01 17:33:10,998 bench_eval INFO M1_hma_official HMA-133-90 IoU 0.777
+2026-10-01 17:34:38,387 bench_eval INFO M1_hma_official HMA-133-92 IoU 0.719
+2026-10-01 17:36:02,398 bench_eval INFO M1_hma_official HMA-134-89 IoU 0.826
+2026-10-01 17:37:22,984 bench_eval INFO M1_hma_official HMA-137-88 IoU 0.828
+2026-10-01 17:38:41,751 bench_eval INFO M1_hma_official HMA-14-243 IoU 0.445
+2026-10-01 17:40:03,166 bench_eval INFO M1_hma_official HMA-14-248 IoU 0.728
+2026-10-01 17:41:14,495 bench_eval INFO M1_hma_official HMA-14-249 IoU 0.495
+2026-10-01 17:42:26,611 bench_eval INFO M1_hma_official HMA-15-243 IoU 0.805
+2026-10-01 17:43:44,521 bench_eval INFO M1_hma_official HMA-16-247 IoU 0.759
+2026-10-01 17:45:03,967 bench_eval INFO M1_hma_official HMA-40-143 IoU 0.628
+2026-10-01 17:46:21,857 bench_eval INFO M1_hma_official HMA-41-137 IoU 0.792
+2026-10-01 17:47:40,778 bench_eval INFO M1_hma_official HMA-41-141 IoU 0.292
+2026-10-01 17:49:05,578 bench_eval INFO M1_hma_official HMA-42-139 IoU 0.532
+2026-10-01 17:50:45,485 bench_eval INFO M1_hma_official HMA-42-143 IoU 0.418
+2026-10-01 17:52:22,857 bench_eval INFO M1_hma_official HMA-43-138 IoU 0.678
+2026-10-01 17:53:55,427 bench_eval INFO M1_hma_official HMA-43-141 IoU 0.528
+2026-10-01 17:55:28,505 bench_eval INFO M1_hma_official HMA-44-135 IoU 0.329
+2026-10-01 17:57:01,891 bench_eval INFO M1_hma_official HMA-44-137 IoU 0.469
+2026-10-01 17:58:33,108 bench_eval INFO M1_hma_official HMA-46-136 IoU 0.588
+2026-10-01 18:00:07,042 bench_eval INFO M1_hma_official HMA-46-139 IoU 0.000
+2026-10-01 18:00:52,018 bench_eval INFO M1_hma_official HMA-69-103 IoU 0.245
+2026-10-01 18:02:06,925 bench_eval INFO M1_hma_official HMA-70-100 IoU 0.005
+2026-10-01 18:03:41,152 bench_eval INFO M1_hma_official HMA-70-102 IoU 0.000
+2026-10-02 22:50:30,601 bench_eval INFO M0_global HMA-109-76 IoU 0.853
+2026-10-02 22:53:25,734 bench_eval INFO M0_global HMA-109-85 IoU 0.000
+2026-10-02 22:56:30,267 bench_eval INFO M0_global HMA-110-80 IoU 0.783
+2026-10-02 22:59:39,663 bench_eval INFO M0_global HMA-110-83 IoU 0.405
+2026-10-02 23:03:01,467 bench_eval INFO M0_global HMA-111-78 IoU 0.847
+2026-10-02 23:05:36,086 bench_eval INFO M0_global HMA-112-78 IoU 0.551
+2026-10-02 23:07:14,204 bench_eval INFO M0_global HMA-112-82 IoU 0.385
+2026-10-02 23:08:48,925 bench_eval INFO M0_global HMA-112-83 IoU 0.000
+2026-10-02 23:10:18,450 bench_eval INFO M0_global HMA-112-85 IoU 0.220
+2026-10-02 23:11:47,020 bench_eval INFO M0_global HMA-113-77 IoU 0.677
+2026-10-02 23:13:16,651 bench_eval INFO M0_global HMA-113-83 IoU 0.330
+2026-10-02 23:14:34,189 bench_eval INFO M0_global HMA-128-86 IoU 0.660
+2026-10-02 23:15:52,790 bench_eval INFO M0_global HMA-128-90 IoU 0.694
+2026-10-02 23:17:11,827 bench_eval INFO M0_global HMA-128-92 IoU 0.657
+2026-10-02 23:18:30,193 bench_eval INFO M0_global HMA-129-87 IoU 0.949
+2026-10-02 23:19:49,945 bench_eval INFO M0_global HMA-129-89 IoU 0.713
+2026-10-02 23:21:08,903 bench_eval INFO M0_global HMA-129-90 IoU 0.871
+2026-10-02 23:22:26,558 bench_eval INFO M0_global HMA-13-247 IoU 0.649
+2026-10-02 23:23:44,200 bench_eval INFO M0_global HMA-131-90 IoU 0.200
+2026-10-02 23:25:02,404 bench_eval INFO M0_global HMA-133-90 IoU 0.759
+2026-10-02 23:26:20,237 bench_eval INFO M0_global HMA-133-92 IoU 0.728
+2026-10-02 23:27:09,142 bench_eval INFO M0_global HMA-134-89 IoU 0.255
+2026-10-02 23:27:55,164 bench_eval INFO M0_global HMA-137-88 IoU 0.142
+2026-10-02 23:29:19,770 bench_eval INFO M0_global HMA-14-243 IoU 0.455
+2026-10-02 23:30:52,792 bench_eval INFO M0_global HMA-14-248 IoU 0.751
+2026-10-02 23:32:22,602 bench_eval INFO M0_global HMA-14-249 IoU 0.522
+2026-10-02 23:33:48,168 bench_eval INFO M0_global HMA-15-243 IoU 0.783
+2026-10-02 23:35:14,385 bench_eval INFO M0_global HMA-16-247 IoU 0.722
+2026-10-02 23:36:40,114 bench_eval INFO M0_global HMA-40-143 IoU 0.513
+2026-10-02 23:38:06,683 bench_eval INFO M0_global HMA-41-137 IoU 0.757
+2026-10-02 23:39:33,448 bench_eval INFO M0_global HMA-41-141 IoU 0.077
+2026-10-02 23:40:58,946 bench_eval INFO M0_global HMA-42-139 IoU 0.373
+2026-10-02 23:42:26,625 bench_eval INFO M0_global HMA-42-143 IoU 0.055
+2026-10-02 23:43:55,186 bench_eval INFO M0_global HMA-43-138 IoU 0.643
+2026-10-02 23:45:18,690 bench_eval INFO M0_global HMA-43-141 IoU 0.291
+2026-10-02 23:46:40,692 bench_eval INFO M0_global HMA-44-135 IoU 0.384
+2026-10-02 23:48:01,709 bench_eval INFO M0_global HMA-44-137 IoU 0.123
+2026-10-02 23:49:32,525 bench_eval INFO M0_global HMA-46-136 IoU 0.488
+2026-10-02 23:51:02,063 bench_eval INFO M0_global HMA-46-139 IoU 0.000
+2026-10-02 23:52:29,708 bench_eval INFO M0_global HMA-69-103 IoU 0.114
+2026-10-02 23:53:55,197 bench_eval INFO M0_global HMA-70-100 IoU 0.004
+2026-10-02 23:55:24,938 bench_eval INFO M0_global HMA-70-102 IoU 0.000
+2026-10-02 23:56:52,703 bench_eval INFO M0_global HMA-71-99 IoU 0.639
+2026-10-02 23:58:19,649 bench_eval INFO M0_global HMA-72-99 IoU 0.054
+2026-10-02 23:59:46,965 bench_eval INFO M0_global HMA-73-102 IoU 0.629
+2026-10-03 00:01:16,234 bench_eval INFO M0_global HMA-73-98 IoU 0.298
+2026-10-03 00:02:43,931 bench_eval INFO M0_global HMA-75-101 IoU 0.147
+2026-10-03 00:04:14,217 bench_eval INFO M0_global HMA-76-104 IoU 0.634
+2026-10-03 00:05:51,476 bench_eval INFO M0_global HMA-77-104 IoU 0.797
+2026-10-03 00:07:14,630 bench_eval INFO M0_global HMA-77-96 IoU 0.283
+2026-10-03 00:08:39,041 bench_eval INFO M0_global HMA-77-99 IoU 0.739
+2026-10-03 00:10:06,137 bench_eval INFO M0_global HMA-78-100 IoU 0.789
+2026-10-03 00:11:35,825 bench_eval INFO M0_global HMA-78-99 IoU 0.798
+2026-10-03 00:13:05,853 bench_eval INFO M0_global HMA-79-95 IoU 0.000
+2026-10-03 00:14:36,799 bench_eval INFO M0_global HMA-79-96 IoU 0.590
+2026-10-03 00:16:06,493 bench_eval INFO M0_global HMA-80-103 IoU 0.242
+2026-10-03 00:17:34,950 bench_eval INFO M0_global HMA-80-99 IoU 0.716
+2026-10-03 00:19:08,126 bench_eval INFO M1_hma_official HMA-109-76 IoU 0.859
+2026-10-03 00:20:37,353 bench_eval INFO M1_hma_official HMA-109-85 IoU 0.000
+2026-10-03 00:22:06,030 bench_eval INFO M1_hma_official HMA-110-80 IoU 0.778
+2026-10-03 00:23:32,972 bench_eval INFO M1_hma_official HMA-110-83 IoU 0.852
+2026-10-03 00:25:04,021 bench_eval INFO M1_hma_official HMA-111-78 IoU 0.856
+2026-10-03 00:26:29,042 bench_eval INFO M1_hma_official HMA-112-78 IoU 0.723
+2026-10-03 00:27:52,804 bench_eval INFO M1_hma_official HMA-112-82 IoU 0.536
+2026-10-03 00:29:29,721 bench_eval INFO M1_hma_official HMA-112-83 IoU 0.000
+2026-10-03 00:31:04,127 bench_eval INFO M1_hma_official HMA-112-85 IoU 0.382
+2026-10-03 00:32:36,008 bench_eval INFO M1_hma_official HMA-113-77 IoU 0.818
+2026-10-03 00:34:06,511 bench_eval INFO M1_hma_official HMA-113-83 IoU 0.340
+2026-10-03 00:35:43,872 bench_eval INFO M1_hma_official HMA-128-86 IoU 0.706
+2026-10-03 00:37:17,505 bench_eval INFO M1_hma_official HMA-128-90 IoU 0.755
+2026-10-03 00:38:49,862 bench_eval INFO M1_hma_official HMA-128-92 IoU 0.557
+2026-10-03 00:40:23,528 bench_eval INFO M1_hma_official HMA-129-87 IoU 0.942
+2026-10-03 00:41:57,999 bench_eval INFO M1_hma_official HMA-129-89 IoU 0.821
+2026-10-03 00:43:31,837 bench_eval INFO M1_hma_official HMA-129-90 IoU 0.878
+2026-10-03 00:45:06,193 bench_eval INFO M1_hma_official HMA-13-247 IoU 0.677
+2026-10-03 00:46:32,280 bench_eval INFO M1_hma_official HMA-131-90 IoU 0.302
+2026-10-03 00:47:57,457 bench_eval INFO M1_hma_official HMA-133-90 IoU 0.777
+2026-10-03 00:48:42,231 bench_eval INFO M1_hma_official HMA-133-92 IoU 0.719
+2026-10-03 00:50:06,433 bench_eval INFO M1_hma_official HMA-134-89 IoU 0.826
+2026-10-03 00:51:35,695 bench_eval INFO M1_hma_official HMA-137-88 IoU 0.828
+2026-10-03 00:52:52,385 bench_eval INFO M1_hma_official HMA-14-243 IoU 0.445
+2026-10-03 00:54:04,034 bench_eval INFO M1_hma_official HMA-14-248 IoU 0.728
+2026-10-03 00:55:17,027 bench_eval INFO M1_hma_official HMA-14-249 IoU 0.495
+2026-10-03 00:56:28,319 bench_eval INFO M1_hma_official HMA-15-243 IoU 0.805
+2026-10-03 00:57:39,537 bench_eval INFO M1_hma_official HMA-16-247 IoU 0.759
+2026-10-03 00:58:50,623 bench_eval INFO M1_hma_official HMA-40-143 IoU 0.628
+2026-10-03 01:00:02,790 bench_eval INFO M1_hma_official HMA-41-137 IoU 0.792
+2026-10-03 01:01:15,701 bench_eval INFO M1_hma_official HMA-41-141 IoU 0.292
+2026-10-03 01:02:29,058 bench_eval INFO M1_hma_official HMA-42-139 IoU 0.532
+2026-10-03 01:03:41,352 bench_eval INFO M1_hma_official HMA-42-143 IoU 0.418
+2026-10-03 01:04:55,331 bench_eval INFO M1_hma_official HMA-43-138 IoU 0.678
+2026-10-03 01:06:08,564 bench_eval INFO M1_hma_official HMA-43-141 IoU 0.528
+2026-10-03 01:07:25,897 bench_eval INFO M1_hma_official HMA-44-135 IoU 0.329
+2026-10-03 01:08:34,962 bench_eval INFO M1_hma_official HMA-44-137 IoU 0.469
+2026-10-03 01:09:56,945 bench_eval INFO M1_hma_official HMA-46-136 IoU 0.588
+2026-10-03 01:11:21,340 bench_eval INFO M1_hma_official HMA-46-139 IoU 0.000
+2026-10-03 01:12:43,597 bench_eval INFO M1_hma_official HMA-69-103 IoU 0.245
+2026-10-03 01:14:03,921 bench_eval INFO M1_hma_official HMA-70-100 IoU 0.005
+2026-10-03 01:15:27,773 bench_eval INFO M1_hma_official HMA-70-102 IoU 0.000
+2026-10-03 01:16:49,240 bench_eval INFO M1_hma_official HMA-71-99 IoU 0.736
+2026-10-03 01:18:12,504 bench_eval INFO M1_hma_official HMA-72-99 IoU 0.300
+2026-10-03 01:19:29,627 bench_eval INFO M1_hma_official HMA-73-102 IoU 0.703
+2026-10-03 01:20:46,438 bench_eval INFO M1_hma_official HMA-73-98 IoU 0.640
+2026-10-03 01:22:13,511 bench_eval INFO M1_hma_official HMA-75-101 IoU 0.246
+2026-10-03 01:23:54,783 bench_eval INFO M1_hma_official HMA-76-104 IoU 0.699
+2026-10-03 01:25:38,286 bench_eval INFO M1_hma_official HMA-77-104 IoU 0.718
+2026-10-03 01:27:22,906 bench_eval INFO M1_hma_official HMA-77-96 IoU 0.368
+2026-10-03 01:28:58,848 bench_eval INFO M1_hma_official HMA-77-99 IoU 0.764
+2026-10-03 01:30:29,497 bench_eval INFO M1_hma_official HMA-78-100 IoU 0.830
+2026-10-03 01:32:13,623 bench_eval INFO M1_hma_official HMA-78-99 IoU 0.828
+2026-10-03 01:33:55,087 bench_eval INFO M1_hma_official HMA-79-95 IoU 0.057
+2026-10-03 01:35:26,910 bench_eval INFO M1_hma_official HMA-79-96 IoU 0.693
+2026-10-03 01:36:56,571 bench_eval INFO M1_hma_official HMA-80-103 IoU 0.600
+2026-10-03 01:38:26,719 bench_eval INFO M1_hma_official HMA-80-99 IoU 0.791
+{
+ "M0_global": {
+  "n_tiles": 57,
+  "pooled_iou": 0.6784090268696601,
+  "precision": 0.8984911566616564,
+  "recall": 0.7347214772204705,
+  "f1": 0.808395350607636,
+  "mean_tile_iou": 0.46909303419307624,
+  "median_tile_iou": 0.5220929697917146,
+  "mean_boundary_f1": 0.2658800698065466,
+  "by_subregion": {
+   "HMA1": 0.7005945286460759,
+   "HMA2": 0.6497026701448305,
+   "HMA3": 0.7652118136235387,
+   "HMA4": 0.7324467158371566,
+   "HMA5": 0.538978721712599
+  }
+ },
+ "M1_hma_official": {
+  "n_tiles": 57,
+  "pooled_iou": 0.7479406845851899,
+  "precision": 0.9054722990391323,
+  "recall": 0.8112876712108025,
+  "f1": 0.8557964136668474,
+  "mean_tile_iou": 0.5725950274178653,
+  "median_tile_iou": 0.678265712050115,
+  "mean_boundary_f1": 0.32056329493645147,
+  "by_subregion": {
+   "HMA1": 0.7815053170573417,
+   "HMA2": 0.7106331777479886,
+   "HMA3": 0.8211111341182804,
+   "HMA4": 0.7550120975246604,
+   "HMA5": 0.6374187157197323
+  }
+ },
+ "paired_bootstrap_vs_M0": {
+  "M1_hma_official": {
+   "delta": 0.07020935270432802,
+   "ci95": [
+    0.040440485124463785,
+    0.10743230738583727
+   ]
+  }
+ }
+}
+2026-10-03 03:09:38,063 bench_eval INFO M1_hma_local HMA-109-76 IoU 0.853
+2026-10-03 03:11:38,587 bench_eval INFO M1_hma_local HMA-109-85 IoU 0.000
+2026-10-03 03:13:41,806 bench_eval INFO M1_hma_local HMA-110-80 IoU 0.802
+2026-10-03 03:15:44,125 bench_eval INFO M1_hma_local HMA-110-83 IoU 0.912
+2026-10-03 03:17:44,670 bench_eval INFO M1_hma_local HMA-111-78 IoU 0.859
+2026-10-03 03:19:48,261 bench_eval INFO M1_hma_local HMA-112-78 IoU 0.796
+2026-10-03 03:21:47,283 bench_eval INFO M1_hma_local HMA-112-82 IoU 0.628
+2026-10-03 03:23:27,066 bench_eval INFO M1_hma_local HMA-112-83 IoU 0.082
+2026-10-03 03:25:00,051 bench_eval INFO M1_hma_local HMA-112-85 IoU 0.462
+2026-10-03 13:56:45,536 bench_eval INFO M1_hma_local HMA-109-76 IoU 0.853
+2026-10-03 13:57:35,532 bench_eval INFO M1_hma_local HMA-109-85 IoU 0.000
+2026-10-03 13:59:21,163 bench_eval INFO M1_hma_local HMA-110-80 IoU 0.802
+2026-10-03 14:01:30,036 bench_eval INFO M1_hma_local HMA-110-83 IoU 0.912
+2026-10-03 14:04:51,900 bench_eval INFO M1_hma_local HMA-111-78 IoU 0.859
+2026-10-03 14:08:31,241 bench_eval INFO M1_hma_local HMA-112-78 IoU 0.796
+2026-10-03 14:12:05,943 bench_eval INFO M1_hma_local HMA-112-82 IoU 0.628
+2026-10-03 14:15:45,342 bench_eval INFO M1_hma_local HMA-112-83 IoU 0.082
+2026-10-03 14:19:27,054 bench_eval INFO M1_hma_local HMA-112-85 IoU 0.462
+2026-10-03 14:23:04,051 bench_eval INFO M1_hma_local HMA-113-77 IoU 0.826
+2026-10-03 14:26:47,959 bench_eval INFO M1_hma_local HMA-113-83 IoU 0.503
+2026-10-03 14:30:35,329 bench_eval INFO M1_hma_local HMA-128-86 IoU 0.738
+2026-10-03 14:34:18,212 bench_eval INFO M1_hma_local HMA-128-90 IoU 0.781
+2026-10-03 14:37:54,135 bench_eval INFO M1_hma_local HMA-128-92 IoU 0.686
+2026-10-03 14:40:49,131 bench_eval INFO M1_hma_local HMA-129-87 IoU 0.942
+2026-10-03 14:44:23,069 bench_eval INFO M1_hma_local HMA-129-89 IoU 0.841
+2026-10-03 14:48:03,875 bench_eval INFO M1_hma_local HMA-129-90 IoU 0.879
+2026-10-03 14:51:51,812 bench_eval INFO M1_hma_local HMA-13-247 IoU 0.720
+2026-10-03 14:55:34,569 bench_eval INFO M1_hma_local HMA-131-90 IoU 0.229
+2026-10-03 14:59:14,237 bench_eval INFO M1_hma_local HMA-133-90 IoU 0.781
+2026-10-03 15:03:00,236 bench_eval INFO M1_hma_local HMA-133-92 IoU 0.744
+2026-10-03 15:06:39,266 bench_eval INFO M1_hma_local HMA-134-89 IoU 0.808
+2026-10-03 15:10:16,543 bench_eval INFO M1_hma_local HMA-137-88 IoU 0.852
+2026-10-03 15:13:52,067 bench_eval INFO M1_hma_local HMA-14-243 IoU 0.261
+2026-10-03 15:17:05,774 bench_eval INFO M1_hma_local HMA-14-248 IoU 0.659
+2026-10-03 15:20:36,381 bench_eval INFO M1_hma_local HMA-14-249 IoU 0.383
+2026-10-03 15:24:10,178 bench_eval INFO M1_hma_local HMA-15-243 IoU 0.779
+2026-10-03 15:27:46,350 bench_eval INFO M1_hma_local HMA-16-247 IoU 0.793
+2026-10-03 15:31:09,729 bench_eval INFO M1_hma_local HMA-40-143 IoU 0.697
+2026-10-03 15:34:35,309 bench_eval INFO M1_hma_local HMA-41-137 IoU 0.788
+2026-10-03 15:37:57,447 bench_eval INFO M1_hma_local HMA-41-141 IoU 0.274
+2026-10-03 15:41:20,146 bench_eval INFO M1_hma_local HMA-42-139 IoU 0.567
+2026-10-03 15:43:55,625 bench_eval INFO M1_hma_local HMA-42-143 IoU 0.461
+2026-10-03 15:45:23,966 bench_eval INFO M1_hma_local HMA-43-138 IoU 0.678
+2026-10-03 15:46:52,256 bench_eval INFO M1_hma_local HMA-43-141 IoU 0.502
+2026-10-03 15:48:05,553 bench_eval INFO M1_hma_local HMA-44-135 IoU 0.635
+2026-10-03 15:49:32,458 bench_eval INFO M1_hma_local HMA-44-137 IoU 0.516
+2026-10-03 15:51:02,010 bench_eval INFO M1_hma_local HMA-46-136 IoU 0.459
+2026-10-03 15:52:33,039 bench_eval INFO M1_hma_local HMA-46-139 IoU 0.000
+2026-10-03 15:54:04,315 bench_eval INFO M1_hma_local HMA-69-103 IoU 0.477
+2026-10-03 15:55:36,871 bench_eval INFO M1_hma_local HMA-70-100 IoU 0.248
+2026-10-03 15:57:10,554 bench_eval INFO M1_hma_local HMA-70-102 IoU 0.003
+2026-10-03 15:58:45,038 bench_eval INFO M1_hma_local HMA-71-99 IoU 0.744
+2026-10-03 16:00:17,790 bench_eval INFO M1_hma_local HMA-72-99 IoU 0.455
+2026-10-03 16:01:49,170 bench_eval INFO M1_hma_local HMA-73-102 IoU 0.731
+2026-10-03 16:03:16,065 bench_eval INFO M1_hma_local HMA-73-98 IoU 0.705
+2026-10-03 16:04:39,622 bench_eval INFO M1_hma_local HMA-75-101 IoU 0.355
+2026-10-03 16:05:43,984 bench_eval INFO M1_hma_local HMA-76-104 IoU 0.719
+2026-10-03 16:06:37,358 bench_eval INFO M1_hma_local HMA-77-104 IoU 0.720
+2026-10-03 16:07:30,139 bench_eval INFO M1_hma_local HMA-77-96 IoU 0.404
+2026-10-03 16:08:23,676 bench_eval INFO M1_hma_local HMA-77-99 IoU 0.774
+2026-10-03 16:09:16,709 bench_eval INFO M1_hma_local HMA-78-100 IoU 0.843
+2026-10-03 16:10:09,403 bench_eval INFO M1_hma_local HMA-78-99 IoU 0.807
+2026-10-03 16:11:01,572 bench_eval INFO M1_hma_local HMA-79-95 IoU 0.454
+2026-10-03 16:11:53,927 bench_eval INFO M1_hma_local HMA-79-96 IoU 0.708
+2026-10-03 16:13:03,591 bench_eval INFO M1_hma_local HMA-80-103 IoU 0.589
+2026-10-03 16:14:17,534 bench_eval INFO M1_hma_local HMA-80-99 IoU 0.793
+2026-10-03 16:15:11,326 bench_eval INFO M2_cs_selftrain HMA-109-76 IoU 0.870
+2026-10-03 16:16:02,815 bench_eval INFO M2_cs_selftrain HMA-109-85 IoU 0.000
+2026-10-03 16:16:54,772 bench_eval INFO M2_cs_selftrain HMA-110-80 IoU 0.818
+2026-10-03 16:17:46,335 bench_eval INFO M2_cs_selftrain HMA-110-83 IoU 0.931
+2026-10-03 16:18:37,308 bench_eval INFO M2_cs_selftrain HMA-111-78 IoU 0.868
+2026-10-03 16:19:28,718 bench_eval INFO M2_cs_selftrain HMA-112-78 IoU 0.802
+2026-10-03 16:20:23,475 bench_eval INFO M2_cs_selftrain HMA-112-82 IoU 0.635
+2026-10-03 16:21:22,180 bench_eval INFO M2_cs_selftrain HMA-112-83 IoU 0.327
+2026-10-03 16:22:20,494 bench_eval INFO M2_cs_selftrain HMA-112-85 IoU 0.537
+2026-10-03 16:23:18,035 bench_eval INFO M2_cs_selftrain HMA-113-77 IoU 0.822
+2026-10-03 16:24:15,143 bench_eval INFO M2_cs_selftrain HMA-113-83 IoU 0.546
+2026-10-03 16:25:11,560 bench_eval INFO M2_cs_selftrain HMA-128-86 IoU 0.754
+2026-10-03 16:26:09,383 bench_eval INFO M2_cs_selftrain HMA-128-90 IoU 0.809
+2026-10-03 16:27:06,324 bench_eval INFO M2_cs_selftrain HMA-128-92 IoU 0.683
+2026-10-03 16:28:02,441 bench_eval INFO M2_cs_selftrain HMA-129-87 IoU 0.949
+2026-10-03 16:28:58,593 bench_eval INFO M2_cs_selftrain HMA-129-89 IoU 0.836
+2026-10-03 16:29:54,592 bench_eval INFO M2_cs_selftrain HMA-129-90 IoU 0.887
+2026-10-03 16:30:50,745 bench_eval INFO M2_cs_selftrain HMA-13-247 IoU 0.760
+2026-10-03 16:31:49,018 bench_eval INFO M2_cs_selftrain HMA-131-90 IoU 0.325
+2026-10-03 16:32:49,388 bench_eval INFO M2_cs_selftrain HMA-133-90 IoU 0.789
+2026-10-03 16:33:47,643 bench_eval INFO M2_cs_selftrain HMA-133-92 IoU 0.708
+2026-10-03 16:34:44,905 bench_eval INFO M2_cs_selftrain HMA-134-89 IoU 0.859
+2026-10-03 16:35:41,584 bench_eval INFO M2_cs_selftrain HMA-137-88 IoU 0.874
+2026-10-03 16:36:37,655 bench_eval INFO M2_cs_selftrain HMA-14-243 IoU 0.272
+2026-10-03 16:37:33,122 bench_eval INFO M2_cs_selftrain HMA-14-248 IoU 0.664
+2026-10-03 16:38:29,218 bench_eval INFO M2_cs_selftrain HMA-14-249 IoU 0.445
+2026-10-03 16:39:25,395 bench_eval INFO M2_cs_selftrain HMA-15-243 IoU 0.806
+2026-10-03 16:40:23,466 bench_eval INFO M2_cs_selftrain HMA-16-247 IoU 0.792
+2026-10-03 16:41:19,899 bench_eval INFO M2_cs_selftrain HMA-40-143 IoU 0.721
+2026-10-03 16:42:15,348 bench_eval INFO M2_cs_selftrain HMA-41-137 IoU 0.822
+2026-10-03 16:43:10,007 bench_eval INFO M2_cs_selftrain HMA-41-141 IoU 0.457
+2026-10-03 16:44:04,763 bench_eval INFO M2_cs_selftrain HMA-42-139 IoU 0.635
+2026-10-03 16:44:57,520 bench_eval INFO M2_cs_selftrain HMA-42-143 IoU 0.434
+2026-10-03 16:45:49,517 bench_eval INFO M2_cs_selftrain HMA-43-138 IoU 0.707
+2026-10-03 16:46:42,434 bench_eval INFO M2_cs_selftrain HMA-43-141 IoU 0.553
+2026-10-03 16:47:36,322 bench_eval INFO M2_cs_selftrain HMA-44-135 IoU 0.616
+2026-10-03 16:48:30,324 bench_eval INFO M2_cs_selftrain HMA-44-137 IoU 0.524
+2026-10-03 16:49:24,501 bench_eval INFO M2_cs_selftrain HMA-46-136 IoU 0.499
+2026-10-03 16:50:20,191 bench_eval INFO M2_cs_selftrain HMA-46-139 IoU 0.000
+2026-10-03 16:51:15,454 bench_eval INFO M2_cs_selftrain HMA-69-103 IoU 0.529
+2026-10-03 16:52:10,283 bench_eval INFO M2_cs_selftrain HMA-70-100 IoU 0.314
+2026-10-03 16:53:04,207 bench_eval INFO M2_cs_selftrain HMA-70-102 IoU 0.000
+2026-10-03 16:53:57,270 bench_eval INFO M2_cs_selftrain HMA-71-99 IoU 0.744
+2026-10-03 16:54:50,643 bench_eval INFO M2_cs_selftrain HMA-72-99 IoU 0.549
+2026-10-03 16:55:44,702 bench_eval INFO M2_cs_selftrain HMA-73-102 IoU 0.757
+2026-10-03 16:56:38,599 bench_eval INFO M2_cs_selftrain HMA-73-98 IoU 0.662
+2026-10-03 16:57:33,076 bench_eval INFO M2_cs_selftrain HMA-75-101 IoU 0.398
+2026-10-03 16:58:27,896 bench_eval INFO M2_cs_selftrain HMA-76-104 IoU 0.737
+2026-10-03 16:59:21,995 bench_eval INFO M2_cs_selftrain HMA-77-104 IoU 0.720
+2026-10-03 17:00:16,571 bench_eval INFO M2_cs_selftrain HMA-77-96 IoU 0.407
+2026-10-03 17:01:10,951 bench_eval INFO M2_cs_selftrain HMA-77-99 IoU 0.777
+2026-10-03 17:02:04,823 bench_eval INFO M2_cs_selftrain HMA-78-100 IoU 0.855
+2026-10-03 17:02:59,234 bench_eval INFO M2_cs_selftrain HMA-78-99 IoU 0.844
+2026-10-03 17:03:52,818 bench_eval INFO M2_cs_selftrain HMA-79-95 IoU 0.632
+2026-10-03 17:04:46,217 bench_eval INFO M2_cs_selftrain HMA-79-96 IoU 0.728
+2026-10-03 17:05:39,266 bench_eval INFO M2_cs_selftrain HMA-80-103 IoU 0.636
+2026-10-03 17:06:33,249 bench_eval INFO M2_cs_selftrain HMA-80-99 IoU 0.822
+{
+ "M0_global": {
+  "n_tiles": 57,
+  "pooled_iou": 0.6784090268696601,
+  "precision": 0.8984911566616564,
+  "recall": 0.7347214772204705,
+  "f1": 0.808395350607636,
+  "mean_tile_iou": 0.46909303419307624,
+  "median_tile_iou": 0.5220929697917146,
+  "mean_boundary_f1": 0.26588006980654655,
+  "by_subregion": {
+   "HMA1": 0.7005945286460759,
+   "HMA2": 0.6497026701448305,
+   "HMA3": 0.7652118136235387,
+   "HMA4": 0.7324467158371566,
+   "HMA5": 0.538978721712599
+  }
+ },
+ "M1_hma_local": {
+  "n_tiles": 57,
+  "pooled_iou": 0.7583725530473452,
+  "precision": 0.8856402750686053,
+  "recall": 0.8406988968020777,
+  "f1": 0.8625846118139738,
+  "mean_tile_iou": 0.6088645626042137,
+  "median_tile_iou": 0.7046979865771812,
+  "mean_boundary_f1": 0.33535508026034844,
+  "by_subregion": {
+   "HMA1": 0.8088780938008618,
+   "HMA2": 0.7305215906142749,
+   "HMA3": 0.8231777263971926,
+   "HMA4": 0.7412785609338229,
+   "HMA5": 0.643467377419902
+  }
+ },
+ "M1_hma_official": {
+  "n_tiles": 57,
+  "pooled_iou": 0.7479406845851899,
+  "precision": 0.9054722990391323,
+  "recall": 0.8112876712108025,
+  "f1": 0.8557964136668474,
+  "mean_tile_iou": 0.5725950274178653,
+  "median_tile_iou": 0.678265712050115,
+  "mean_boundary_f1": 0.32056329493645147,
+  "by_subregion": {
+   "HMA1": 0.7815053170573417,
+   "HMA2": 0.7106331777479886,
+   "HMA3": 0.8211111341182804,
+   "HMA4": 0.7550120975246604,
+   "HMA5": 0.6374187157197323
+  }
+ },
+ "M2_cs_selftrain": {
+  "n_tiles": 57,
+  "pooled_iou": 0.7788330567646041,
+  "precision": 0.8818559893188935,
+  "recall": 0.8695650597524417,
+  "f1": 0.8756673975703706,
+  "mean_tile_iou": 0.6394155951992304,
+  "median_tile_iou": 0.708457513742632,
+  "mean_boundary_f1": 0.38109809682578194,
+  "by_subregion": {
+   "HMA1": 0.8223739511630684,
+   "HMA2": 0.7536148711219861,
+   "HMA3": 0.8339278838330705,
+   "HMA4": 0.755746236961639,
+   "HMA5": 0.6845992241326925
+  }
+ },
+ "paired_bootstrap_vs_M0": {
+  "M1_hma_local": {
+   "delta": 0.08070711512638118,
+   "ci95": [
+    0.04688867390745162,
+    0.12447767536129713
+   ]
+  },
+  "M1_hma_official": {
+   "delta": 0.07020935270432802,
+   "ci95": [
+    0.040440485124463785,
+    0.10743230738583727
+   ]
+  },
+  "M2_cs_selftrain": {
+   "delta": 0.10124614527563473,
+   "ci95": [
+    0.06444777757553513,
+    0.14776152756434896
+   ]
+  }
+ }
+}

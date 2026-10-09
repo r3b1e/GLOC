@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://drive.google.com/uc?id=1_o_uJE3mq8JKysxGGaEPQSz6EeO-WMtG",
+    "path": "gsgm_test_DEMO.hdf5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1SnHsIUsazZVI7PsiDRGJuEyopKYp6Pad",
+    "path": "gsgm_train_DEMO.hdf5"
+  },
+  {
+    "url": "https://drive.google.com/uc?id=1iIScTtkmzjW87iK7ZB8DvmkdYSsNSIq-",
+    "path": "gsgm_val_DEMO.hdf5"
+  }
+]

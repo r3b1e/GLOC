@@ -1,0 +1,59 @@
+{
+  "primary_model": "M2_cs_selftrain",
+  "models": [
+    "M0_global",
+    "M1_hma_official",
+    "M1_hma_local",
+    "M2_cs_selftrain",
+    "M3_hma_sar"
+  ],
+  "area_trend_km2_per_yr": {
+    "M0_global": [
+      -0.08945598429645121,
+      [
+        -0.45566713825550964,
+        0.27675516966260727
+      ]
+    ],
+    "M1_hma_official": [
+      -0.1799400467267731,
+      [
+        -0.3838461257569361,
+        0.023966032303389923
+      ]
+    ],
+    "M1_hma_local": [
+      -0.024203637738031608,
+      [
+        -0.3171971978356948,
+        0.2687899223596316
+      ]
+    ],
+    "M2_cs_selftrain": [
+      -0.1591576591572194,
+      [
+        -0.40234596384816895,
+        0.08403064553373013
+      ]
+    ],
+    "M3_hma_sar": [
+      -0.11415254105320514,
+      [
+        -0.6107970717763161,
+        0.3824919896699059
+      ]
+    ]
+  },
+  "any_significant_area_trend": false,
+  "terminus_2021_2025": {
+    "median_centerline_m": 110.0,
+    "min_centerline_m": 70.0,
+    "max_centerline_m": 130.0,
+    "median_centerline_m_per_yr": 27.80470914127455,
+    "median_box_m": 80.34435131919054,
+    "min_box_m": 73.43975862769753,
+    "max_box_m": 160.06101239370014,
+    "median_box_m_per_yr": 20.30864835976792,
+    "all_models_retreat_box": true
+  }
+}

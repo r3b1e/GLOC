@@ -1,0 +1,9 @@
+# M0 - official global GlaViTU (no training in this project; authors' checkpoint)
+model: GlaViTU
+source: https://github.com/konstantin-a-maslov/towards_global_glacier_mapping @ 8c4eead670ef64764f8db2708bba3c8bbbfc67bb
+weights: models/pretrained/glavitu_global_weights.h5     # sha256 in models/pretrained/SHA256SUMS
+features: [optical, dem]          # 6 TOA bands + elevation + slope = 8 channels
+normalisation: third_party/glavitu/utils/dataset_stats.pickle (min-max)
+patch_size: 384
+inference: {stride: 192, blending: gaussian, device: cpu}
+paper: Maslov et al. 2025, Nat. Commun. 16:43, doi:10.1038/s41467-024-54956-x

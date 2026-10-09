@@ -1,0 +1,77 @@
+{
+  "model": "M0_global",
+  "weights": "models/pretrained/glavitu_global_weights.h5",
+  "year": 2017,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2017-09-12",
+    "dates": [
+      "2017-08-23",
+      "2017-09-12",
+      "2017-10-02"
+    ],
+    "l1c_products": [
+      "S2B_MSIL1C_20170823T052639_N0205_R105_T43SGR_20170823T053051.SAFE",
+      "S2B_MSIL1C_20170912T052639_N0500_R105_T43SGR_20230928T035844.SAFE",
+      "S2B_MSIL1C_20171002T052629_N0500_R105_T43SGR_20231012T043839.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "10-15"
+    ]
+  },
+  "area_km2": 12.8654,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 4,
+    "n_holes": 2,
+    "raster_area_km2": 12.8654,
+    "vector_area_km2": 12.8654,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 119.7,
+  "ensemble": {
+    "n_scenes": 3,
+    "scenes_used": [
+      "2017-08-23",
+      "2017-09-12",
+      "2017-10-02"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 4.507845300000002,
+    "all_scene_areas_km2": {
+      "2017-08-23": 13.949,
+      "2017-09-12": 12.4085,
+      "2017-10-02": 11.395
+    },
+    "scene_areas_km2": {
+      "2017-08-23": 13.949,
+      "2017-09-12": 12.4085,
+      "2017-10-02": 11.395
+    },
+    "area_std_km2": 1.5026151000000008,
+    "area_sd_plain_km2": 1.2860299698425903,
+    "area_range_km2": 2.5540000000000003,
+    "invalid_frac_domain": 0.010771809208947217,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.5161,
+    "single_obs_km2_domain": 2.2091,
+    "mean_valid_obs_domain": 2.774689483449901
+  },
+  "mean_confidence_in_domain": 0.11534872651100159,
+  "frac_uncertain_in_domain": 0.9892281907910527,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.7540909871041434,
+    "f1": 0.8598082911868603,
+    "precision": 0.9904005347718281,
+    "recall": 0.7596432446611897,
+    "area_pred_km2": 12.8653,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -3.9080999999999992,
+    "rel_area_error": -0.23299390701944744,
+    "boundary_f1": 0.3198938638871815,
+    "mean_boundary_dist_m": 74.08515318982168,
+    "p95_boundary_dist_m": 262.48809496813374,
+    "hausdorff_m": 1140.6138698087098
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "year": 2021,
+  "window": [
+    "08-15",
+    "09-15"
+  ],
+  "quantity": "sigma0 ~ gamma0_T*cos(inc), linear",
+  "band_order": [
+    "ascending",
+    "descending"
+  ],
+  "scenes": [
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210912T125631_20210912T125656_039649_04B016_rtc",
+      "date": "2021-09-12",
+      "orbit_state": "ascending",
+      "relative_orbit": 27,
+      "incidence_mean_deg": 45.41725540161133,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210908T005131_20210908T005156_039583_04ADCE_rtc",
+      "date": "2021-09-08",
+      "orbit_state": "descending",
+      "relative_orbit": 136,
+      "incidence_mean_deg": 37.96450424194336,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210907T124821_20210907T124846_039576_04AD9A_rtc",
+      "date": "2021-09-07",
+      "orbit_state": "ascending",
+      "relative_orbit": 129,
+      "incidence_mean_deg": 34.16558074951172,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210827T005131_20210827T005156_039408_04A7BA_rtc",
+      "date": "2021-08-27",
+      "orbit_state": "descending",
+      "relative_orbit": 136,
+      "incidence_mean_deg": 37.96296310424805,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210826T124821_20210826T124846_039401_04A784_rtc",
+      "date": "2021-08-26",
+      "orbit_state": "ascending",
+      "relative_orbit": 129,
+      "incidence_mean_deg": 34.16864013671875,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210819T125630_20210819T125655_039299_04A40A_rtc",
+      "date": "2021-08-19",
+      "orbit_state": "ascending",
+      "relative_orbit": 27,
+      "incidence_mean_deg": 45.41364669799805,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    },
+    {
+      "id": "S1A_IW_GRDH_1SDV_20210815T005130_20210815T005155_039233_04A1BF_rtc",
+      "date": "2021-08-15",
+      "orbit_state": "descending",
+      "relative_orbit": 136,
+      "incidence_mean_deg": 37.964317321777344,
+      "incidence_from_annotation": true,
+      "valid_frac": 1.0
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+2026-10-03 19:42:01,923 pyogrio._io INFO Created 5 records
+2026-10-03 19:42:01,928 pyogrio._io INFO Created 1 records
+ year       date  n_scenes  area_km2  sigma_area_km2  dA_cum_km2  sigma_dA_cum_km2  loss_cum_pct  rate_cum_km2_per_yr
+ 2017 2017-09-12         3    12.538           2.042       0.000               NaN         0.000                  NaN
+ 2019 2019-09-17         5    12.998           3.366       0.460             3.340        -3.671                0.229
+ 2021 2021-09-26         5    13.265           2.093       0.727             2.253        -5.801                0.180
+ 2023 2023-09-01         7    14.273           1.928       1.736             2.136       -13.843                0.291
+ 2025 2025-09-25         5    12.874           1.252       0.336             1.636        -2.682                0.042
+ year  terminus_s_m  retreat_cum_centerline_m  retreat_cum_box_m  sigma_retreat_cum_m
+ 2017        2430.0                      -0.0               -0.0                 14.3
+ 2019        1360.0                    1070.0              381.6                 14.3
+ 2021         550.0                    1880.0              277.4                 14.2
+ 2023        9550.0                   -7120.0              247.3                 14.3
+ 2025         670.0                    1760.0              418.0                 14.3
+year-of-loss km2: {-2025: 0.0602, -2023: 0.169, -2021: 0.2789, -2019: 0.5229, 1: 11.3491, 2: 1.8278, 2019: 0.1209, 2021: 0.0303, 2023: 0.025, 2025: 0.5186}
+area summary: {
+ "wls_trend_km2_per_yr": 0.002178084022774142,
+ "wls_trend_se_km2_per_yr": 0.09915106758244702,
+ "wls_trend_ci95": [
+  -0.3133648646699196,
+  0.31772103271546787
+ ],
+ "wls_trend_pct_per_yr_of_mean_area": 0.016513797532382943
+}
+2026-10-03 19:42:02,823 patterns INFO baseline 12.538 km2, lost 0.695 km2, retained 11.349 km2, unstable 0.494 km2
+--- loss by elevation
+      cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+4300-4400             0.0555         0.0555         1.0000          17.3343
+4400-4500             0.2116         0.0834         0.3941           6.8322
+4500-4600             0.6161         0.1508         0.2448           4.2428
+4600-4700             1.0848         0.0684         0.0631           1.0930
+4700-4800             1.1752         0.0229         0.0195           0.3378
+4800-4900             1.3671         0.0748         0.0547           0.9484
+4900-5000             2.0437         0.1136         0.0556           0.9635
+5000-5100             1.6304         0.0464         0.0285           0.4933
+5100-5200             1.5312         0.0389         0.0254           0.4404
+5200-5300             1.1411         0.0253         0.0222           0.3843
+5300-5400             0.5378         0.0106         0.0197           0.3417
+5400-5500             0.3837         0.0038         0.0099           0.1717
+5500-5600             0.2069         0.0004         0.0019           0.0335
+5600-5700             0.0588         0.0000         0.0000           0.0000
+--- loss by slope
+  cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+  0-5             1.8785         0.0431         0.0229           0.3977
+ 5-10             3.9729         0.2381         0.0599           1.0389
+10-15             1.9169         0.1222         0.0637           1.1050
+15-20             1.3587         0.0760         0.0559           0.9696
+20-25             1.2344         0.0745         0.0604           1.0462
+25-30             0.8706         0.0475         0.0546           0.9458
+30-40             0.7294         0.0708         0.0971           1.6826
+  >40             0.0825         0.0226         0.2739           4.7486
+--- loss by aspect
+cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+  N             0.2926         0.0203         0.0694           1.2026
+ NE             0.6926         0.0487         0.0703           1.2189
+  E             1.5934         0.1318         0.0827           1.4338
+ SE             2.2946         0.1521         0.0663           1.1490
+  S             3.3111         0.1477         0.0446           0.7732
+ SW             1.9844         0.1071         0.0540           0.9356
+  W             1.0954         0.0455         0.0415           0.7200
+ NW             0.7798         0.0416         0.0533           0.9247
+--- loss by terminus_distance
+     cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+   0-250             0.0911         0.0012         0.0132           0.2283
+ 250-500             0.2924         0.0043         0.0147           0.2549
+500-1000             0.8242         0.0305         0.0370           0.6415
+  1-2 km             2.3103         0.1274         0.0551           0.9559
+  2-4 km             4.3506         0.3134         0.0720           1.2487
+  4-8 km             4.1753         0.2180         0.0522           0.9051
+   >8 km             0.0000         0.0000            NaN              NaN
+{
+ "n_pixels": 120439,
+ "n_lost": 6948,
+ "pseudo_r2": 0.4995253080426443,
+ "spatial_block_cv_auc_mean": 0.9538173295461062,
+ "spatial_block_cv_auc_folds": [
+  0.9581937495653826,
+  0.9832922022087972,
+  0.9609341225231259,
+  0.9392034967091225,
+  0.927463076724103
+ ],
+ "block_m": 1000,
+ "note": "Descriptive model of observed loss between epochs; not a forecast. Pixel-level p-values and CIs ignore spatial autocorrelation (overconfident); use the spatial-block CV AUC for skill. dist_margin is near-tautological (loss occurs at margins); interpret the other terms."
+}
+{
+ "elevation": {
+  "beta_std": -1.8429680774236978,
+  "ci_low": -1.8913419299144485,
+  "ci_high": -1.7945942249329472,
+  "p": 0.0
+ },
+ "slope": {
+  "beta_std": 0.558908026672497,
+  "ci_low": 0.5240125634179754,
+  "ci_high": 0.5938034899270185,
+  "p": 2.5989107456858228e-216
+ },
+ "aspect_sin": {
+  "beta_std": 0.1791005971361836,
+  "ci_low": 0.14647753906661376,
+  "ci_high": 0.21172365520575342,
+  "p": 5.3053298437713886e-27
+ },
+ "aspect_cos": {
+  "beta_std": 0.6023833634901111,
+  "ci_low": 0.5665606009617161,
+  "ci_high": 0.6382061260185061,
+  "p": 3.240024268710909e-238
+ },
+ "dist_terminus": {
+  "beta_std": 0.01134084687986725,
+  "ci_low": -0.02464122081060187,
+  "ci_high": 0.04732291457033637,
+  "p": 0.5367451104027989
+ },
+ "dist_margin": {
+  "beta_std": -5.452968675890341,
+  "ci_low": -5.600826927925939,
+  "ci_high": -5.305110423854743,
+  "p": 0.0
+ }
+}
+/Users/sunny/Apsit/GLOF/outputs/figures/study_area.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_area_timeseries.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_terminus_retreat.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_yearly_outlines.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_terminus_zoom.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_year_of_loss.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_patterns.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_hotspots.png
+2026-10-03 22:13:59,228 pyogrio._io INFO Created 5 records
+2026-10-03 22:13:59,234 pyogrio._io INFO Created 1 records
+ year       date  n_scenes  area_km2  sigma_area_km2  dA_cum_km2  sigma_dA_cum_km2  loss_cum_pct  rate_cum_km2_per_yr
+ 2017 2017-09-12         3    12.865           2.116       0.000               NaN         0.000                  NaN
+ 2019 2019-09-17         5    12.999           3.367       0.133             3.346        -1.035                0.066
+ 2021 2021-09-26         5    13.265           2.093       0.400             2.274        -3.105                0.099
+ 2023 2023-09-01         7    14.273           1.928       1.408             2.160       -10.943                0.236
+ 2025 2025-09-25         5    12.874           1.252       0.008             1.673        -0.065                0.001
+ year  terminus_s_m  retreat_cum_centerline_m  retreat_cum_box_m  sigma_retreat_cum_m
+ 2017        2430.0                      -0.0               -0.0                 14.3
+ 2019        1360.0                    1070.0              381.6                 14.3
+ 2021         550.0                    1880.0              277.4                 14.2
+ 2023        9550.0                   -7120.0              247.3                 14.3
+ 2025         670.0                    1760.0              418.0                 14.3
+year-of-loss km2: {-2025: 0.0569, -2023: 0.162, -2021: 0.2132, -2019: 0.2903, 1: 11.5824, 2: 1.9022, 2019: 0.1392, 2021: 0.0303, 2023: 0.025, 2025: 0.5195}
+area summary: {
+ "wls_trend_km2_per_yr": -0.029481372440027694,
+ "wls_trend_se_km2_per_yr": 0.09351379736507824,
+ "wls_trend_ci95": [
+  -0.32708401135757026,
+  0.2681212664775149
+ ],
+ "wls_trend_pct_per_yr_of_mean_area": -0.22241397280178538
+}
+2026-10-03 22:14:00,100 patterns INFO baseline 12.865 km2, lost 0.714 km2, retained 11.582 km2, unstable 0.569 km2
+--- loss by elevation
+      cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+4300-4400             0.0555         0.0555         1.0000          17.2218
+4400-4500             0.2116         0.0834         0.3941           6.7878
+4500-4600             0.6161         0.1508         0.2448           4.2153
+4600-4700             1.0848         0.0684         0.0631           1.0859
+4700-4800             1.1752         0.0229         0.0195           0.3356
+4800-4900             1.3671         0.0748         0.0547           0.9423
+4900-5000             2.0437         0.1136         0.0556           0.9573
+5000-5100             1.6304         0.0464         0.0285           0.4901
+5100-5200             1.5319         0.0389         0.0254           0.4373
+5200-5300             1.1411         0.0253         0.0222           0.3818
+5300-5400             0.5378         0.0106         0.0197           0.3394
+5400-5500             0.3837         0.0038         0.0099           0.1706
+5500-5600             0.2086         0.0004         0.0019           0.0330
+5600-5700             0.2777         0.0039         0.0140           0.2419
+5700-5800             0.0312         0.0153         0.4904           8.4453
+--- loss by slope
+  cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+  0-5             1.8792         0.0431         0.0229           0.3950
+ 5-10             4.0000         0.2385         0.0596           1.0269
+10-15             1.9694         0.1235         0.0627           1.0800
+15-20             1.4182         0.0793         0.0559           0.9630
+20-25             1.2905         0.0786         0.0609           1.0489
+25-30             0.9080         0.0518         0.0570           0.9825
+30-40             0.7477         0.0765         0.1023           1.7620
+  >40             0.0834         0.0227         0.2722           4.6875
+--- loss by aspect
+cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+  N             0.3311         0.0224         0.0677           1.1651
+ NE             0.7408         0.0521         0.0703           1.2112
+  E             1.7074         0.1387         0.0812           1.3990
+ SE             2.3249         0.1532         0.0659           1.1348
+  S             3.3116         0.1479         0.0447           0.7691
+ SW             1.9857         0.1075         0.0541           0.9323
+  W             1.0963         0.0458         0.0418           0.7195
+ NW             0.7986         0.0464         0.0581           1.0006
+--- loss by terminus_distance
+     cls  baseline_area_km2  lost_area_km2  loss_fraction  loss_enrichment
+   0-250             0.0911         0.0012         0.0132           0.2269
+ 250-500             0.2924         0.0043         0.0147           0.2533
+500-1000             0.8242         0.0305         0.0370           0.6373
+  1-2 km             2.3103         0.1274         0.0551           0.9497
+  2-4 km             4.3513         0.3134         0.0720           1.2404
+  4-8 km             4.4271         0.2372         0.0536           0.9227
+   >8 km             0.0000         0.0000            NaN              NaN
+{
+ "n_pixels": 122964,
+ "n_lost": 7140,
+ "pseudo_r2": 0.4763225077427702,
+ "spatial_block_cv_auc_mean": 0.9442748479354887,
+ "spatial_block_cv_auc_folds": [
+  0.964556929093319,
+  0.9839052606894395,
+  0.9323373632152882,
+  0.9449989345280302,
+  0.8955757521513663
+ ],
+ "block_m": 1000,
+ "note": "Descriptive model of observed loss between epochs; not a forecast. Pixel-level p-values and CIs ignore spatial autocorrelation (overconfident); use the spatial-block CV AUC for skill. dist_margin is near-tautological (loss occurs at margins); interpret the other terms."
+}
+{
+ "elevation": {
+  "beta_std": -1.671600461903304,
+  "ci_low": -1.7173133277513006,
+  "ci_high": -1.6258875960553074,
+  "p": 0.0
+ },
+ "slope": {
+  "beta_std": 0.4611264120436012,
+  "ci_low": 0.42775023529805123,
+  "ci_high": 0.4945025887891512,
+  "p": 1.7437946377742662e-161
+ },
+ "aspect_sin": {
+  "beta_std": 0.16125708183326623,
+  "ci_low": 0.1294499410283338,
+  "ci_high": 0.19306422263819867,
+  "p": 2.8821200858217136e-23
+ },
+ "aspect_cos": {
+  "beta_std": 0.5651969809671626,
+  "ci_low": 0.5306491871785444,
+  "ci_high": 0.5997447747557809,
+  "p": 1.3683820207193192e-225
+ },
+ "dist_terminus": {
+  "beta_std": 0.12259899769365973,
+  "ci_low": 0.08783699384435036,
+  "ci_high": 0.15736100154296911,
+  "p": 4.764499357662746e-12
+ },
+ "dist_margin": {
+  "beta_std": -5.379975587800951,
+  "ci_low": -5.5228214618928355,
+  "ci_high": -5.237129713709066,
+  "p": 0.0
+ }
+}
+/Users/sunny/Apsit/GLOF/outputs/figures/study_area.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_area_timeseries.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_terminus_retreat.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_yearly_outlines.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_terminus_zoom.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_year_of_loss.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_patterns.png
+/Users/sunny/Apsit/GLOF/outputs/figures/M0_global_fullwindow_hotspots.png

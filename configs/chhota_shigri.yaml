@@ -1,0 +1,79 @@
+# Study-site configuration for Chhota Shigri Glacier (Himachal Pradesh, India).
+# Every processing step reads its parameters from here; nothing is hard-coded per year.
+
+site:
+  name: chhota_shigri
+  rgi6_id: RGI60-14.15990
+  rgi7_id: RGI2000-v7.0-G-14-30579
+  glims_ids: [G077508E32224N, G077513E32227N]   # RGI6 and RGI7 GLIMS ids for the same glacier
+  # NB: the commonly quoted "32.28N 77.58E" lies at the Bara Shigri terminus in RGI7;
+  # the ROI is therefore derived from the inventory polygon, never from a point buffer.
+
+grid:
+  crs: EPSG:32643          # UTM 43N, native CRS of Sentinel-2 tile 43SGR
+  resolution: 10           # metres; S2 20 m bands (B11, B12) are resampled to 10 m
+  roi_buffer_m: 2500       # buffer around the RGI7 outline that defines the raster ROI
+  domain_buffer_m: 1000    # buffer around RGI7 outline in which glacier pixels are counted
+
+inventories:
+  wfs: https://www.glims.org/geoserver/ows
+  bbox_lonlat: [77.40, 32.10, 77.75, 32.40]
+
+sentinel2:
+  stac: https://planetarycomputer.microsoft.com/api/stac/v1
+  l2a_collection: sentinel-2-l2a     # used for scene discovery and SCL-based ROI screening only
+  l1c_bucket: https://storage.googleapis.com/gcp-public-data-sentinel-2   # TOA source (model domain)
+  mgrs_tile: 43SGR
+  years: [2017, 2019, 2021, 2023, 2025]
+  window: ["09-01", "10-15"]         # end of ablation season
+  window_fallback: ["08-15", "10-31"]
+  bands: [B02, B03, B04, B08, B11, B12]
+  max_roi_cloud_frac: 0.02           # max cloud + shadow fraction over the glacier domain
+  max_roi_nodata_frac: 0.0
+  s2cloudless_threshold: 0.4         # s2cloudless default probability threshold
+  cloud_dilation_px: 0          # s2cloudless mask already includes 2 px (40 m) dilation
+
+ensemble:
+  # Option A: multi-date ensemble per year. Surface-condition variability (snow dusting vs exposed
+  # debris on margins) changes single-scene area by ~1 km2 (2023-09-11 vs 2025-08-21), so every
+  # usable scene is mapped and combined per pixel.
+  window: ["08-15", "10-15"]        # scene discovery window (same for every year)
+  # Primary ensemble window. Revised after diagnostics (docs/methodology.md, 2026-10-01): scenes after
+  # mid-September (autumn snowfall, low sun) map 1.5-4.6 km2 too little glacier in 2019-2023; scenes
+  # 15 Aug-15 Sep agree within ~0.7 km2. The full window is kept as a sensitivity run ("_fullwindow").
+  window_core: ["08-15", "09-15"]
+  max_scl_cloud_prescreen: 0.6      # cheap SCL prescreen (SCL over-flags bright ice as cloud)
+  max_cloud: 0.5                    # s2cloudless cloud fraction over the domain
+  max_offglacier_snow: 0.45         # exclude fresh-snowfall scenes
+  min_valid_obs: 1                  # per-pixel min clear core-window obs (was 2: forced cloudy pixels of
+                                    # 2-scene years to non-glacier, -0.7 km2 bias in 2017); 0-obs -> same-year gap fill
+  combine: median
+  outlier_k: 3.0                    # reject scenes with |A - median| > max(k * 1.4826 MAD, floor)
+  outlier_floor_km2: 0.5
+
+dem:
+  collection: cop-dem-glo-30
+  resampling: bilinear
+
+model:
+  repo: third_party/glavitu
+  patch_size: 384
+  batch_size: 4
+  weights:
+    M0_global: models/pretrained/glavitu_global_weights.h5
+    M1_hma_official: models/pretrained/glavitu_finetuning_HMA_weights.h5
+    M1_hma_regional_official: models/pretrained/glavitu_regional_HMA_weights.h5
+
+postprocessing:
+  prob_threshold: 0.5
+  median_smoothing: 3
+  min_object_px: 100        # 0.01 km2 at 10 m
+  min_hole_px: 50
+
+pseudo_labels:
+  confident_glacier: 0.95
+  confident_background: 0.05
+  min_temporal_agreement: 3   # training years whose median P must agree
+  scene_agreement: 0.6        # fraction of clear scenes that must be confident
+
+seed: 42

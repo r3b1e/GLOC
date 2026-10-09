@@ -1,0 +1,72 @@
+{
+  "model": "M3_hma_sar",
+  "weights": "models/sar/M3_hma_sar_weights.h5",
+  "year": 2019,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2019-09-07",
+    "dates": [
+      "2019-08-28",
+      "2019-09-07"
+    ],
+    "l1c_products": [
+      "S2A_MSIL1C_20190828T052651_N0208_R105_T43SGR_20190828T092024.SAFE",
+      "S2A_MSIL1C_20190907T052651_N0208_R105_T43SGR_20190907T082858.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 16.0544,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 1,
+    "n_holes": 8,
+    "raster_area_km2": 16.0544,
+    "vector_area_km2": 16.0544,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 217.6,
+  "ensemble": {
+    "n_scenes": 2,
+    "scenes_used": [
+      "2019-08-28",
+      "2019-09-07"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 1.7837901900000024,
+    "all_scene_areas_km2": {
+      "2019-08-28": 15.4915,
+      "2019-09-07": 16.2936
+    },
+    "scene_areas_km2": {
+      "2019-08-28": 15.4915,
+      "2019-09-07": 16.2936
+    },
+    "area_std_km2": 0.5671703491897305,
+    "area_sd_plain_km2": 0.5671703491897305,
+    "area_range_km2": 0.8021000000000011,
+    "invalid_frac_domain": 0.00010018346096288829,
+    "gap_filled_km2_domain": 0.5193,
+    "unobserved_km2_domain": 0.0048,
+    "single_obs_km2_domain": 3.1384,
+    "mean_valid_obs_domain": 1.9126191504859942
+  },
+  "mean_confidence_in_domain": 0.11364923417568207,
+  "frac_uncertain_in_domain": 0.9998998165390371,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.8471376644422187,
+    "f1": 0.9172436692183735,
+    "precision": 0.9377861382931676,
+    "recall": 0.8975818856045882,
+    "area_pred_km2": 16.0543,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -0.7190999999999974,
+    "rel_area_error": -0.04287145122634633,
+    "boundary_f1": 0.47025419743490615,
+    "mean_boundary_dist_m": 46.7168670943188,
+    "p95_boundary_dist_m": 190.3809892805563,
+    "hausdorff_m": 898.9994438263018
+  }
+}

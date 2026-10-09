@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 118, in main
+    train, val = build_loaders(ROOT / a.train, ROOT / a.val, a.features, a.batch, patch, a.label_smoothing,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 74, in build_loaders
+    train_plugins.append(MaskedLabelSmoothing(label_smoothing).build() if ignore_unlabelled
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 48, in build
+    class _P(dataloaders.plugins.plugins.Plugin):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'dataloaders.plugins.plugins' has no attribute 'plugins'. Did you mean: 'Plugin'?
+RETRY 1 after failure
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 118, in main
+    train, val = build_loaders(ROOT / a.train, ROOT / a.val, a.features, a.batch, patch, a.label_smoothing,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 74, in build_loaders
+    train_plugins.append(MaskedLabelSmoothing(label_smoothing).build() if ignore_unlabelled
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 48, in build
+    class _P(dataloaders.plugins.plugins.Plugin):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'dataloaders.plugins.plugins' has no attribute 'plugins'. Did you mean: 'Plugin'?
+RETRY 2 after failure
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 171, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 118, in main
+    train, val = build_loaders(ROOT / a.train, ROOT / a.val, a.features, a.batch, patch, a.label_smoothing,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 74, in build_loaders
+    train_plugins.append(MaskedLabelSmoothing(label_smoothing).build() if ignore_unlabelled
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/training/finetune.py", line 48, in build
+    class _P(dataloaders.plugins.Plugin):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'dataloaders.plugins.plugins' has no attribute 'plugins'. Did you mean: 'Plugin'?
+RETRY 3 after failure
+2026-10-02 23:27:41,540 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-02 23:27:41.542850: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M4
+2026-10-02 23:27:41.542892: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-10-02 23:27:41.542906: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.92 GB
+2026-10-02 23:27:41.542960: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-10-02 23:27:41.542990: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+2026-10-02 23:27:41,564 absl WARNING At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2026-10-02 23:27:47,039 finetune INFO train tiles 70, val tiles 55, official steps/epoch 628, used 200
+Epoch 1/4
+2026-10-02 23:27:55.885545: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+200/200 - 1207s - loss: 0.0855 - deepsupervision_loss: 0.0294 - output_loss: 0.0561 - deepsupervision_categorical_accuracy: 0.9019 - deepsupervision_precision_0: 0.8212 - deepsupervision_precision_1: 0.7401 - deepsupervision_recall_0: 0.7677 - deepsupervision_recall_1: 0.2323 - deepsupervision_iou_0: 0.8582 - deepsupervision_iou_1: 0.5957 - output_categorical_accuracy: 0.9043 - output_precision_0: 0.8237 - output_precision_1: 0.7335 - output_recall_0: 0.7680 - output_recall_1: 0.2320 - output_iou_0: 0.8625 - output_iou_1: 0.6069 - val_loss: 0.0616 - val_deepsupervision_loss: 0.0213 - val_output_loss: 0.0403 - val_deepsupervision_categorical_accuracy: 0.9527 - val_deepsupervision_precision_0: 0.9681 - val_deepsupervision_precision_1: 0.8707 - val_deepsupervision_recall_0: 0.9754 - val_deepsupervision_recall_1: 0.8374 - val_deepsupervision_iou_0: 0.9309 - val_deepsupervision_iou_1: 0.6616 - val_output_categorical_accuracy: 0.9580 - val_output_precision_0: 0.9706 - val_output_precision_1: 0.8906 - val_output_recall_0: 0.9794 - val_output_recall_1: 0.8499 - val_output_iou_0: 0.9377 - val_output_iou_1: 0.6916 - 1207s/epoch - 6s/step
+Epoch 2/4
+200/200 - 1193s - loss: 0.0857 - deepsupervision_loss: 0.0295 - output_loss: 0.0561 - deepsupervision_categorical_accuracy: 0.9054 - deepsupervision_precision_0: 0.8211 - deepsupervision_precision_1: 0.7655 - deepsupervision_recall_0: 0.7516 - deepsupervision_recall_1: 0.2484 - deepsupervision_iou_0: 0.8545 - deepsupervision_iou_1: 0.6030 - output_categorical_accuracy: 0.9058 - output_precision_0: 0.8258 - output_precision_1: 0.7539 - output_recall_0: 0.7494 - output_recall_1: 0.2506 - output_iou_0: 0.8568 - output_iou_1: 0.6142 - val_loss: 0.0611 - val_deepsupervision_loss: 0.0213 - val_output_loss: 0.0398 - val_deepsupervision_categorical_accuracy: 0.9528 - val_deepsupervision_precision_0: 0.9673 - val_deepsupervision_precision_1: 0.8749 - val_deepsupervision_recall_0: 0.9765 - val_deepsupervision_recall_1: 0.8327 - val_deepsupervision_iou_0: 0.9315 - val_deepsupervision_iou_1: 0.6605 - val_output_categorical_accuracy: 0.9580 - val_output_precision_0: 0.9696 - val_output_precision_1: 0.8948 - val_output_recall_0: 0.9804 - val_output_recall_1: 0.8444 - val_output_iou_0: 0.9379 - val_output_iou_1: 0.6910 - 1193s/epoch - 6s/step
+Epoch 3/4
+200/200 - 1194s - loss: 0.0847 - deepsupervision_loss: 0.0292 - output_loss: 0.0556 - deepsupervision_categorical_accuracy: 0.9044 - deepsupervision_precision_0: 0.8177 - deepsupervision_precision_1: 0.7545 - deepsupervision_recall_0: 0.7572 - deepsupervision_recall_1: 0.2428 - deepsupervision_iou_0: 0.8577 - deepsupervision_iou_1: 0.6015 - output_categorical_accuracy: 0.9044 - output_precision_0: 0.8225 - output_precision_1: 0.7428 - output_recall_0: 0.7539 - output_recall_1: 0.2461 - output_iou_0: 0.8586 - output_iou_1: 0.6174 - val_loss: 0.0606 - val_deepsupervision_loss: 0.0208 - val_output_loss: 0.0397 - val_deepsupervision_categorical_accuracy: 0.9528 - val_deepsupervision_precision_0: 0.9668 - val_deepsupervision_precision_1: 0.8771 - val_deepsupervision_recall_0: 0.9770 - val_deepsupervision_recall_1: 0.8302 - val_deepsupervision_iou_0: 0.9316 - val_deepsupervision_iou_1: 0.6601 - val_output_categorical_accuracy: 0.9581 - val_output_precision_0: 0.9702 - val_output_precision_1: 0.8928 - val_output_recall_0: 0.9799 - val_output_recall_1: 0.8477 - val_output_iou_0: 0.9380 - val_output_iou_1: 0.6928 - 1194s/epoch - 6s/step
+Epoch 4/4
+200/200 - 1215s - loss: 0.0848 - deepsupervision_loss: 0.0292 - output_loss: 0.0556 - deepsupervision_categorical_accuracy: 0.9051 - deepsupervision_precision_0: 0.8155 - deepsupervision_precision_1: 0.7579 - deepsupervision_recall_0: 0.7561 - deepsupervision_recall_1: 0.2439 - deepsupervision_iou_0: 0.8607 - deepsupervision_iou_1: 0.6170 - output_categorical_accuracy: 0.9041 - output_precision_0: 0.8215 - output_precision_1: 0.7429 - output_recall_0: 0.7541 - output_recall_1: 0.2459 - output_iou_0: 0.8593 - output_iou_1: 0.6329 - val_loss: 0.0607 - val_deepsupervision_loss: 0.0210 - val_output_loss: 0.0397 - val_deepsupervision_categorical_accuracy: 0.9529 - val_deepsupervision_precision_0: 0.9674 - val_deepsupervision_precision_1: 0.8751 - val_deepsupervision_recall_0: 0.9765 - val_deepsupervision_recall_1: 0.8332 - val_deepsupervision_iou_0: 0.9317 - val_deepsupervision_iou_1: 0.6590 - val_output_categorical_accuracy: 0.9582 - val_output_precision_0: 0.9704 - val_output_precision_1: 0.8927 - val_output_recall_0: 0.9799 - val_output_recall_1: 0.8484 - val_output_iou_0: 0.9381 - val_output_iou_1: 0.6931 - 1215s/epoch - 6s/step
+TRAINING DONE (attempt 4)
