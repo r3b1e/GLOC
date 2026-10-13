@@ -66,6 +66,11 @@ for m in M0_global M1_hma_official M1_hma_local M2_cs_selftrain M3_hma_sar M1_sa
   $PY -m src.inference.ensemble --model $m --years $ODD
 done
 for m in M0_global M1_hma_official; do $PY -m src.inference.ensemble --model $m --years $ODD --window 08-15 10-15 --tag _fullwindow; done
+# even (M2 training) years, demo display only -- never enter the change statistics.
+# Sentinel-1 2022 has no descending pass (S1B failure), so M3 2022 is NOT RUN.
+$PY -m src.data.sentinel1 --years 2018 2020 2024
+for m in M0_global M1_hma_official M2_cs_selftrain; do $PY -m src.inference.ensemble --model $m --years $EVEN; done
+$PY -m src.inference.ensemble --model M3_hma_sar --years 2018 2020 2024
 for m in M0_global M1_hma_official M1_hma_local M2_cs_selftrain M3_hma_sar M1_hma_official_fullwindow M0_global_fullwindow; do
   $PY -m src.change_detection.change --model $m
   $PY -m src.change_detection.patterns --model $m

@@ -25,7 +25,10 @@ def clearest_scene(year):
     win = cfg["ensemble"].get("window_core", cfg["ensemble"]["window"])
     d = pd.read_csv(ROOT / "data" / "sentinel2" / f"ensemble_{year}.csv")
     d = d[d.kept & d.date.apply(lambda x: in_window(x, win))].sort_values("s2cloudless_cloud")
-    return d.date.iloc[0]
+    for date in d.date:  # skip empty extractions (all-NaN stack scores 0 % cloud, e.g. 2024-08-31)
+        if np.isfinite(read_raster(ROOT / "data" / "sentinel2" / "scenes" / date / "optical_toa.tif")[0]).any():
+            return date
+    raise ValueError(f"no usable scene for {year}")
 
 
 def rgb(year, bands=(2, 1, 0), stretch=(1, 99)):

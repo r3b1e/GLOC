@@ -4,6 +4,9 @@
 
 All images are the clearest core-window scene of each year, same colour stretch for every year;
 outlines/terminus/area come from experiments/<model>/<year>/ and outputs/ (no manual input).
+All 9 years 2017-2025 are shown. Odd years are the held-out analysis epochs (statistics, year-of-loss,
+hotspots); even years are the M2 pseudo-label (training) years, shown for continuity and flagged as such.
+Even-year ensembles: python -m src.inference.ensemble --model <m> --years 2018 2020 2022 2024
 """
 import json, pickle, numpy as np, geopandas as gpd, pandas as pd
 from PIL import Image
@@ -13,7 +16,9 @@ from src.visualization.maps import clearest_scene
 OUT = ROOT / "demo"
 OUT.mkdir(exist_ok=True)
 g = Grid.load(ROOT/"data/inventories/grid.json")
-YEARS = [2017, 2019, 2021, 2023, 2025]
+YEARS = list(range(2017, 2026))
+ODD = [2017, 2019, 2021, 2023, 2025]   # held-out analysis epochs
+from src.change_detection.change import terminus_position
 MODELS = {"M0_global": "Global model (M0)", "M1_hma_official": "Himalaya fine-tuned (M1)", "M2_cs_selftrain": "Chhota Shigri adapted (M2)", "M3_hma_sar": "+ Radar (M3)"}
 rgi = gpd.read_file(ROOT/"data/inventories/chhota_shigri.gpkg", layer="rgi7")
 b = rgi.total_bounds; pad = 700
@@ -38,21 +43,25 @@ def to_px(geom, cx0, cy1, scale):
         d.append(ring(p.exterior.coords)); d += [ring(i.coords) for i in p.interiors]
     return "".join(d)
 X0, Y1 = g.xmin + c0*g.res, g.ymax - r0*g.res
-data = dict(width=W, height=H, pixel_m=g.res/S, years=YEARS, models=MODELS, scenes={}, outlines={}, areas={}, terminus={})
+data = dict(width=W, height=H, pixel_m=g.res/S, years=YEARS, analysis_years=ODD, models=MODELS, scenes={}, outlines={}, areas={}, terminus={})
 for y in YEARS:
     rgb_img(y).save(OUT/f"s2_{y}.jpg", quality=80)
     data["scenes"][y] = clearest_scene(y)
+cl = gpd.read_file(ROOT/"data/inventories/chhota_shigri.gpkg", layer="centerline").geometry.iloc[0]
+term_s, term_pt = {}, {}   # terminus along the centerline, same rule as change.terminus_table, for every year
 for m in MODELS:
-    data["outlines"][m] = {}; data["areas"][m] = {}; data["terminus"][m] = {}
-    tp = gpd.read_file(ROOT/f"outputs/polygons/{m}_terminus_points.gpkg")
+    data["outlines"][m] = {}; data["areas"][m] = {}; data["terminus"][m] = {}; term_s[m] = {}; term_pt[m] = {}
     for y in YEARS:
-        o = gpd.read_file(ROOT/f"experiments/{m}/{y}/outline.gpkg").geometry.iloc[0].simplify(6)
+        d = ROOT/f"experiments/{m}/{y}"
+        if not (d/"outline.gpkg").exists():   # e.g. M3 even years without Sentinel-1 composites
+            print("NOT RUN:", m, y); continue
+        o = gpd.read_file(d/"outline.gpkg").geometry.iloc[0].simplify(6)
         data["outlines"][m][y] = to_px(o, X0, Y1, S)
-        data["areas"][m][y] = round(json.load(open(ROOT/f"experiments/{m}/{y}/summary.json"))["area_km2"], 2)
-        p = tp[tp.year == y].geometry.iloc[0]
+        data["areas"][m][y] = round(json.load(open(d/"summary.json"))["area_km2"], 2)
+        s_m, p = terminus_position(cl, read_raster(d/"mask.tif").astype(bool), g)
+        term_s[m][y], term_pt[m][y] = s_m, p
         data["terminus"][m][y] = [round((p.x-X0)/g.res*S, 1), round((Y1-p.y)/g.res*S, 1)]
 data["rgi"] = to_px(rgi.geometry.iloc[0].simplify(6), X0, Y1, S)
-cl = gpd.read_file(ROOT/"data/inventories/chhota_shigri.gpkg", layer="centerline").geometry.iloc[0]
 data["centerline"] = "M" + "L".join(f"{(x-X0)/g.res*S:.1f},{(Y1-yy)/g.res*S:.1f}" for x, yy, *_ in cl.coords[::5])
 # AI confidence overlays (calibrated probability, M2) as transparent PNG
 iso = pickle.load(open(ROOT/"models/calibration/M2_cs_selftrain_isotonic.pickle", "rb"))
@@ -76,7 +85,7 @@ z = read_raster(ROOT/"outputs/change_maps/M2_cs_selftrain_hotspot_gistar.tif")[r
 rgba = np.zeros(z.shape + (4,), np.uint8); hot = np.nan_to_num(z) > 1.96; cold = np.nan_to_num(z) < -1.96
 rgba[hot] = (220, 30, 60, 200); rgba[cold] = (60, 130, 230, 110)
 Image.fromarray(rgba, "RGBA").resize((W, H), Image.NEAREST).save(OUT/"hotspots.png", optimize=True)
-# terminus close-ups (M2), 1.5 km window, 5x
+# terminus close-ups (M2), 1.5 km window, 5x (window centred on the analysis-year termini, as before)
 tp = gpd.read_file(ROOT/"outputs/polygons/M2_cs_selftrain_terminus_points.gpkg")
 cx, cy = tp.geometry.x.mean(), tp.geometry.y.mean() + 150
 half = 750; tc0, tc1 = int((cx-half-g.xmin)/g.res), int((cx+half-g.xmin)/g.res); tr0, tr1 = int((g.ymax-(cy+half))/g.res), int((g.ymax-(cy-half))/g.res)
@@ -88,14 +97,27 @@ for y in YEARS:
     rgb_img(y, (tr0, tr1, tc0, tc1), TS).save(OUT/f"zoom_{y}.jpg", quality=88)
     o = gpd.read_file(ROOT/f"experiments/M2_cs_selftrain/{y}/outline.gpkg").geometry.iloc[0].intersection(clipbox)
     data["zoom"]["outlines"][y] = to_px(o, TX0, TY1, TS)
-    p = tp[tp.year == y].geometry.iloc[0]; data["zoom"]["terminus"][y] = [round((p.x-TX0)/g.res*TS, 1), round((TY1-p.y)/g.res*TS, 1)]
+    p = term_pt["M2_cs_selftrain"][y]; data["zoom"]["terminus"][y] = [round((p.x-TX0)/g.res*TS, 1), round((TY1-p.y)/g.res*TS, 1)]
 data["zoom"]["centerline"] = "M" + "L".join(f"{(x-TX0)/g.res*TS:.1f},{(TY1-yy)/g.res*TS:.1f}" for x, yy, *_ in cl.coords[::3])
 # stats
 data["benchmark"] = {k: round(v["pooled_iou"], 3) for k, v in json.load(open(ROOT/"experiments/benchmark_eval_test_summary.json")).items() if k.startswith("M")}
 data["ablation"] = {k: round(v["pooled_iou"], 3) for k, v in json.load(open(ROOT/"experiments/benchmark_eval_test_sar_summary.json")).items() if k.startswith("M")}
 t = pd.read_csv(ROOT/"outputs/statistics/M2_cs_selftrain_terminus.csv"); a = pd.read_csv(ROOT/"outputs/statistics/M2_cs_selftrain_area.csv")
-data["m2_series"] = [dict(year=int(r.year), date=r.date, area=round(r.area_km2, 2), sigma=round(r.sigma_area_km2, 2), n=int(r.n_scenes)) for r in a.itertuples()]
-data["m2_terminus"] = [dict(year=int(r.year), cl=float(r.retreat_cum_centerline_m), box=round(float(r.retreat_cum_box_m), 1)) for r in t.itertuples()]
+# odd years: full statistics (sigma = buffer + calibrated threshold + surface spread);
+# even years: ensemble area and between-scene spread only (no full sigma computed)
+data["m2_series"] = [dict(year=int(r.year), date=r.date, area=round(r.area_km2, 2), sigma=round(r.sigma_area_km2, 2), n=int(r.n_scenes), role="analysis") for r in a.itertuples()]
+for y in YEARS:
+    if y in ODD: continue
+    sm = json.load(open(ROOT/f"experiments/M2_cs_selftrain/{y}/summary.json"))
+    data["m2_series"].append(dict(year=y, date=sm["scene"]["date"], area=round(sm["area_km2"], 2), sigma=None,
+                                  spread=None if sm["ensemble"]["area_std_km2"] is None else round(sm["ensemble"]["area_std_km2"], 2),
+                                  n=sm["ensemble"]["n_scenes"], role="training"))
+data["m2_series"].sort(key=lambda r: r["year"])
+ts = term_s["M2_cs_selftrain"]; box = dict(zip(t.year, t.retreat_cum_box_m))
+for r in t.itertuples():   # same rule as the published table
+    assert abs(float(r.retreat_cum_centerline_m) - (-(ts[r.year] - ts[2017]))) < 1e-6, r.year
+data["m2_terminus"] = [dict(year=y, cl=round(float(-(ts[y] - ts[2017])), 1), box=round(float(box[y]), 1) if y in box else None,
+                            role="analysis" if y in ODD else "training") for y in YEARS]
 data["periods"] = pd.read_csv(ROOT/"outputs/statistics/summary_terminus_periods.csv")[["period","median_box_m","min_box_m","max_box_m","median_centerline_m","min_centerline_m","max_centerline_m"]].round(0).to_dict("records")
 json.dump(data, open(OUT/"demo_data.json", "w"))
 (OUT/"demo_data.js").write_text("window.DEMO_DATA = " + json.dumps(data) + ";\n")  # lets index.html work from file://

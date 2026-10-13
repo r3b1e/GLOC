@@ -102,6 +102,14 @@ def run(model_key, years, model=None, window=None, tag=""):
             sar = glavitu.normalise_sar(read_raster(ROOT / "data" / "sentinel1" / str(year) / "co_pol_sar.tif"))
         P_all = scene_probs(model, dates, grid, cfg, elev, slope, sar=sar,
                             cache_dir=ROOT / "experiments" / model_key / "scene_probs")
+        # drop scenes without a single clear pixel in the domain (e.g. an empty L1C extraction,
+        # 2024-08-31); they carry no information and would only shrink the between-scene spread
+        has_data = np.array([np.isfinite(p[domain]).any() for p in P_all])
+        if not has_data.all():
+            log.warning("%d: dropping empty scenes %s", year, [d for d, k in zip(dates, has_data) if not k])
+            dates = [d for d, k in zip(dates, has_data) if k]
+            meta["l1c_products"] = [p for p, k in zip(meta["l1c_products"], has_data) if k]
+            P_all = P_all[has_data]
 
         def combine(P):
             n_valid = np.isfinite(P).sum(0)
