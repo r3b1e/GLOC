@@ -68,6 +68,9 @@ header { display: grid; gap: 22px; }
 .years { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .years button, .chip { font: 600 0.9rem/1 var(--mono); padding: 9px 0; border-radius: 7px; border: 1px solid var(--line); background: var(--ground); color: var(--ink-2); cursor: pointer; }
 .years button[aria-pressed="true"] { background: var(--ice); color: #06222b; border-color: var(--ice); }
+.years button.train { border-style: dashed; }
+.years-key { font-size: 0.78rem; color: var(--ink-3); margin: 0; }
+.strip figcaption em.train { font-style: normal; color: var(--ink-3); }
 .play { width: 100%; font: 600 0.88rem/1 var(--body); padding: 10px; border-radius: 7px; border: 1px solid var(--ice); background: transparent; color: var(--ice); cursor: pointer; }
 .toggles { display: grid; gap: 8px; }
 .toggles label { display: flex; align-items: center; gap: 10px; font-size: 0.93rem; color: var(--ink); cursor: pointer; }
@@ -164,13 +167,14 @@ footer { font-size: 0.82rem; color: var(--ink-3); display: grid; gap: 4px; }
           <h3>Year</h3>
           <div class="years" id="years" role="group" aria-label="Year"></div>
           <button class="play" id="play">▶ Play 2017 → 2025</button>
+          <p class="years-key">All 9 years. Dashed = even year (2018/20/22/24): used to train M2, so not an independent test. Odd years are the held-out analysis years.</p>
         </div>
         <div style="display:grid;gap:10px">
           <h3>Layers</h3>
           <div class="toggles">
             <label><input type="checkbox" id="lyBoundary" checked><span class="swatch" style="border-color:var(--m2)"></span>AI boundary (this year)</label>
             <label><input type="checkbox" id="lyConf"><span class="swatch" style="border-color:#28aaff;border-top-width:8px;opacity:.7"></span>AI confidence (glacier probability)</label>
-            <label><input type="checkbox" id="lyAll"><span class="swatch" style="border-image:linear-gradient(90deg,#ffd60a,#c81428) 1"></span>All five years at once</label>
+            <label><input type="checkbox" id="lyAll"><span class="swatch" style="border-image:linear-gradient(90deg,#ffd60a,#c81428) 1"></span>All nine years at once</label>
             <label><input type="checkbox" id="lyRgi"><span class="swatch" style="border-color:#fff;border-top-style:dashed"></span>2002 inventory outline (RGI)</label>
             <label><input type="checkbox" id="lyTerm" checked><span class="swatch" style="border-color:var(--terminus)"></span>Flow line &amp; terminus</label>
           </div>
@@ -188,7 +192,7 @@ footer { font-size: 0.82rem; color: var(--ink-3); display: grid; gap: 4px; }
       <p>Cyan line: the AI boundary. Red dot: the terminus the pipeline finds automatically along the glacier's flow line (dotted). The dot moves up-valley as the tongue shortens.</p>
     </div>
     <div class="strip" id="strip"></div>
-    <p class="note">Distances are measured along the flow line from the 2017 position. 2017 and 2019 have only two clear images each, so those two positions are the least certain; the 2021→2025 retreat is the robust result.</p>
+    <p class="note">Distances are measured along the flow line from the 2017 position. 2017 and 2019 have only two clear images each, so those two positions are the least certain; the 2021→2025 retreat is the robust result. Even years (grey label) were M2 training years and are shown for continuity only.</p>
   </section>
 
   <section aria-labelledby="h-cmp">
@@ -229,7 +233,7 @@ footer { font-size: 0.82rem; color: var(--ink-3); display: grid; gap: 4px; }
     <div class="sec-head">
       <div class="eyebrow">Spatial pattern</div>
       <h2 id="h-loss">Where the ice was lost</h2>
-      <p>Each pixel is coloured by the year it stopped being glacier and stayed that way. The hotspot view highlights clusters of loss that are statistically significant.</p>
+      <p>Each pixel is coloured by the year it stopped being glacier and stayed that way. The hotspot view highlights clusters of loss that are statistically significant. Both maps use the five held-out analysis years (2017, 2019, 2021, 2023, 2025); the even years are training years for M2, so they are left out of the change statistics.</p>
     </div>
     <div class="seg" role="group" aria-label="Map type"><button id="vYol" aria-pressed="true">Year of loss</button><button id="vHot" aria-pressed="false">Loss hotspots</button></div>
     <div class="stage" style="cursor:default"><svg id="lossSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Year-of-loss map"></svg></div>
@@ -264,8 +268,9 @@ footer { font-size: 0.82rem; color: var(--ink-3); display: grid; gap: 4px; }
 
 <script>
 const NS = "http://www.w3.org/2000/svg";
-const YEARS = [2017, 2019, 2021, 2023, 2025];
-const YCOL = {2017: "#ffffff", 2019: "#ffd60a", 2021: "#ff9f1c", 2023: "#f05a1e", 2025: "#ff3b5c"};
+let YEARS = [], ANALYSIS = [];
+const YCOL = {2017: "#ffffff", 2018: "#fff3a8", 2019: "#ffd60a", 2020: "#ffbb33", 2021: "#ff9f1c", 2022: "#f77e25", 2023: "#f05a1e", 2024: "#f44a3d", 2025: "#ff3b5c"};
+const isTrain = y => !ANALYSIS.includes(y);
 const MCOL = {M0_global: "var(--m0)", M1_hma_official: "var(--m1)", M2_cs_selftrain: "var(--m2)", M3_hma_sar: "var(--m3)"};
 const MDASH = {M0_global: "14 7", M1_hma_official: "4 5", M2_cs_selftrain: "", M3_hma_sar: "18 5 3 5"};
 const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (parent) parent.appendChild(e); return e; };
@@ -278,6 +283,7 @@ const halo = (d, parent, color, w, dash = "", extra = {}) => {
 
 (window.DEMO_DATA ? Promise.resolve(window.DEMO_DATA) : fetch("demo_data.json").then(r => r.json())).then(D => {
   const W = D.width, H = D.height, mpp = D.pixel_m;
+  YEARS = D.years.map(Number); ANALYSIS = (D.analysis_years || D.years).map(Number);
   const m2 = D.m2_series.reduce((o, r) => (o[r.year] = r, o), {});
   // ---------- facts ----------
   const bm = D.benchmark, p2125 = D.periods.find(p => p.period === "2021-2025");
@@ -285,7 +291,7 @@ const halo = (d, parent, color, w, dash = "", extra = {}) => {
     ["0", "glacier outlines traced by hand"],
     [`${bm.M0_global.toFixed(2)} → ${bm.M2_cs_selftrain.toFixed(2)}`, "accuracy (IoU) on unseen Himalayan test areas, global → adapted model"],
     [`${Math.min(p2125.min_box_m, p2125.min_centerline_m)}–${Math.max(p2125.max_box_m, p2125.max_centerline_m)} m`, "terminus retreat 2021→2025, measured by all 5 models"],
-    [`${D.m2_series.reduce((s, r) => s + r.n, 0)}`, "cloud-screened Sentinel-2 images combined for the 5 years"],
+    [`${D.m2_series.reduce((s, r) => s + r.n, 0)}`, "cloud-screened Sentinel-2 images combined, 2017–2025 (9 years)"],
   ];
   document.getElementById("facts").innerHTML = facts.map(([b, s]) => `<div class="fact"><b class="num">${b}</b><span>${s}</span></div>`).join("");
 
@@ -312,13 +318,14 @@ const halo = (d, parent, color, w, dash = "", extra = {}) => {
     const r = m2[y], t = D.m2_terminus.find(t => t.year === y);
     readout.innerHTML = [
       ["Image date", D.scenes[y]],
+      ["Year type", isTrain(y) ? "training year (M2)" : "analysis year (held out)"],
       ["Images combined", r.n],
-      ["Glacier area", `${r.area.toFixed(2)} ± ${r.sigma.toFixed(2)} km²`],
+      ["Glacier area", r.sigma != null ? `${r.area.toFixed(2)} ± ${r.sigma.toFixed(2)} km²` : `${r.area.toFixed(2)} km²` + (r.spread != null ? ` (scene spread ${r.spread.toFixed(2)})` : "")],
       ["Terminus vs 2017", t.year === 2017 ? "baseline" : (t.cl > 0 ? `retreated ${t.cl} m` : `advanced ${-t.cl} m`)],
     ].map(([k, v]) => `<div class="kv"><span>${k}</span><span>${v}</span></div>`).join("");
   }
   const yb = document.getElementById("years");
-  YEARS.forEach(y => { const b = document.createElement("button"); b.textContent = y; b.dataset.y = y; b.onclick = () => { stopPlay(); setYear(y); }; yb.appendChild(b); });
+  YEARS.forEach(y => { const b = document.createElement("button"); b.textContent = y; b.dataset.y = y; if (isTrain(y)) { b.classList.add("train"); b.title = "Training year for M2 (pseudo-labels)"; } b.onclick = () => { stopPlay(); setYear(y); }; yb.appendChild(b); });
   setYear(2023);
   const bind = (id, g) => { const c = document.getElementById(id); c.onchange = () => (g.style.display = c.checked ? "" : "none"); };
   bind("lyBoundary", gB); bind("lyConf", conf); bind("lyAll", gAll); bind("lyRgi", gRgi); bind("lyTerm", gT);
@@ -349,7 +356,7 @@ const halo = (d, parent, color, w, dash = "", extra = {}) => {
   document.getElementById("zin").onclick = () => zoomAt(1.5);
   document.getElementById("zout").onclick = () => zoomAt(1 / 1.5);
   document.getElementById("zreset").onclick = () => { vb = { x: 0, y: 0, w: W, h: H }; apply(); };
-  stage.addEventListener("keydown", e => { if (e.key === "+" || e.key === "=") zoomAt(1.5); if (e.key === "-") zoomAt(1 / 1.5); if (e.key === "ArrowRight") { const i = YEARS.indexOf(year); if (i < 4) setYear(YEARS[i + 1]); } if (e.key === "ArrowLeft") { const i = YEARS.indexOf(year); if (i > 0) setYear(YEARS[i - 1]); } });
+  stage.addEventListener("keydown", e => { if (e.key === "+" || e.key === "=") zoomAt(1.5); if (e.key === "-") zoomAt(1 / 1.5); if (e.key === "ArrowRight") { const i = YEARS.indexOf(year); if (i < YEARS.length - 1) setYear(YEARS[i + 1]); } if (e.key === "ArrowLeft") { const i = YEARS.indexOf(year); if (i > 0) setYear(YEARS[i - 1]); } });
   new ResizeObserver(apply).observe(stage); apply();
 
   // ---------- terminus strip ----------
@@ -364,7 +371,7 @@ const halo = (d, parent, color, w, dash = "", extra = {}) => {
     const [x, yy] = Z.terminus[y]; el("circle", { cx: x, cy: yy, r: 11, fill: "var(--terminus)", stroke: "#fff", "stroke-width": 2.5, "vector-effect": "non-scaling-stroke" }, s);
     fig.appendChild(s);
     const cap = document.createElement("figcaption");
-    cap.innerHTML = `<span>${y}</span><em>${y === 2017 ? "baseline" : (t.cl > 0 ? "retreat " + t.cl + " m" : "advance " + -t.cl + " m")}</em>`;
+    cap.innerHTML = `<span>${y}</span><em${isTrain(y) ? ' class="train" title="Training year for M2"' : ""}>${y === 2017 ? "baseline" : (t.cl > 0 ? "retreat " + t.cl + " m" : (t.cl < 0 ? "advance " + -t.cl + " m" : "no change"))}${isTrain(y) ? " · train" : ""}</em>`;
     fig.appendChild(cap); strip.appendChild(fig);
   });
 
