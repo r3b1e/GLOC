@@ -1,0 +1,78 @@
+2026-10-11 22:30:12,622 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180912T005114_ descending inc 38.0 valid 1.00
+2026-10-11 22:31:20,897 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180911T124803_ ascending inc 34.2 valid 1.00
+2026-10-11 22:33:05,271 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180904T125613_ ascending inc 45.2 valid 1.00
+2026-10-11 22:33:38,333 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180831T005114_ descending inc 38.0 valid 1.00
+2026-10-11 22:34:14,955 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180830T124803_ ascending inc 34.2 valid 1.00
+2026-10-11 22:36:13,466 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180823T125612_ ascending inc 45.2 valid 1.00
+2026-10-11 22:37:17,030 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180819T005113_ descending inc 38.0 valid 1.00
+2026-10-11 22:38:36,323 sentinel1 INFO 2018 S1A_IW_GRDH_1SDV_20180818T124802_ ascending inc 34.2 valid 1.00
+2026-10-11 22:38:37,247 sentinel1 INFO 2018: co_pol_sar composite from 5 asc + 3 desc scenes
+2026-10-11 22:39:36,244 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200913T005128_ descending inc 38.0 valid 1.00
+2026-10-11 22:50:12,983 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200912T124816_ ascending inc 34.2 valid 1.00
+2026-10-11 22:52:13,169 sentinel1 WARNING no annotation for S1A_IW_GRDH_1SDV_20200905T125625_20200905T125650_034224_03FA09 ('NoneType' object has no attribute 'assets'); using 38.0 deg
+2026-10-11 22:52:13,189 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200905T125625_ ascending inc 38.0 valid 1.00
+2026-10-11 22:54:09,310 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200901T005128_ descending inc 38.0 valid 1.00
+2026-10-11 22:54:46,111 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200831T124815_ ascending inc 34.2 valid 1.00
+2026-10-11 22:56:51,521 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200824T125625_ ascending inc 45.4 valid 1.00
+2026-10-11 22:58:56,562 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200820T005127_ descending inc 38.0 valid 1.00
+2026-10-11 22:59:35,405 sentinel1 INFO 2020 S1A_IW_GRDH_1SDV_20200819T124815_ ascending inc 34.2 valid 1.00
+2026-10-11 22:59:36,115 sentinel1 INFO 2020: co_pol_sar composite from 5 asc + 3 desc scenes
+2026-10-11 23:00:58,094 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220914T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:03:12,137 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220907T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:03:49,745 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220902T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:05:47,463 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220826T125637_ ascending inc 45.4 valid 1.00
+2026-10-11 23:06:46,191 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220821T124827_ ascending inc 34.2 valid 1.00
+2026-10-11 23:06:46,191 sentinel1 ERROR 2022: missing an orbit direction (asc 5, desc 0)
+2026-10-11 23:07:39,571 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240915T124829_ ascending inc 34.2 valid 1.00
+2026-10-11 23:10:14,930 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240908T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:11:51,090 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240827T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:12:54,117 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240823T005142_ descending inc 38.0 valid 1.00
+2026-10-11 23:13:56,548 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240822T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:14:52,524 rasterio._err INFO GDAL signalled an error: err_no=1, msg='_TIFFPartialReadStripArray:Cannot read offset/size for strile around ~1588'
+2026-10-11 23:14:52,525 rasterio._err INFO GDAL signalled an error: err_no=1, msg='zxduYIlPoTo%2BAUi2%2BSW6llrgBvZy24%3D, band 1: IReadBlock failed at X offset 49, Y offset 27: _TIFFPartialReadStripArray:Cannot read offset/size for strile around ~1588'
+rasterio._err.CPLE_AppDefinedError: _TIFFPartialReadStripArray:Cannot read offset/size for strile around ~1588
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "rasterio/_warp.pyx", line 638, in rasterio._warp._reproject
+  File "rasterio/_warp.pyx", line 638, in rasterio._warp._reproject
+  File "rasterio/_warp.pyx", line 646, in rasterio._warp._reproject
+  File "rasterio/_err.pyx", line 325, in rasterio._err.StackChecker.exc_wrap_int
+rasterio._err.CPLE_AppDefinedError: zxduYIlPoTo%2BAUi2%2BSW6llrgBvZy24%3D, band 1: IReadBlock failed at X offset 49, Y offset 27: _TIFFPartialReadStripArray:Cannot read offset/size for strile around ~1588
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sunny/Apsit/GLOF/src/data/sentinel1.py", line 126, in <module>
+    main()
+  File "/Users/sunny/Apsit/GLOF/src/data/sentinel1.py", line 122, in main
+    composite_year(cfg, cat, y, grid)
+  File "/Users/sunny/Apsit/GLOF/src/data/sentinel1.py", line 88, in composite_year
+    g0 = read_rtc(it.assets["vv"].href, grid)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/src/data/sentinel1.py", line 71, in read_rtc
+    reproject(rasterio.band(src, 1), dst, dst_transform=grid.transform, dst_crs=grid.crs,
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/rasterio/env.py", line 410, in wrapper
+    return f(*args, **kwds)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/rasterio/warp.py", line 387, in reproject
+    dest = _reproject(
+           ^^^^^^^^^^^
+  File "rasterio/_warp.pyx", line 649, in rasterio._warp._reproject
+rasterio.errors.WarpOperationError: Chunk and warp failed
+2026-10-11 23:16:24,323 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220914T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:18:27,085 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220907T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:19:24,123 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220902T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:21:40,295 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220826T125637_ ascending inc 45.4 valid 1.00
+2026-10-11 23:22:20,051 sentinel1 INFO 2022 S1A_IW_GRDH_1SDV_20220821T124827_ ascending inc 34.2 valid 1.00
+2026-10-11 23:22:20,051 sentinel1 ERROR 2022: missing an orbit direction (asc 5, desc 0)
+2026-10-11 23:23:28,904 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240915T124829_ ascending inc 34.2 valid 1.00
+2026-10-11 23:25:28,868 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240908T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:26:26,966 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240827T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:27:30,647 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240823T005142_ descending inc 38.0 valid 1.00
+2026-10-11 23:28:46,397 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240822T124828_ ascending inc 34.2 valid 1.00
+2026-10-11 23:31:00,872 sentinel1 INFO 2024 S1A_IW_GRDH_1SDV_20240815T125638_ ascending inc 45.4 valid 1.00
+2026-10-11 23:31:01,313 sentinel1 INFO 2024: co_pol_sar composite from 5 asc + 1 desc scenes

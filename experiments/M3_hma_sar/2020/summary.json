@@ -1,0 +1,82 @@
+{
+  "model": "M3_hma_sar",
+  "weights": "models/sar/M3_hma_sar_weights.h5",
+  "year": 2020,
+  "mode": "multi-date ensemble",
+  "scene": {
+    "date": "2020-09-01",
+    "dates": [
+      "2020-08-17",
+      "2020-08-22",
+      "2020-09-01",
+      "2020-09-11"
+    ],
+    "l1c_products": [
+      "S2B_MSIL1C_20200817T052649_N0209_R105_T43SGR_20200817T073431.SAFE",
+      "S2A_MSIL1C_20200822T052651_N0209_R105_T43SGR_20200822T073231.SAFE",
+      "S2A_MSIL1C_20200901T052651_N0500_R105_T43SGR_20230319T141536.SAFE",
+      "S2A_MSIL1C_20200911T052651_N0500_R105_T43SGR_20230310T015916.SAFE"
+    ],
+    "window": [
+      "08-15",
+      "09-15"
+    ]
+  },
+  "area_km2": 15.6246,
+  "topology": {
+    "is_valid": true,
+    "n_parts": 2,
+    "n_holes": 6,
+    "raster_area_km2": 15.6246,
+    "vector_area_km2": 15.6246,
+    "raster_vector_area_diff_pct": 0.0
+  },
+  "inference_seconds": 326.7,
+  "ensemble": {
+    "n_scenes": 4,
+    "scenes_used": [
+      "2020-08-17",
+      "2020-08-22",
+      "2020-09-01",
+      "2020-09-11"
+    ],
+    "outlier_scenes": [],
+    "outlier_tolerance_km2": 0.6295860899999983,
+    "all_scene_areas_km2": {
+      "2020-08-17": 15.9477,
+      "2020-08-22": 16.0382,
+      "2020-09-01": 15.7551,
+      "2020-09-11": 15.6044
+    },
+    "scene_areas_km2": {
+      "2020-08-17": 15.9477,
+      "2020-08-22": 16.0382,
+      "2020-09-01": 15.7551,
+      "2020-09-11": 15.6044
+    },
+    "area_std_km2": 0.20986202999999942,
+    "area_sd_plain_km2": 0.1945461470534259,
+    "area_range_km2": 0.43379999999999974,
+    "invalid_frac_domain": 0.0,
+    "gap_filled_km2_domain": 0.0,
+    "unobserved_km2_domain": 0.0,
+    "single_obs_km2_domain": 0.0,
+    "mean_valid_obs_domain": 3.9066811932685064
+  },
+  "mean_confidence_in_domain": 0.12282059341669083,
+  "frac_uncertain_in_domain": 1.0,
+  "agreement_vs_rgi7_2002": {
+    "iou": 0.8586049233275774,
+    "f1": 0.9239240814991094,
+    "precision": 0.9578930525776825,
+    "recall": 0.8922818271787473,
+    "area_pred_km2": 15.6245,
+    "area_ref_km2": 16.7734,
+    "area_error_km2": -1.1488999999999994,
+    "rel_area_error": -0.06849535574182929,
+    "boundary_f1": 0.5008077096484175,
+    "mean_boundary_dist_m": 38.46400885258339,
+    "p95_boundary_dist_m": 136.01470508735443,
+    "hausdorff_m": 878.4645695758026
+  }
+}

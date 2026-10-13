@@ -1,0 +1,82 @@
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 22:31:53,102 pyogrio._io INFO Created 1 records
+2026-10-11 22:31:53,198 ensemble INFO M1_hma_official 2018: 3 scenes (outliers []), median-mask area 13.958 km2, scene areas [13.34, 14.29, 13.72] (robust sd 0.553)
+2026-10-11 22:33:53,351 pyogrio._io INFO Created 1 records
+2026-10-11 22:33:53,446 ensemble INFO M1_hma_official 2020: 4 scenes (outliers []), median-mask area 14.536 km2, scene areas [14.61, 14.69, 14.61, 14.74] (robust sd 0.059)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+2026-10-11 22:35:55,277 pyogrio._io INFO Created 1 records
+2026-10-11 22:35:55,382 ensemble INFO M1_hma_official 2022: 4 scenes (outliers ['2022-09-06']), median-mask area 14.412 km2, scene areas [14.21, 14.55, 14.15, 14.41] (robust sd 0.191)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 22:41:01,736 pyogrio._io INFO Created 1 records
+2026-10-11 22:41:01,831 ensemble INFO M1_hma_official 2024: 3 scenes (outliers []), median-mask area 13.952 km2, scene areas [14.47, 13.95, 12.59] (robust sd 0.772)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 22:45:30,424 pyogrio._io INFO Created 1 records
+2026-10-11 22:45:30,517 ensemble INFO M2_cs_selftrain 2018: 3 scenes (outliers []), median-mask area 14.759 km2, scene areas [14.53, 14.86, 14.56] (robust sd 0.041)
+2026-10-11 22:49:47,839 pyogrio._io INFO Created 1 records
+2026-10-11 22:49:47,935 ensemble INFO M2_cs_selftrain 2020: 4 scenes (outliers []), median-mask area 15.114 km2, scene areas [15.11, 15.47, 15.2, 15.15] (robust sd 0.067)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+2026-10-11 22:54:46,700 pyogrio._io INFO Created 1 records
+2026-10-11 22:54:46,797 ensemble INFO M2_cs_selftrain 2022: 4 scenes (outliers ['2022-09-06']), median-mask area 14.960 km2, scene areas [14.88, 15.05, 15.03, 14.84] (robust sd 0.126)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 23:01:01,252 pyogrio._io INFO Created 1 records
+2026-10-11 23:01:01,346 ensemble INFO M2_cs_selftrain 2024: 3 scenes (outliers []), median-mask area 14.694 km2, scene areas [14.9, 14.69, 14.38] (robust sd 0.311)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 23:05:41,714 pyogrio._io INFO Created 1 records
+2026-10-11 23:05:41,811 ensemble INFO M0_global 2018: 3 scenes (outliers []), median-mask area 13.423 km2, scene areas [12.32, 14.33, 12.83] (robust sd 0.763)
+2026-10-11 23:10:12,427 pyogrio._io INFO Created 1 records
+2026-10-11 23:10:12,528 ensemble INFO M0_global 2020: 3 scenes (outliers ['2020-08-22']), median-mask area 15.151 km2, scene areas [15.24, 15.17, 15.1] (robust sd 0.104)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+2026-10-11 23:15:08,161 pyogrio._io INFO Created 1 records
+2026-10-11 23:15:08,254 ensemble INFO M0_global 2022: 3 scenes (outliers ['2022-09-01', '2022-09-06']), median-mask area 13.956 km2, scene areas [13.74, 14.03, 14.01] (robust sd 0.022)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(P, 0)
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  me = np.nanmedian(Pe, 0)
+2026-10-11 23:22:01,115 pyogrio._io INFO Created 1 records
+2026-10-11 23:22:01,212 ensemble INFO M0_global 2024: 3 scenes (outliers []), median-mask area 13.319 km2, scene areas [14.18, 13.32, 12.34] (robust sd 1.273)
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:109: RuntimeWarning: All-NaN slice encountered
+  log.warning("%d: dropping empty scenes %s", year, [d for d, k in zip(dates, has_data) if not k])
+/Users/sunny/Apsit/GLOF/.env/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1563: RuntimeWarning: All-NaN slice encountered
+  return function_base._ureduce(a,
+/Users/sunny/Apsit/GLOF/src/inference/ensemble.py:123: RuntimeWarning: All-NaN slice encountered
+  """Pixels without any clear core-window observation: fill from clear scenes of the SAME
+2026-10-11 23:27:19,260 pyogrio._io INFO Created 1 records
+2026-10-11 23:27:19,364 ensemble INFO M3_hma_sar 2018: 2 scenes (outliers ['2018-08-18']), median-mask area 14.826 km2, scene areas [14.87, 15.1] (robust sd 0.161)
+2026-10-11 23:32:46,019 pyogrio._io INFO Created 1 records
+2026-10-11 23:32:46,124 ensemble INFO M3_hma_sar 2020: 4 scenes (outliers []), median-mask area 15.625 km2, scene areas [15.95, 16.04, 15.76, 15.6] (robust sd 0.21)
