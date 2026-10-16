@@ -1,0 +1,199 @@
+% Per-epoch analysis tables for Chhota Shigri Glacier (2017-2025).
+% Sources: data/sentinel2/ensemble_<year>.csv, experiments/M2_cs_selftrain/<year>/summary.json,
+% outputs/statistics/{M2_cs_selftrain_area.csv, M2_cs_selftrain_terminus.csv, summary_area_by_year.csv,
+% summary_terminus_periods.csv, site_validation.csv, coregistration_by_year.csv,
+% M2_cs_selftrain_year_of_loss_km2.json, M2_cs_selftrain_loss_by_year_terrain.csv, summary.json}.
+% Standalone: compiles on its own (e.g. Overleaf).
+\documentclass[10pt]{article}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{array}
+
+\newcommand{\kmsq}{km$^2$}
+
+\begin{document}
+
+% ------------------------------------------------------------------------------------------------
+\begin{table}[p]
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{threeparttable}
+\caption{Acquisition and data quality of each analysis epoch (core window 15 Aug--15 Sep).}
+\label{tab:epoch_data}
+\begin{tabular}{l ccccc}
+\toprule
+ & \textbf{2017} & \textbf{2019} & \textbf{2021} & \textbf{2023} & \textbf{2025} \\
+\midrule
+Candidate scenes in window          & 3 & 6 & 6 & 6 & 9 \\
+\quad rejected: cloud (SCL pre-screen) & 1 & 4 & 4 & 0 & 5 \\
+\quad rejected: fresh snow           & 0 & 0 & 0 & 0 & 2 \\
+\textbf{Scenes used}                 & \textbf{2} & \textbf{2} & \textbf{2} & \textbf{6} & \textbf{2} \\
+Acquisition dates                    & 23 Aug, 12 Sep & 28 Aug, 7 Sep & 17 Aug, 6 Sep & 17 Aug--11 Sep\tnote{a} & 16 Aug, 21 Aug \\
+Platform                             & S2B, S2B & S2A, S2A & S2A, S2A & 3 S2A, 3 S2B & S2C, S2B \\
+Processing baseline                  & N0205, N0500 & N0208 & N0500, N0301 & N0509--N0510 & N0511 \\
+Sun elevation (\textdegree)          & 58.1--63.5 & 59.7--62.4 & 59.9--64.9 & 58.6--65.0 & 64.0--65.2 \\
+\midrule
+Max.\ shift before co-registration (m) & 6.67 & 3.61 & 0.71 & 1.41 & 1.58 \\
+Co-registration residual (m)         & 1.41 & 1.41 & 0.71 & 1.41 & 1.58 \\
+Scenes shifted                       & 1 & 1 & 0 & 0 & 0 \\
+\midrule
+Mean clear observations per pixel    & 1.90 & 1.91 & 1.96 & 5.27 & 1.98 \\
+Area with a single clear look (\kmsq) & 3.41 & 3.14 & 1.68 & 0.00 & 0.88 \\
+Gap-filled from same-year scenes (\kmsq) & 0.10 & 0.52 & 0.00 & 0.00 & 0.00 \\
+Unobserved (\kmsq)                   & 0.52 & $<$0.01 & 0.00 & 0.00 & 0.00 \\
+Outlier scenes rejected              & 0 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item[a] 17, 22, 27 Aug and 1, 6, 11 Sep.
+\item Analysis domain 47.9\,\kmsq. Observation statistics are for model M2. Co-registration reference: 2023-09-11.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ------------------------------------------------------------------------------------------------
+\begin{table}[p]
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{threeparttable}
+\caption{Glacier area of each epoch (primary model M2) with its uncertainty budget, and
+cross-model area.}
+\label{tab:epoch_area}
+\begin{tabular}{l ccccc}
+\toprule
+ & \textbf{2017} & \textbf{2019} & \textbf{2021} & \textbf{2023} & \textbf{2025} \\
+\midrule
+\multicolumn{6}{l}{\textit{M2 area and uncertainty (\kmsq)}} \\
+\textbf{Area}                        & \textbf{15.00} & \textbf{15.89} & \textbf{15.38} & \textbf{15.03} & \textbf{14.30} \\
+Perimeter (km)                       & 80.9 & 85.6 & 82.1 & 82.8 & 79.6 \\
+$\sigma_\mathrm{buffer}$ ($\tfrac12$\,px $\times$ perimeter) & 0.40 & 0.43 & 0.41 & 0.41 & 0.40 \\
+$\sigma_\mathrm{threshold}$          & 1.12 & 1.12 & 0.91 & 0.88 & 0.75 \\
+$\sigma_\mathrm{surface}$ (between scenes) & 0.81 & 0.75 & 0.32 & 0.37 & 0.27 \\
+\textbf{$\sigma_\mathrm{total}$}     & \textbf{1.44} & \textbf{1.41} & \textbf{1.05} & \textbf{1.04} & \textbf{0.89} \\
+Area at $P \ge 0.4$ / $P \ge 0.6$    & 16.51 / 14.27 & 17.28 / 15.05 & 16.55 / 14.73 & 16.18 / 14.42 & 15.28 / 13.79 \\
+Single-scene areas                   & 14.55--15.70 & 15.27--16.32 & 15.07--15.53 & 14.50--15.67 & 14.12--14.50 \\
+\midrule
+\multicolumn{6}{l}{\textit{Cross-model area (\kmsq)}} \\
+M0 global                            & 13.19 & 14.47 & 14.70 & 14.44 & 13.42 \\
+M1 HMA official                      & 14.16 & 14.81 & 14.78 & 14.46 & 13.79 \\
+M1 HMA local                         & 14.42 & 15.43 & 15.24 & 15.26 & 14.10 \\
+M2 Chhota Shigri                     & 15.00 & 15.89 & 15.38 & 15.03 & 14.30 \\
+M3 HMA + SAR                         & 14.38 & 16.05 & 15.72 & 15.53 & 13.96 \\
+Median (range)                       & 14.38 (1.80) & 15.43 (1.59) & 15.24 (1.03) & 15.03 (1.09) & 13.96 (0.88) \\
+\midrule
+\multicolumn{6}{l}{\textit{Sensitivity: window 15 Aug--15 Oct (M1 official)}} \\
+Area (\kmsq)                         & 13.73 & 14.06 & 13.53 & 14.46 & 11.81 \\
+Difference to core window (\kmsq)    & $-0.43$ & $-0.75$ & $-1.25$ & 0.00 & $-1.98$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item $\sigma_\mathrm{total} = \sqrt{\sigma_\mathrm{buffer}^2 + \sigma_\mathrm{threshold}^2 + \sigma_\mathrm{surface}^2}$.
+Thresholds apply to calibrated probabilities. Published area: 15.5--15.7\,\kmsq.
+\item WLS area trend 2017--2025 (\kmsq\,a$^{-1}$, 95\% CI): M0 $-0.09$ [$-0.46$, 0.28];
+M1 official $-0.18$ [$-0.38$, 0.02]; M1 local $-0.02$ [$-0.32$, 0.27]; M2 $-0.16$ [$-0.40$, 0.08];
+M3 $-0.11$ [$-0.61$, 0.38]. No trend is significant.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ------------------------------------------------------------------------------------------------
+\begin{table}[p]
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{threeparttable}
+\caption{Change between epochs: area (M2), terminus position (M2) and persistent loss (M2).}
+\label{tab:epoch_change}
+\begin{tabular}{l ccccc}
+\toprule
+ & \textbf{2017} & \textbf{2019} & \textbf{2021} & \textbf{2023} & \textbf{2025} \\
+\midrule
+\multicolumn{6}{l}{\textit{Area change (\kmsq)}} \\
+$\Delta A$ from previous epoch       & -- & $+0.89$ & $-0.51$ & $-0.34$ & $-0.73$ \\
+$\Delta A$ from 2017 ($\pm\sigma$)   & -- & $+0.89 \pm 1.25$ & $+0.38 \pm 1.07$ & $+0.03 \pm 1.09$ & $-0.70 \pm 1.09$ \\
+\midrule
+\multicolumn{6}{l}{\textit{Terminus (positive = retreat)}} \\
+Position along centerline (m)        & 9880 & 10090 & 9850 & 9850 & 9740 \\
+$\sigma_\mathrm{terminus}$ (m)       & 10.1 & 10.1 & 10.0 & 10.1 & 10.1 \\
+Retreat from previous, centerline (m) & -- & $-210$ & $+240$ & 0 & $+110$ \\
+Retreat from previous, box (m)       & -- & $-218$ & $+252$ & $+6$ & $+67$ \\
+Retreat from 2017, box (m)           & -- & $-218$ & $+35$ & $+41$ & $+108$ \\
+\midrule
+\multicolumn{6}{l}{\textit{Persistent loss assigned to the epoch}\tnote{a}} \\
+Area (\kmsq)                         & -- & 0.274 & 0.105 & 0.136 & 0.426 \\
+Median elevation (m)                 & -- & 5541 & 4562 & 5160 & 4913 \\
+Median slope (\textdegree)           & -- & 32.0 & 10.3 & 36.2 & 18.1 \\
+Median distance to terminus (m)      & -- & 5319 & 2904 & 5415 & 4475 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item[a] Pixel is glacier in all earlier epochs and non-glacier in this and every later epoch. Loss
+assigned to 2025 has no later epoch to confirm it. Over 2017--2025: stable glacier 13.78\,\kmsq,
+unstable (lost and re-appeared) 1.74\,\kmsq.
+\item 2021--2025 (highest-quality period): $\Delta A = -1.08 \pm 0.73$\,\kmsq ($-7.0$\%), not
+significant at $2\sigma$. Retreat $\sigma \approx 14.3$\,m.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ------------------------------------------------------------------------------------------------
+\begin{table}[p]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{threeparttable}
+\caption{Terminus retreat by period across the five models (m; positive = retreat).}
+\label{tab:terminus_periods}
+\begin{tabular}{l c ccc ccc c}
+\toprule
+ & & \multicolumn{3}{c}{\textbf{Centerline}} & \multicolumn{3}{c}{\textbf{Box method}} & \textbf{All models} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+\textbf{Period} & \textbf{Years} & Median & Min & Max & Median & Min & Max & \textbf{retreat (box)} \\
+\midrule
+2017--2019 & 2 & $-110$ & $-210$ & 440 & $-100$ & $-218$ & 465 & no \\
+2019--2021 & 2 & 160 & $-110$ & 240 & 105 & $-127$ & 252 & no \\
+2021--2023 & 2 & 0 & 0 & 40 & 5 & $-14$ & 12 & no \\
+2023--2025 & 2 & 100 & 70 & 110 & 80 & 67 & 148 & yes \\
+\textbf{2021--2025} & \textbf{4} & \textbf{110} & \textbf{70} & \textbf{130} & \textbf{80} & \textbf{73} & \textbf{160} & \textbf{yes} \\
+2019--2025 & 6 & 230 & 20 & 350 & 190 & 33 & 326 & yes \\
+2017--2025 & 8 & 150 & 10 & 460 & 127 & 17 & 498 & yes \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Models: M0, M1 official, M1 local, M2, M3. Measurement $\sigma \approx 14.2$--14.3\,m per
+period. 2021--2025 median rate: 28\,m\,a$^{-1}$ (centerline), 20\,m\,a$^{-1}$ (box).
+Periods that include 2017 or 2019 are affected by the weak early epochs.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+% ------------------------------------------------------------------------------------------------
+\begin{table}[p]
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{threeparttable}
+\caption{Agreement of the M2 outline of each epoch with the RGI7 outline (2002) and published area.}
+\label{tab:epoch_agreement}
+\begin{tabular}{l ccccc}
+\toprule
+ & \textbf{2017} & \textbf{2019} & \textbf{2021} & \textbf{2023} & \textbf{2025} \\
+\midrule
+IoU                                  & 0.836 & 0.833 & 0.854 & 0.843 & 0.823 \\
+Precision                            & 0.965 & 0.934 & 0.963 & 0.968 & 0.981 \\
+Recall                               & 0.862 & 0.885 & 0.883 & 0.867 & 0.836 \\
+F1                                   & 0.911 & 0.909 & 0.921 & 0.915 & 0.903 \\
+Upper-glacier IoU                    & 0.816 & 0.828 & 0.846 & 0.828 & 0.817 \\
+Mean boundary distance (m)           & 48.9 & 52.2 & 42.6 & 45.0 & 51.0 \\
+95th-percentile boundary distance (m) & 165.5 & 200.0 & 160.0 & 156.2 & 170.9 \\
+Polygon parts / holes                & 1 / 6 & 1 / 5 & 1 / 5 & 1 / 5 & 2 / 6 \\
+Area minus published 15.5--15.7\,\kmsq & $-0.70$ to $-0.50$ & $+0.19$ to $+0.39$ & $-0.32$ to $-0.12$ & $-0.67$ to $-0.47$ & $-1.40$ to $-1.20$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item RGI7 is a 2002 outline; these values measure agreement, not accuracy. Upper glacier: domain above 5000\,m, where
+little margin change is expected since 2002.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\end{document}

@@ -1,0 +1,186 @@
+% Error sources in automated glacier delineation and how the pipeline handles them.
+% Standalone: compiles on its own (e.g. Overleaf). To use in a paper, copy the preamble
+% packages and the sidewaystable environment.
+\documentclass[10pt]{article}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{rotating}
+\usepackage{array}
+\usepackage{wasysym}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\stfull}{\CIRCLE}
+\newcommand{\stpart}{\LEFTcircle}
+\newcommand{\stnone}{\Circle}
+\newcommand{\grp}[1]{\multicolumn{6}{l}{\textit{#1}}\\}
+
+\begin{document}
+
+\begin{sidewaystable}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{threeparttable}
+\caption{Error sources in multi-temporal glacier delineation of Chhota Shigri Glacier, the
+pipeline stage that addresses each, its implementation, and the residual effect on the
+products. Satellite images are never edited; each source is handled by data rejection,
+model classification, temporal aggregation or post-processing.}
+\label{tab:error_sources}
+\begin{tabularx}{\textheight}{L{2.5cm} L{3.3cm} L{3.2cm} Y L{4.6cm} c}
+\toprule
+\textbf{Error source} & \textbf{Effect on delineation} & \textbf{Mitigation (stage)} &
+\textbf{Implementation and parameters} & \textbf{Residual effect (quantified)} & \textbf{Status}\tnote{a} \\
+\midrule
+
+\grp{Atmospheric}
+Cloud &
+Occludes the surface; bright cloud is confused with snow and ice &
+Scene rejection and per-pixel masking (acquisition; inference) &
+s2cloudless, $p \ge 0.4$, 4\,px averaging, 2\,px (40\,m) dilation. Scene rejected if domain cloud
+fraction $> 0.5$ (SCL pre-screen $> 0.6$). Cloudy pixels set to NaN after prediction and excluded
+from the per-pixel median &
+Pixels with no clear observation are gap-filled (see \emph{Data gaps}) &
+\stfull \\
+Cloud shadow &
+Darkens ice; may be mapped as non-glacier &
+Indirect (acquisition; aggregation) &
+40\,m cloud-mask dilation covers adjacent shadow; per-pixel median and scene-outlier rejection.
+SCL shadow class (3) is computed but not used as a per-pixel mask in the final ensemble &
+Shadow distant from its cloud can enter the median; not quantified &
+\stpart \\
+\addlinespace
+
+\grp{Surface conditions}
+Seasonal and fresh snow &
+Snow cover outside the glacier inflates or merges the outline; autumn snowfall hides margins &
+Acquisition window and snow screening (acquisition) &
+Core window 15 Aug--15 Sep in every year. Scene rejected if SCL snow covers $> 45\%$ of the
+domain outside the RGI7 outline (fresh-snowfall indicator) &
+Scenes after 15 Sep mapped 1.5--4.6\,km$^2$ less glacier; the 15 Aug--15 Oct window lowers
+inventory IoU from 0.816 to 0.778 and adds a spurious $-2.65$\,km$^2$ step (2023--2025) &
+\stfull \\
+Thin snow on debris margins &
+Margins alternate between snow-covered and exposed debris between scenes &
+Multi-date ensemble (aggregation); exclusion from training labels (self-training) &
+Per-pixel median of calibrated $P(\mathrm{glacier})$ over all clear scenes of a year. Pseudo-labels
+ignore all temporally unstable pixels (34.7\% of the domain) &
+Single-scene area spread $\approx 1$\,km$^2$, reduced to 0.3--0.8\,km$^2$ per epoch; 1.74\,km$^2$
+of unstable margin pixels vs 0.94\,km$^2$ persistent loss. Dominant limit on area-change detection &
+\stpart \\
+Debris-covered ice &
+Spectrally similar to surrounding rock; terminus and margins are ambiguous &
+Model inputs and regional fine-tuning (model) &
+DEM channels (elevation, slope); transformer global context; HMA fine-tuning on debris-rich
+tiles &
+DEM adds $+0.149$ IoU [0.078, 0.241]. Absolute terminus position differs by up to $\sim$800\,m
+between models; only terminus \emph{change} is reported &
+\stpart \\
+Bare rock and moraine &
+False-positive glacier on bright rock; false negatives at ice--rock contacts &
+Model classification; object filtering (model; post-processing) &
+Six optical bands (incl.\ SWIR B11, B12) and DEM; objects $< 100$\,px (0.01\,km$^2$) removed,
+holes $< 50$\,px filled &
+Included in the HMA held-out accuracy (M2 IoU 0.779) &
+\stfull \\
+Surface water (proglacial lakes) &
+Water may be confused with shadowed ice or ice &
+None &
+No water mask is applied; separation relies on the model &
+Not quantified &
+\stnone \\
+\addlinespace
+
+\grp{Illumination and timing}
+Terrain shadow &
+Steep shaded slopes darken ice and rock &
+Indirect (acquisition; model; aggregation) &
+Window closes before low-sun conditions (after mid-September); slope input; median and
+scene-outlier rejection. No explicit terrain-shadow mask &
+Not separately quantified &
+\stpart \\
+Seasonal timing between epochs &
+Different stages of the melt season produce apparent change &
+Fixed acquisition window (acquisition) &
+Identical calendar window for every epoch &
+Both 2025 scenes are from August whereas 2023 includes September; part of the 2023--2025 step
+may be seasonal &
+\stpart \\
+\addlinespace
+
+\grp{Geometric and radiometric}
+Misregistration &
+Image offsets produce false advance or retreat at the outline &
+Co-registration (preprocessing) &
+Phase cross-correlation (upsampling 20) on Sobel gradients of B8, 256\,px windows, on stable
+terrain (outside domain $+300$\,m and all glaciers $+150$\,m, slope $< 35^\circ$, NDSI $< 0.2$,
+cloud-free); Fourier shift if $> 0.25$\,px &
+Two scenes corrected (0.67$\to$0.11\,px; 0.36$\to$0.14\,px); all residuals $\le 1.6$\,m;
+residual enters terminus $\sigma = \sqrt{\mathrm{res}^2 + \mathrm{coreg}^2}$ &
+\stfull \\
+Radiometric baseline change &
+ESA processing baseline 04.00 (2022) shifts reflectance by $-1000$\,DN &
+Harmonisation (acquisition) &
+$\rho = (\mathrm{DN} + \mathrm{RADIO\_ADD\_OFFSET}) / \mathrm{QUANTIFICATION\_VALUE}$, read per
+product from the L1C metadata &
+None expected &
+\stfull \\
+\addlinespace
+
+\grp{Temporal aggregation}
+Anomalous whole scenes &
+One scene (fresh snow partly flagged as cloud, low sun) biases the yearly product &
+Robust scene-outlier rejection (aggregation) &
+Scene rejected if $|A_i - \tilde{A}| > \max(3 \times 1.4826\,\mathrm{MAD},\ 0.5\,\mathrm{km}^2)$ &
+Rejected scenes are logged per model and epoch &
+\stfull \\
+Data gaps &
+Pixels never observed clear in the window are undefined &
+Same-year gap filling (aggregation) &
+Filled from clear scenes of the \emph{same} year outside the core window (no cross-epoch
+leakage); remaining pixels reported as unobserved &
+2017 and 2019 have 2 core-window scenes; $\approx 3$\,km$^2$ of the domain has a single clear
+look &
+\stpart \\
+\addlinespace
+
+\grp{Spatial context and noise}
+Neighbouring glaciers &
+Adjacent ice bodies merge with the target glacier &
+Analysis domain and connectivity (post-processing) &
+Domain = RGI7 $+1$\,km minus 33 neighbouring RGI7 glaciers (47.9\,km$^2$). Keep 8-connected
+components intersecting the RGI7 core (outline eroded by 300\,m) &
+Core identifies the ice body only; margins and terminus are model-derived &
+\stfull \\
+Classification noise &
+Isolated pixels and slivers along the outline &
+Morphological filtering (post-processing) &
+Threshold 0.5; $3 \times 3$ median filter; slivers $< 4$\,px removed after polygonisation;
+\texttt{make\_valid} and raster--vector area check &
+Included in the delineation uncertainty ($\tfrac{1}{2}$\,px $\times$ perimeter) &
+\stfull \\
+\addlinespace
+
+\grp{SAR (model M3 only)}
+Layover and radar shadow &
+No valid backscatter on steep slopes &
+Value filling (acquisition) &
+Missing $\sigma^0$ filled with the composite median &
+SAR gave no benefit: $-0.016$ IoU [$-0.029$, $-0.008$] vs optical $+$ DEM &
+\stpart \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}\footnotesize
+\item[a] \stfull\ addressed explicitly; \stpart\ partly or indirectly addressed; \stnone\ not addressed.
+\item IoU values are on held-out HMA benchmark tiles (57 tiles; 22 tiles for the SAR and DEM
+ablations), with 95\% paired-bootstrap confidence intervals in brackets. Areas are multi-date
+ensemble products on the 10\,m UTM 43N grid. MAD: median absolute deviation; SCL: Sentinel-2
+scene classification layer; NDSI: normalised difference snow index.
+\end{tablenotes}
+\end{threeparttable}
+\end{sidewaystable}
+
+\end{document}
